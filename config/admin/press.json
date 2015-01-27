@@ -1,0 +1,25 @@
+{
+  "fields": [
+    "url", 
+    "title", 
+    "date", 
+    "source", 
+    "file", 
+    "featured"
+  ], 
+  "labels": {
+    "info": "Info", 
+    "featured": "Featured", 
+    "share": "Share", 
+    "thumbnail": "Thumbnail", 
+    "file": "Upload a file"
+  }, 
+  "sections": [
+    "info", 
+    "thumbnail", 
+    "share"
+  ], 
+  "image_specs": {
+    "thumbnail": "JPG 304PX BY 208PX AT 72 DPI"
+  }
+}

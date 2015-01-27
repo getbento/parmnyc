@@ -1,0 +1,25 @@
+{
+  "fields": [
+    "name", 
+    "description", 
+    "capacity", 
+    "external_url"
+  ], 
+  "labels": {
+    "capacity": "Capacity", 
+    "description": "Description", 
+    "image_gallery": "Image Gallery", 
+    "details": "Details", 
+    "venue_image": "Venue Image", 
+    "external_url": "External Url"
+  }, 
+  "sections": [
+    "description", 
+    "venue_image", 
+    "image_gallery", 
+    "details"
+  ], 
+  "image_specs": {
+    "venue_image": "JPG 450PX BY 212PX AT 72 DPI"
+  }
+}

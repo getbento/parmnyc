@@ -1,0 +1,39 @@
+{
+  "fields": [
+    "name", 
+    "landing_call_out", 
+    "contents", 
+    "column_1", 
+    "column_2", 
+    "column_3", 
+    "layout"
+  ], 
+  "labels": {
+    "file": "File", 
+    "menu_page_image": "Menu Page Image", 
+    "column_2": "Column 2", 
+    "column_1": "Column 1", 
+    "menu": "Menu", 
+    "landing_call_out": "Landing Call Out", 
+    "layout_column_1": "One Column", 
+    "layout_basic": "Basic", 
+    "layout_column_3": "Three Column", 
+    "layout_column_2": "Two Column", 
+    "column_3": "Column 3", 
+    "related_menus": "Related Menus"
+  }, 
+  "sections": [
+    "menu", 
+    "landing_call_out", 
+    "menu_page_image", 
+    "column_1", 
+    "column_2", 
+    "column_3", 
+    "related_menus", 
+    "layout"
+  ], 
+  "image_specs": {
+    "landing_call_out": "JPG 450PX BY 212PX AT 72 DPI", 
+    "menu_page_image": "JPG 304PX BY 304PX AT 72 DPI"
+  }
+}

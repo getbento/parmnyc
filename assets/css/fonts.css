@@ -1,0 +1,32 @@
+@font-face {
+	font-family: 'handsome';
+	src: url('../fonts/Handsome-Bold.eot');
+	src: local('☺'), url('../fonts/Handsome-Bold.woff') format('woff'), url('../fonts/Handsome-Bold.ttf') format('truetype'), url('../fonts/Handsome-Bold.svg') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'neutra';
+	src: url('../fonts/NeutraText-Book.eot');
+	src: local('☺'), url('../fonts/NeutraText-Book.woff') format('woff'), url('../fonts/NeutraText-Book.ttf') format('truetype'), url('../fonts/NeutraText-Book.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'neutra';
+	src: url('../fonts/NeutraText-Bold.eot');
+	src: local('☺'), url('../fonts/NeutraText-Bold.woff') format('woff'), url('../fonts/NeutraText-Bold.ttf') format('truetype'), url('../fonts/NeutraText-Bold.svg') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'neutra';
+	src: url('../fonts/NeutraDisplay-Titling.eot');
+	src: local('☺'), url('../fonts/NeutraDisplay-Titling.woff') format('woff'), url('../fonts/NeutraDisplay-Titling.ttf') format('truetype'), url('../fonts/NeutraDisplay-Titling.svg') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+

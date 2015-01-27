@@ -1,0 +1,19 @@
+{
+  "fields": [
+    "subtitle", 
+    "text"
+  ], 
+  "labels": {
+    "text": "Text", 
+    "image": "Image", 
+    "subtitle": "Subtitle"
+  }, 
+  "sections": [
+    "button", 
+    "text", 
+    "image"
+  ], 
+  "image_specs": {
+    "image": "JPG 450PX BY 212PX AT 72 DPI"
+  }
+}

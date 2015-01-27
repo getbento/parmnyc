@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{account.site_title}} | Locations{% endblock %}
+
+{% block body_class %}page-locations{% endblock %}
+
+{% block content %}
+<div id="content">
+	<div class="width-wrapper">
+		{% for location in locations %}
+			<div class="location-item location-{{location.name|slugify}} border-wrap">
+				<div class="bar horizontal bottom"></div>
+				<div class="bar vertical left"></div>
+				<div class="bar vertical right"></div>
+				<div class="bar horizontal top left"></div>
+				<div class="bar horizontal top right"></div>
+				<a href="{{ location.get_absolute_url }}" class="loc-title"><span class="caption" data-hover="{{location.name}}">{{location.name}}</span></a>
+				<img src="{{ ACCOUNT_STATIC_URL }}img/{{location.name|slugify}}.png" width="68" height="65" class="location-icon" />
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+{% block footer_scripts %}
+{% endblock %}

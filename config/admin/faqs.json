@@ -1,0 +1,12 @@
+{
+  "fields": [
+    "question", 
+    "answer"
+  ], 
+  "labels": {
+    "answer": "Answer"
+  }, 
+  "sections": [
+    "answer"
+  ]
+}

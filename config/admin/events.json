@@ -1,0 +1,37 @@
+{
+  "fields": [
+    "name", 
+    "description", 
+    "address", 
+    "external_url", 
+    "start_date", 
+    "end_date", 
+    "start_time", 
+    "end_time", 
+    "featured"
+  ], 
+  "labels": {
+    "description": "Description", 
+    "end_date": "End", 
+    "start_time": "", 
+    "share": "Share", 
+    "featured": "Featured", 
+    "end_time": "", 
+    "external_link": "External Link", 
+    "date_and_time": "Date and Time", 
+    "start_date": "Start", 
+    "event_image": "Event Image"
+  }, 
+  "sections": [
+    "description", 
+    "date_and_time", 
+    "external_link", 
+    "event_image", 
+    "featured", 
+    "share"
+  ], 
+  "image_specs": {
+    "event_image": "JPG 459PX BY 319PX AT 72 DPI", 
+    "featured_image": "JPG 459PX BY 319PX AT 72 DPI"
+  }
+}

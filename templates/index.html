@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{account.site_title}}{% endblock %}
+
+{% block body_class %}page-home{% endblock %}
+
+{% block content %}
+	{% if callouts.0.text %}
+		<div id="alert">
+			<div class="wysiwyg">{{callouts.0.text|safe}}</div>
+		</div>
+	{% endif %}
+	<a href="http://majorfood.com/" target="_blank" class="majorfood desktop-show"><img src="{{ ACCOUNT_STATIC_URL }}img/majorfood.png" width="164" height="53" alt="MAJOR FOOD GROUP" /></a>
+	<div id="home-slider">
+		{% for gallery in galleries %}{% if gallery.name == "homepage" %}
+		{% for image in gallery.images.all %}
+			<div class="slide full-background" style="background-image:url('{{ image.image_url }}')"></div>
+		{% endfor %}
+		{% endif %}{% endfor %}
+	</div>
+{% endblock %}
+
+{% block footer_scripts %}
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.bxslider.min.js"></script>
+<script type="text/javascript">
+(function(){
+	var cookies;
+
+	function readCookie(name,c,C,i){
+		if(cookies){ return cookies[name]; }
+
+		c = document.cookie.split('; ');
+		cookies = {};
+
+		for(i=c.length-1; i>=0; i--){
+		   C = c[i].split('=');
+		   cookies[C[0]] = C[1];
+		}
+
+		return cookies[name];
+	}
+
+	window.readCookie = readCookie;
+})();
+
+(function($) {
+	$(window).resize(function () {
+		$('#home-slider .slide').css('height', $(window).height() - $('header:visible').height());
+	});
+	$(document).ready(function() {
+		$(window).resize();
+		if($('#home-slider .slide').length > 1) {
+			$('#home-slider').bxSlider({
+				mode: 'fade',
+				auto: true,
+				speed: 800,
+				pause: 5000,
+				pager: false,
+				randomStart: true,
+				controls: false
+			});
+		}
+		{% if callouts.0.image_path %}
+			if (typeof readCookie('has_seen_banner') == 'undefined' || readCookie('has_seen_banner') != 'yes') {
+				$('<img src="{{callouts.0.image_url}}">').load(function() {
+					$.fancybox.showLoading();
+					$.fancybox({
+						padding		: 0,
+						margin		: [100, 0, 50, 0],
+						href		: '{{callouts.0.image_url}}',
+						autoSize	: false,
+						autoResize	: false,
+						fitToView	: false,
+						maxWidth	: '100%',
+						tpl			: {
+							wrap     : '<div class="fancybox-wrap" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>',
+							image    : '<a {% if callouts.0.link_target %}href="{{callouts.0.link_target}}"{% endif %}><img class="fancybox-image" src="{href}" alt="" /></a>',
+							iframe   : '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0"></iframe>',
+							error    : '<p class="fancybox-error">The requested content cannot be loaded.<br/>Please try again later.</p>',
+							closeBtn : '<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>',
+							next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+							prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+						}
+					});
+					var cookie_string = '';
+					var today = new Date();
+					var expiration_date = new Date(today.getTime() + (24 * 60 * 60 * 1000));
+					cookie_string = "has_seen_banner=yes; path=/; expires=" + expiration_date.toGMTString();
+					document.cookie = cookie_string;	
+				});
+			}
+		{% endif %}
+	});
+})(jQuery);
+</script>
+{% endblock %}

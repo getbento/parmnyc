@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load honeypot %}
+
+{% block page_title %}{{account.site_title}} | Contact{% endblock %}
+
+{% block body_class %}page-contact page-two-columns{% endblock %}
+
+{% block content %}
+<div id="content">
+	<div class="width-wrapper">
+		<div class="callout wysiwyg">
+			<h1>{{callouts.3.title}}</h1>
+			{{callouts.3.text|safe}}
+		</div>
+		<div class="two-column-wrapper">
+			<div class="sidebar">
+				<div class="wysiwyg">{{callouts.4.text|safe}}</div>
+			</div>
+			<div class="primary">
+				<div class="thank-you">Thank you for contacting us! Someone will be in touch soon.</div>
+
+				<form action="{% url 'form_to_email' %}" method="post" id="contact-form">
+					{% csrf_token %}
+					{% render_honeypot_field %}
+					<input type="hidden" name="recipient" id="recipient" value="info" />
+					<div class="field first-name">
+						<label for="txt_name">YOUR NAME*</label>
+						<input type="text" name="Name" id="name" required="required" class="form-text" />
+					</div>
+					<div class="field email">
+						<label for="email">YOUR EMAIL*</label>
+						<input type="email" name="Email" id="email" required="required" class="form-text" />
+					</div>
+					<div class="field what-about">
+						<label>WHAT ARE YOU GETTING IN TOUCH ABOUT?</label>
+						<select name="What are you getting in touch about" id="what_about" class="dropkick">
+							<option disabled="disabled" selected="selected">Select One</option>
+							<option data-recipient="reservations">General</option>
+							<option data-recipient="reservations">Press</option>
+							<option data-recipient="reservations">Jobs</option>
+							<option data-recipient="reservations">Reservations</option>
+							<option data-recipient="reservations">Catering</option>
+							<option data-recipient="reservations">Private Parties</option>
+						</select>
+					</div>
+					<div class="field message">
+						<label for="message">YOUR MESSAGE</label>
+						<textarea name="Message" class="form-text"></textarea>
+					</div>
+					<div class="field submit">
+						<input type="submit" id="submit_button" value="SUBMIT" class="button" />
+					</div>
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer_scripts %}
+<script src="{{ ACCOUNT_STATIC_URL }}js/dropkick.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$('select.dropkick').dropkick({
+		mobile: true
+	});
+	$('#what_about').dropkick({
+		mobile:true,
+		change: function(e) {
+			$('#recipient').val($('#what_about option:selected').attr('data-recipient'));
+		}
+	});
+	$('#contact-form').submit(function(e) {
+		if(!$(this).is(':invalid')) {
+			e.preventDefault();
+			$.ajax({
+			  type: "POST",
+			  url: $('#contact-form').attr('action'),
+			  data: $('#contact-form').serialize(),
+			  success: function(jqXHR, textStatus) {
+				$('#contact-form').hide().prev('.thank-you').show();
+			  }
+			});
+			return false;
+		}
+	});
+});
+</script>
+{% endblock %}

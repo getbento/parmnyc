@@ -1,0 +1,10 @@
+{
+  "hide_sections": [], 
+  "hide_boxes": [
+    "admin_events", 
+    "admin_news_blog", 
+    "admin_faqs", 
+    "admin_private_event_menus"
+  ], 
+  "hide_subsections": []
+}

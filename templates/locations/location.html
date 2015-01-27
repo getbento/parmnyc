@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{account.site_title}} | {{object.name}}{% endblock %}
+
+{% block body_class %}page-single-location page-two-columns{% endblock %}
+
+{% block extra_header %}
+<ul id="location-nav">
+	<li class="nav-item nav-menus current"><a href="#menus">Menus</a></li>
+	<li class="nav-item nav-hours-location"><a href="#hours-location">Hours &amp; Location</a></li>
+	<li class="location-name">{{object.name}}</li>
+	<li class="nav-item nav-gallery"><a href="#gallery">Gallery</a></li>
+	{% if object.phone_number %}
+		<li class="nav-item nav-reservations"><a href="#reservations">Reservations</a></li>
+	{% else %}
+		<li class="nav-space" style="width:80px">&nbsp;</li>
+	{% endif %}
+</ul>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+	<section id="menus">
+		<div class="width-wrapper">
+			<h1>MENUS</h1>
+			{% for category in menu_categories_list %}{% if category.name == object.name %}
+				{% for menu in category.menus.all %}
+				<div class="menu-item one-of-four {% cycle 'clear col1' 'col2' 'col3' 'col4 last' %}">
+					<a {% if menu.file_path %}href="{{menu.file_url}}"{% endif %} target="_blank">
+						{% if menu.cover_image_path %}<img src="{{menu.cover_image_url}}" alt="{{menu.name}} Image" class="normal-image" />{% endif %}
+						{% if menu.menu_image_path %}<img src="{{menu.menu_image_url}}" alt="{{menu.name}} Image Rollover" class="hover-image" />{% endif %}
+						<span class="menu-title">{{menu.name}}</span>
+					</a>
+				</div>
+				{% endfor %}
+			{% endif %}{% endfor %}
+			<div class="clear"></div>
+		</div>
+	</section><!--menus-->
+
+	<section id="hours-location">
+		<div class="width-wrapper">
+			<div class="hours-location wysiwyg">
+				{{object.display_hours|safe}}
+				{% if object.map_image_path %}
+				<div class="one-of-two">
+					<a {% if object.address %}href="https://maps.google.com/maps?q={{ object.address }}"{% endif %} target="_blank" class="map-wrap"><img class="block map-img" src="{{object.map_image_url}}" alt="Google Map" /></a>
+				</div>
+				{% endif %}
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section><!--hours-location-->
+
+	<section id="gallery">
+		<div class="slide-wrap">
+		{% for image in object.gallery.images.all %}
+			<div class="slide full-background" style="background-image:url('{{ image.image_url }}')"></div>
+		{% endfor %}
+		</div>
+	</section>
+
+	{% if object.phone_number %}
+	<section id="reservations">
+		<div class="width-wrapper">
+			<h1>RESERVATIONS</h1>
+			<form method="get" id="OT_form" action="http://www.opentable.com/restaurant-search.aspx" target="_blank">
+				<div class="one-of-four col1">
+					<select name="PartySize" id="PartySize" class="dropkick">
+					  <option disabled="disabled">Party Size</option>
+					  <option value="1">1 person</option>
+					  <option value="2">2 people</option>
+					  <option value="3">3 people</option>
+					  <option value="4">4 people</option>
+					  <option value="5">5 people</option>
+					  <option value="6">6 people</option>
+					  <option value="7">7 people</option>
+					  <option value="8">8+ people</option>
+					</select>
+				</div>
+				<div class="one-of-four col2">
+					<input type="text" name="startDate" class="OT_searchDateField date-picker form-text" placeholder="Date" />
+				</div>
+				<div class="one-of-four col3">
+					<select name="ResTime" id="ResTime" class="dropkick">
+					  <option disabled="disabled">Time</option>
+					  <option value="11:00 PM">11:00 PM</option>
+					  <option value="10:30 PM">10:30 PM</option>
+					  <option value="10:00 PM">10:00 PM</option>
+					  <option value="9:30 PM">9:30 PM</option>
+					  <option value="9:00 PM">9:00 PM</option>
+					  <option value="8:30 PM">8:30 PM</option>
+					  <option value="8:00 PM">8:00 PM</option>
+					  <option value="7:30 PM">7:30 PM</option>
+					  <option value="7:00 PM">7:00 PM</option>
+					  <option value="6:30 PM">6:30 PM</option>
+					  <option value="6:00 PM">6:00 PM</option>
+					  <option value="5:30 PM">5:30 PM</option>
+					  <option value="5:00 PM">5:00 PM</option>
+					  <option value="4:30 PM">4:30 PM</option>
+					  <option value="3:00 PM">3:00 PM</option>
+					  <option value="2:30 PM">2:30 PM</option>
+					  <option value="2:00 PM">2:00 PM</option>
+					  <option value="1:30 PM">1:30 PM</option>
+					  <option value="1:00 PM">1:00 PM</option>
+					  <option value="12:30 PM">12:30 PM</option>
+					  <option value="12:00 PM">12:00 PM</option>
+					  <option value="9:00 AM">9:00 AM</option>
+					  <option value="8:30 AM">8:30 AM</option>
+					  <option value="8:00 AM">8:00 AM</option>
+					  <option value="7:30 AM">7:30 AM</option>
+					  <option value="7:00 AM">7:00 AM</option>
+					</select>
+				</div>
+				<div class="one-of-four col4 last"><button class="button white">FIND A TABLE</button></div>
+				<div class="clear"></div>
+
+				<input type="hidden" name="RestaurantID" id="RestaurantID" value="{{object.phone_number}}">
+				<input type="hidden" name="rid" id="rid" value="{{object.phone_number}}">
+				<input type="hidden" name="GeoID" id="GeoID" value="">
+				<input type="hidden" name="txtDateFormat" id="txtDateFormat" value="MM/dd/yyyy">
+				<input type="hidden" name="RestaurantReferralID" id="RestaurantReferralID" value="{{object.phone_number}}">
+			</form>
+		</div>
+	</section>
+	{% endif %}
+</div>
+{% endblock %}
+
+{% block footer_scripts %}
+<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.datepick.css" />
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.nav.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.bxslider.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.plugin.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.ext.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/dropkick.min.js"></script>
+<script type="text/javascript">
+(function($) {
+	$(document).ready(function() {
+		if($('#gallery .slide').length > 1) {
+			$('#gallery .slide-wrap').bxSlider({
+//				mode: 'fade',
+				auto: true,
+				speed: 800,
+				pause: 5000,
+				pager: false
+			});
+		}
+
+		$('select.dropkick').dropkick({
+			mobile: true
+		});
+		$('.date-picker').datepick({
+//			onDate: $.datepick.noWeekends,
+			renderer: $.datepick.themeRollerRenderer,
+			showAnim: 'fadeIn',
+			showSpeed: 'fast',
+//			minDate: +3,
+			onChangeMonthYear: function(year, month) { 
+				$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
+			},
+			onShow: function() {
+				$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
+			}
+		});
+
+		$('#hours-location .hours-location h1').wrap('<div class="one-of-two">').each(function() {
+			var $wrapper = $(this).parent();
+			while ($wrapper.next(':not(div[class="one-of-two"])').length) {
+				$wrapper.next(':not(div[class="one-of-two"])').appendTo($wrapper);
+			}
+		});
+		$('#hours-location .hours-location .one-of-two:even').addClass('clear');
+		$('#hours-location .hours-location .one-of-two:odd').addClass('last');
+
+		$('#location-nav').onePageNav({
+			currentClass: 'current',
+			changeHash: true,
+			scrollSpeed: 300,
+			scrollThreshold: 0.5,
+			easing: 'swing',
+			begin: function() {
+				//I get fired when the animation is starting
+			},
+			end: function() {
+				//I get fired when the animation is ending
+			},
+			scrollChange: function($currentListItem) {
+				//I get fired when you enter a section and I pass the list item of the section
+			}
+		});
+
+		$('.menu-item a[data-href]').each(function() {
+			$(this)
+				.click(function() {
+					$(this).trigger('fake_click');
+				})
+				.on('fake_click', function(e) {
+					$.fancybox.showLoading();
+					$.fancybox({
+					   padding: 0,
+					   type: 'html',
+					   autoSize: false,
+					   scrolling: false,
+					   content: '<embed src="'+$(this).attr('data-href')+'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="100%" width="100%" />',
+					   beforeClose: function() {
+						 $(".fancybox-inner").unwrap();
+					   }
+					});
+				});
+		});
+	});
+})(jQuery);
+</script>
+{% endblock %}

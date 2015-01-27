@@ -1,0 +1,38 @@
+{
+  "fields": [
+    "name", 
+    "title", 
+    "last_name", 
+    "button", 
+    "bio", 
+    "facebook_link", 
+    "twitter_link", 
+    "instagram_link", 
+    "linkedin_link", 
+    "vine_link", 
+    "pinterest_link"
+  ], 
+  "labels": {
+    "bio": "Bio", 
+    "twitter_link": "Twitter", 
+    "title": "Title", 
+    "button": "Button", 
+    "social_links": "Social Links", 
+    "bio_image": "Bio Image", 
+    "linkedin_link": "LinkedIn", 
+    "instagram_link": "Instagram", 
+    "vine_link": "Vine", 
+    "facebook_link": "Facebook", 
+    "pinterest_link": "Pinterest"
+  }, 
+  "sections": [
+    "bio", 
+    "button", 
+    "social_links", 
+    "bio_image", 
+    "title"
+  ], 
+  "image_specs": {
+    "bio_image": "JPG 310PX BY 310PX AT 72 DPI"
+  }
+}

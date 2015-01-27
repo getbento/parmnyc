@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{account.site_title}} | About{% endblock %}
+
+{% block body_class %}page-about{% endblock %}
+
+{% block content %}
+<div id="content">
+	<div class="width-wrapper">
+		<div class="callout">
+			<h1>{{callouts.1.title}}</h1>
+			<div class="wysiwyg">{{callouts.1.text|safe}}</div>
+		</div>
+
+		<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/sep.png" />
+
+		<div class="team-wrap">
+			<h1>The Team</h1>
+			{% for person in staff %}
+				<div class="member one-of-three {% cycle 'col1 clear' 'col2' 'col3 last' %}">
+					<a href="#member-{{person.name|slugify}}" class="member-link">
+						<span class="photo full-background" style="background-image:url('{{ person.image_url }}')"></span>
+						<span class="name">{{ person.name }}</span>
+					</a>
+					<div class="title">{{person.title}}</div>
+					<div style="display:none">
+						<div id="member-{{person.name|slugify}}">
+							<h1 class="name">{{person.name}}</h1>
+							<h3 class="title">{{person.title}}</h3>
+							<div class="wysiwyg bio">{{person.bio|safe}}</div>
+						</div>
+					</div>
+				</div>
+			{% empty %}
+				Coming Soon
+			{% endfor %}
+			<div class="clear"></div>
+		</div>
+
+		<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/sep.png" />
+
+		<div class="callout">
+			<h1>{{callouts.2.title}}</h1>
+			<div class="wysiwyg">{{callouts.2.text|safe}}</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer_scripts %}
+<script type="text/javascript">
+(function($) {
+	$(document).ready(function() {
+		$('.member .member-link').fancybox({
+			padding: 40,
+			autoWidth: true,
+			maxWidth: 645,
+			wrapCSS: 'member-popup',
+			beforeShow: function() {
+				$('.fancybox-overlay').addClass('member-popup-overlay');
+			}
+		});
+	});
+})(jQuery);
+</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+  "fields": [
+    "title", 
+    "body"
+  ], 
+  "labels": {
+    "body": "Body", 
+    "featured": "Featured", 
+    "share": "Share"
+  }, 
+  "sections": [
+    "body", 
+    "featured", 
+    "share"
+  ], 
+  "image_specs": {
+    "featured_image": "JPG 459PX BY 319PX AT 72 DPI"
+  }
+}

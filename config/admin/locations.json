@@ -1,0 +1,36 @@
+{
+  "fields": [
+    "name", 
+    "address", 
+    "display_hours", 
+    "custom_map_image", 
+    "hours", 
+    "phone_number", 
+    "x_coordinate", 
+    "y_coordinate", 
+    "short_name"
+  ], 
+  "labels": {
+    "phone_number": "Phone Number", 
+    "display_hours": "Display Hours", 
+    "image_gallery": "Image Gallery", 
+    "short_name": "Short Name", 
+    "y_coordinate": "Y Coordinate", 
+    "related_menu": "Featured Menu", 
+    "hours": "Hours", 
+    "x_coordinate": "X Coordinate", 
+    "address": "Address", 
+    "additional_info": "Additional Info"
+  }, 
+  "sections": [
+    "address", 
+    "display_hours", 
+    "hours", 
+    "image_gallery", 
+    "additional_info", 
+    "related_menu"
+  ], 
+  "image_specs": {
+    "address_image_specs": "JPG 952PX BY 349PX AT 72 DPI"
+  }
+}

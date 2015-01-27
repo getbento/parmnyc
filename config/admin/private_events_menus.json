@@ -1,0 +1,18 @@
+{
+  "fields": [
+    "name", 
+    "contents", 
+    "left_col", 
+    "right_col"
+  ], 
+  "labels": {
+    "content_left_column": "Content (left column)", 
+    "content_right_column": "Content (right column)", 
+    "content_top_center": "Content (top center)"
+  }, 
+  "sections": [
+    "content_top_center", 
+    "content_right_column", 
+    "content_left_column"
+  ]
+}

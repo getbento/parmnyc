@@ -1,0 +1,1 @@
+.sidr{display:none;position:absolute;position:fixed;top:0;height:100%;z-index:999;width:257px;overflow-x:none;overflow-y:auto;}.sidr .sidr-inner{padding:0 0 15px}.sidr.right{left:auto;right:-257px}.sidr.left{left:-257px;right:auto}
