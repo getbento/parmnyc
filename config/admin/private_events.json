@@ -1,8 +1,7 @@
 {
   "fields": [
-    "name", 
     "description", 
-    "capacity", 
+    "name", 
     "external_url"
   ], 
   "labels": {
@@ -13,13 +12,18 @@
     "venue_image": "Venue Image", 
     "external_url": "External Url"
   }, 
-  "sections": [
-    "description", 
-    "venue_image", 
-    "image_gallery", 
-    "details"
+  "hide_fields": [
+    "capacity"
   ], 
   "image_specs": {
-    "venue_image": "JPG 450PX BY 212PX AT 72 DPI"
-  }
+    "venue_image": "JPG OR PNG 347PX BY 233PX AT 72 DPI"
+  }, 
+  "hide_sections": [
+    "image_gallery", 
+    "venue_image", 
+    "details"
+  ], 
+  "sections": [
+    "description"
+  ]
 }

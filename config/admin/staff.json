@@ -1,16 +1,10 @@
 {
-  "fields": [
-    "name", 
-    "title", 
-    "last_name", 
+  "image_specs": {
+    "bio_image": "JPG OR PNG 326PX BY 256PX AT 72 DPI"
+  }, 
+  "hide_sections": [
     "button", 
-    "bio", 
-    "facebook_link", 
-    "twitter_link", 
-    "instagram_link", 
-    "linkedin_link", 
-    "vine_link", 
-    "pinterest_link"
+    "social_links"
   ], 
   "labels": {
     "bio": "Bio", 
@@ -27,12 +21,20 @@
   }, 
   "sections": [
     "bio", 
-    "button", 
-    "social_links", 
     "bio_image", 
     "title"
   ], 
-  "image_specs": {
-    "bio_image": "JPG 310PX BY 310PX AT 72 DPI"
-  }
+  "fields": [
+    "name", 
+    "title", 
+    "last_name", 
+    "button", 
+    "bio", 
+    "facebook_link", 
+    "twitter_link", 
+    "instagram_link", 
+    "linkedin_link", 
+    "vine_link", 
+    "pinterest_link"
+  ]
 }

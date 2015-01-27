@@ -1,20 +1,18 @@
 {
   "fields": [
-    "name", 
-    "address", 
-    "display_hours", 
-    "custom_map_image", 
-    "hours", 
     "phone_number", 
-    "x_coordinate", 
-    "y_coordinate", 
-    "short_name"
+    "display_hours", 
+    "name", 
+    "short_name", 
+    "hours", 
+    "custom_map_image", 
+    "address"
   ], 
   "labels": {
-    "phone_number": "Phone Number", 
-    "display_hours": "Display Hours", 
+    "phone_number": "Restaurant ID", 
+    "display_hours": "Hours & Location", 
     "image_gallery": "Image Gallery", 
-    "short_name": "Short Name", 
+    "short_name": "Delivery Order URL", 
     "y_coordinate": "Y Coordinate", 
     "related_menu": "Featured Menu", 
     "hours": "Hours", 
@@ -22,15 +20,21 @@
     "address": "Address", 
     "additional_info": "Additional Info"
   }, 
-  "sections": [
-    "address", 
-    "display_hours", 
-    "hours", 
-    "image_gallery", 
-    "additional_info", 
-    "related_menu"
+  "hide_fields": [
+    "x_coordinate", 
+    "y_coordinate"
   ], 
   "image_specs": {
-    "address_image_specs": "JPG 952PX BY 349PX AT 72 DPI"
-  }
+    "address_image_specs": "JPG OR PNG 480PX BY 400PX AT 72 DPI"
+  }, 
+  "hide_sections": [
+    "hours", 
+    "related_menu"
+  ], 
+  "sections": [
+    "display_hours", 
+    "additional_info", 
+    "image_gallery", 
+    "address"
+  ]
 }
