@@ -415,7 +415,8 @@ body {font-family: 'neutra', sans-serif; font-size: 17px; line-height: 1.5; colo
 
 .social a {margin-left: 2px; }
 
-.majorfood {position:fixed; right: 24px; bottom: 23px; z-index: 100; }
+.majorfood {position:fixed; right: 24px; bottom: 23px; z-index: 100; text-align: center; }
+.majorfood a {color: #000; font-size: 16px; }
 
 .clear {clear:both; }
 .leftalign {float: left; }

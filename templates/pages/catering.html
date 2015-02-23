@@ -11,7 +11,7 @@
 		{% if callouts.5.button_text and callouts.5.button_file_path %}
 			<a href="{{callouts.5.button_file_url}}" target="_blank" class="button">{{callouts.5.button_text}}</a>
 		{% endif %}
-		<a href="#order-form" class="button">place an order</a>
+		<a href="#order-form" class="button">request an order</a>
 	</div>
 </div>
 <div id="content">
@@ -38,6 +38,14 @@
 					<label for="phone_number">phone number*</label>
 					<input type="text" name="Phone Number" id="phone_number" required="required" class="form-text" />
 				</div>
+				<div class="field">
+					<label for="deliv_location">delivery location</label>
+					<input type="text" name="Delivery Location" id="deliv_location" class="form-text" />
+				</div>
+				<div class="field">
+					<label for="guest_number">number of guests</label>
+					<input type="text" name="Number of Guests" id="guest_number" class="form-text" />
+				</div>
 				<div class="field event-date left-half">
 					<label for="event_date">date for order</label>
 					<input type="text" name="Order Date" id="event_date" class="form-text date-picker" />
@@ -45,6 +53,10 @@
 				<div class="field event-time right-half">
 					<label for="event_time">time for order</label>
 					<input type="text" name="Order Time" id="event_time" class="form-text" />
+				</div>
+				<div class="field">
+					<label for="notes">Notes</label>
+					<input type="text" name="Notes" id="notes" class="form-text" />
 				</div>
 				<div class="field submit">
 					<input type="submit" id="submit_button" value="submit" class="button" />

@@ -10,7 +10,12 @@
 			<div class="wysiwyg">{{callouts.0.text|safe}}</div>
 		</div>
 	{% endif %}
-	<a href="http://majorfood.com/" target="_blank" class="majorfood desktop-show"><img src="{{ ACCOUNT_STATIC_URL }}img/majorfood.png" width="164" height="53" alt="MAJOR FOOD GROUP" /></a>
+	<div class="majorfood desktop-show">
+		<a href="http://majorfood.com/" target="_blank">
+			<img src="{{ ACCOUNT_STATIC_URL }}img/majorfood.png" width="164" height="53" alt="MAJOR FOOD GROUP" />
+		</a><br />
+		<a href="http://www.dylanandjeni.com/" target="_blank">Photography by Dylan + Jeni</a>
+	</div>
 	<div id="home-slider">
 		{% for gallery in galleries %}{% if gallery.name == "homepage" %}
 		{% for image in gallery.images.all %}
