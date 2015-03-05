@@ -452,13 +452,13 @@ header .social a:first-child {margin-left: 10px; }
 header .secondary-nav {font-weight: bold; font-size: 12px; text-transform: uppercase; line-height: 26px; letter-spacing: 0.9px;}
 header .secondary-nav a {color: #444; }
 header .secondary-nav .sep {padding-left: 5px; padding-right: 5px; }
-header .main-nav-wrap {position: relative; padding-left: 35px; padding-right: 35px;}
-header .main-nav-wrap .left-border {position: absolute; left: 0; top: 0; bottom: 0; width: 44px; background: url(../img/nav-border.png) no-repeat left top; }
-header .main-nav-wrap .right-border {position: absolute; right: 0; top: 0; bottom: 0; width: 44px; background: url(../img/nav-border.png) no-repeat right top; }
+header .main-nav-wrap {position: relative; padding-left: 20px; padding-right: 20px;}
+header .main-nav-wrap .left-border {position: absolute; left: 0; top: 0; bottom: 0; width: 20px; background: url(../img/nav-border.png) no-repeat left top; }
+header .main-nav-wrap .right-border {position: absolute; right: 0; top: 0; bottom: 0; width: 20px; background: url(../img/nav-border.png) no-repeat right top; }
 header .main-nav-wrap ul {background: url(../img/nav-border.png) repeat-x center top; height: 147px; font-weight: bold; font-size: 20px; text-transform: uppercase; }
 header .main-nav-wrap ul li {float: left; margin-top: 57px; margin-left: 22px;}
-header .main-nav-wrap ul li.nav-first {margin-left: 0;}
-header .main-nav-wrap ul li.logo-wrap {margin-top: -57px; margin-left: 30px; margin-right: -15px; }
+header .main-nav-wrap ul li.nav-first {margin-left: 15px;}
+header .main-nav-wrap ul li.logo-wrap {margin-top: -57px; margin-left: 17px; margin-right: -17px; }
 header .main-nav-wrap ul li .logo {display: block; border-top: none; padding-top: 0;}
 header .main-nav-wrap ul li .logo:after {display: none; }
 header .main-nav-wrap ul li .logo img {display: block; }
@@ -642,7 +642,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 	.width-wrapper {max-width: 990px; }
 	header .main-nav-wrap ul{font-size: 17px; }
 	header .main-nav-wrap ul li {margin-left: 20px; }
-	header .main-nav-wrap ul li.logo-wrap {margin-left: 23px; }
+	header .main-nav-wrap ul li.logo-wrap {margin-left: 17px; }
 	header .secondary-nav {letter-spacing: 0; }
 }
 @media all and (max-width : 1020px) {
