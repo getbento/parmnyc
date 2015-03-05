@@ -54,7 +54,7 @@ var cur_page_url = '{{page_url}}';
 	<div id="delivery-wrap">
 		<div class="delivery-button mobile-show">
 			<div class="inner">
-				<div class="delivery">delivery</div>
+				<div class="delivery">take out</div>
 				<div class="order">ORDER NOW</div>
 			</div>
 		</div>
@@ -69,13 +69,25 @@ var cur_page_url = '{{page_url}}';
 				{% endif %}
 			{% endfor %}
 			</div>
+			<div class="locations for-reservation">
+			{% for loc in locations %}
+				{% if loc.short_name %}
+					{% if loc.phone_number %}
+						<a href="{{loc.get_absolute_url}}#reservations" class="location-{{loc.name|slugify}}">{{loc.name}}</a>
+					{% else %}
+						<a href="{{loc.get_absolute_url}}#policies" class="location-{{loc.name|slugify}}">{{loc.name}}</a>
+					{% endif %}
+					<span class="sep"> · </span>
+				{% endif %}
+			{% endfor %}
+			</div>
 		</div>
 	</div>
 	<header>
 		<div class="width-wrapper desktop-show">
 			<div class="delivery-button">
 				<div class="inner">
-					<div class="delivery">delivery</div>
+					<div class="delivery">take out</div>
 					<div class="order">ORDER NOW</div>
 				</div>
 			</div>
@@ -104,7 +116,7 @@ var cur_page_url = '{{page_url}}';
 						<a href="{% if nav.target %}{{ nav.target }}{% elif nav.template %}{{ nav.get_absolute_url }}{% else %}{% url 'static_page' nav.template_key %}{% endif %}">{% if nav.type == "page" %}{{nav.name}}{% else %}{{ nav.text }}{% endif %}</a>
 					</li>
 
-					{% if forloop.counter == 2 %}
+					{% if forloop.counter == 3 %}
 						<li class="logo-wrap"><a href="/" class="logo" title="{{account.site_title}}"><img src="{{ ACCOUNT_STATIC_URL }}img/logo.png" width="277" height="170" ></a></li>
 					{% endif %}
 				{% endfor %}

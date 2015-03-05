@@ -43,7 +43,7 @@
 			<div class="hours-location wysiwyg">
 				{{object.display_hours|safe}}
 				{% if object.map_image_path %}
-				<div class="one-of-two">
+				<div class="one-of-two map-wrap">
 					<a {% if object.address %}href="https://maps.google.com/maps?q={{ object.address }}"{% endif %} target="_blank" class="map-wrap"><img class="block map-img" src="{{object.map_image_url}}" alt="Google Map" /></a>
 				</div>
 				{% endif %}
@@ -167,12 +167,13 @@
 
 		$('#hours-location .hours-location h1').wrap('<div class="one-of-two">').each(function() {
 			var $wrapper = $(this).parent();
-			while ($wrapper.next(':not(div[class="one-of-two"])').length) {
-				$wrapper.next(':not(div[class="one-of-two"])').appendTo($wrapper);
+			while ($wrapper.next(':not(div.one-of-two)').length) {
+				$wrapper.next(':not(div.one-of-two)').appendTo($wrapper);
 			}
 		});
 		$('#hours-location .hours-location .one-of-two:even').addClass('clear');
 		$('#hours-location .hours-location .one-of-two:odd').addClass('last');
+		$('#hours-location .hours-location .one-of-two.map-wrap').prev('.one-of-two').attr('id', 'policies');
 
 		$('#location-nav').onePageNav({
 			currentClass: 'current',
