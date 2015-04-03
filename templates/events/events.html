@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load honeypot %}
+
+{% block page_title %}Events - {{account.site_title}}{% endblock %}
+
+{% block body_class %}page-private-events page-two-columns{% endblock %}
+
+{% block extra_header %}
+<div id="venue-nav">
+	{% for venue in venues %}
+		<a href="#venue-{{venue.name|slugify}}">{{ venue.name }}</a>
+	{% endfor %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+	<div class="width-wrapper">
+		<div class="one-of-two">
+			<div class="intro">
+				<h3>{{callouts.6.title}}</h3>
+				<div class="wysiwyg">{{callouts.6.text|safe}}</div>
+			</div>
+			<ul class="venue-list">
+			{% for venue in venues %}
+				<li id="venue-{{venue.name|slugify}}">
+					<h1><a {% if venue.external_url %}href="{{ venue.external_url }}" target="_blank"{% endif %}>{{ venue.name }}</a></h1>
+					<div class="content wisywig">{{venue.description|safe}}</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+		<div class="one-of-two last">
+			<div class="form-wrapper">
+        <script src="http://api.tripleseat.com/v1/leads/ts_script.js?lead_form_id=3190&public_key=3f4a4d0642c5a1773f23511af35f1309c91483b1"></script><a href="http://www.tripleseat.com" id="tripleseat_link">Private Event Software powered by Tripleseat</a>
+      </div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer_scripts %}
+<script src="{{ ACCOUNT_STATIC_URL }}js/dropkick.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.plugin.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.ext.min.js"></script>
+<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.datepick.css" />
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$('select.dropkick').dropkick({
+		mobile: true
+	});
+	$('.date-picker').datepick({
+//		onDate: $.datepick.noWeekends,
+		renderer: $.datepick.themeRollerRenderer,
+		showAnim: 'fadeIn',
+		showSpeed: 'fast',
+//		minDate: +3,
+		onChangeMonthYear: function(year, month) { 
+			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
+		},
+		onShow: function() {
+			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
+		}
+	});
+});
+</script>
+{% endblock %}

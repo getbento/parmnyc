@@ -365,15 +365,15 @@ select[data-dkcacheid] {
 .button {font-family: 'neutra', sans-serif; font-weight: bold; display: inline-block; color: #f03e35; background: transparent; border: 2px solid #f03e35; height: 59px; line-height: 55px; width: 100%; text-align: center; padding: 0; text-decoration: none; -webkit-transition: all .3s; transition: all .3s; font-size: 20px; cursor:pointer; -webkit-appearance:none; text-transform: uppercase; }
 .button:hover {color: #f2f0ee; background: #f03e35; text-decoration: none;}
 
-form label {display: block; color:#333333; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; font-size: 18px;}
+form label, #tripleseat_embed_form label {display: block; color:#333333; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; font-size: 18px;}
 form .field {float: left; width: 100%; clear: both; margin: 14px 0; text-align: left;}
 form .field.left-half, form .field.right-half {width: 46%; margin-right: 8%; float: left; }
 form .field.right-half {clear: none; margin-right: 0; }
 
 input.button {min-width: 187px; height: 46px; line-height: 40px; }
 input.date-picker {padding-left: 40px; background: url(../img/calendar1.png) no-repeat 12px center; }
-.form-text {background: transparent; font-size: 20px; box-sizing: border-box; -moz-box-sizing: border-box; width: 100%; height: 59px; line-height: 100%; border: 2px solid #f03e35; font-family: 'neutra', sans-serif; padding: 0 12px; color:#303030;}
-textarea.form-text {line-height: 1.5; padding-top: 15px; padding-bottom: 15px; resize: none; height: 130px; }
+.form-text, #tripleseat_embed_form input, #tripleseat_embed_form textarea {background-color: transparent; font-size: 20px; box-sizing: border-box; -moz-box-sizing: border-box; width: 100%; height: 59px; line-height: 100%; border: 2px solid #f03e35 !important; font-family: 'neutra', sans-serif; padding: 0 12px; color:#303030;}
+textarea.form-text, #tripleseat_embed_form textarea {line-height: 1.5; padding-top: 15px; padding-bottom: 15px; resize: none; height: 130px; }
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #303030;
 }
@@ -457,7 +457,7 @@ header .main-nav-wrap .left-border {position: absolute; left: 0; top: 0; bottom:
 header .main-nav-wrap .right-border {position: absolute; right: 0; top: 0; bottom: 0; width: 20px; background: url(../img/nav-border.png) no-repeat right top; }
 header .main-nav-wrap ul {background: url(../img/nav-border.png) repeat-x center top; height: 147px; font-weight: bold; font-size: 20px; text-transform: uppercase; }
 header .main-nav-wrap ul li {float: left; margin-top: 57px; margin-left: 22px;}
-header .main-nav-wrap ul li.nav-first {margin-left: 15px;}
+header .main-nav-wrap ul li.nav-first {margin-left: 60px;}
 header .main-nav-wrap ul li.logo-wrap {margin-top: -57px; margin-left: 17px; margin-right: -17px; }
 header .main-nav-wrap ul li .logo {display: block; border-top: none; padding-top: 0;}
 header .main-nav-wrap ul li .logo:after {display: none; }
@@ -489,8 +489,8 @@ body.float-header header .main-nav-wrap ul li .logo img {display: none; }
 #signup-wrap h1 {margin-bottom: 40px; }
 #signup-wrap p {margin-bottom: 0; }
 #signup-wrap .form-text {margin-bottom: 27px; text-align: center;}
-#signup-wrap .button, #submit_button, #banner .button {color: #f2f1ef; width: 245px; height: 58px; background: url(../img/button1.png) no-repeat; border: none; margin-top: 2px; }
-#signup-wrap .button:hover, #submit_button:hover, #banner .button:hover {opacity: 0.9; }
+#signup-wrap .button, #submit_button, #banner .button, #tripleseat_embed_form #lead_submit {color: #f2f1ef; width: 245px; height: 58px; background: url(../img/button1.png) no-repeat; border: none !important; margin-top: 2px; }
+#signup-wrap .button:hover, #submit_button:hover, #banner .button:hover, #tripleseat_embed_form #lead_submit:hover {opacity: 0.9; }
 
 #main-content {background: url(../img/background.jpg) no-repeat center top #f3f1ef; background-size: 100% auto; position: relative; clear: both;}
 #main-content .width-wrapper {max-width: 868px; }
@@ -636,6 +636,9 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .venue-list h1 a{text-decoration: none; }
 #venue-nav { padding-top: 15px; padding-bottom: 15px;}
 #venue-nav a {display: inline-block; margin-left: 10px; margin-right: 10px; }
+
+#tripleseat_embed_form input.hasDatepicker, #tripleseat_embed_form input.timeselect_input {padding-left: 25px; }
+#tripleseat_embed_form #lead_form_submit a {margin-top: 10px; font-size: 70%; }
 
 
 @media all and (max-width : 1130px) {
