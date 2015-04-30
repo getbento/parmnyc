@@ -73,20 +73,6 @@ $(document).ready(function() {
 		}
 		return false;
 	});
-	$('#order-form').submit(function(e) {
-		if(!$(this).is(':invalid')) {
-			e.preventDefault();
-			$.ajax({
-			  type: "POST",
-			  url: $('#order-form').attr('action'),
-			  data: $('#order-form').serialize(),
-			  success: function(jqXHR, textStatus) {
-				$('#order-form').next('.thank-you').show();
-			  }
-			});
-			return false;
-		}
-	});
 
 	$(window).resize();
 });

@@ -91,11 +91,11 @@ table {
   display: none;
   left: 0; }
 
-.dk-select-open-up .dk-select-options {
+.dk-select-open-up .dk-select-options, /* {
   border-radius: 1px 1px 0 0;
   margin-bottom: -1px;
   bottom: 100%; }
-
+*/
 .dk-select-open-down .dk-select-options {
   border-radius: 0 0 1px 1px;
   margin-top: -1px;
@@ -135,6 +135,7 @@ table {
 
 .dk-select-options .dk-option-disabled {
   color: #BBBBBB;
+  display: none; 
   background-color: transparent; }
 
 .dk-optgroup {
@@ -369,9 +370,10 @@ form label, #tripleseat_embed_form label {display: block; color:#333333; font-we
 form .field {float: left; width: 100%; clear: both; margin: 14px 0; text-align: left;}
 form .field.left-half, form .field.right-half {width: 46%; margin-right: 8%; float: left; }
 form .field.right-half {clear: none; margin-right: 0; }
+form .field .descr {font-size: 16px; font-weight: normal; text-transform: uppercase; margin-top: -10px; margin-bottom: 10px; }
 
 input.button {min-width: 187px; height: 46px; line-height: 40px; }
-input.date-picker {padding-left: 40px; background: url(../img/calendar1.png) no-repeat 12px center; }
+input.date-picker {padding-left: 40px !important; background: url(../img/calendar1.png) no-repeat 12px center; }
 .form-text, #tripleseat_embed_form input, #tripleseat_embed_form textarea {background-color: transparent; font-size: 20px; box-sizing: border-box; -moz-box-sizing: border-box; width: 100%; height: 59px; line-height: 100%; border: 2px solid #f03e35 !important; font-family: 'neutra', sans-serif; padding: 0 12px; color:#303030;}
 textarea.form-text, #tripleseat_embed_form textarea {line-height: 1.5; padding-top: 15px; padding-bottom: 15px; resize: none; height: 130px; }
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -640,6 +642,48 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 #tripleseat_embed_form input.hasDatepicker, #tripleseat_embed_form input.timeselect_input {padding-left: 25px; }
 #tripleseat_embed_form #lead_form_submit a {margin-top: 10px; font-size: 70%; }
 
+#order-prepare .form-text {padding-left: 30px; padding-right: 30px; }
+.field.order-field .dk-selected {font-size: 16px; padding-left: 30px; text-transform: uppercase; }
+.field.order-field .dk-selected::before, .field.order-field .ui-multiselect:after {background-image: url(../img/dropdown2.png); width: 21px; height: 16px; top: 22px; }
+.field.order-field .dk-select-options {max-height: none; border: 2px solid #f03e35; background: #f2f1ef; margin-top: -2px; font-size: 16px; text-transform: uppercase; padding-top: 20px; padding-bottom: 20px; }
+.field.order-field .dk-select-options .dk-option {line-height: 2.2; padding-left: 30px; padding-right:20px; position: relative; }
+.field.order-field .dk-select-options .dk-option span {display: none; }
+.field.order-field .dk-select-options .dk-option-selected, .field.order-field .dk-select-options .dk-option-highlight {background: transparent; color: inherit; }
+.field.order-field .dk-select-options .dk-option:hover {background: transparent; color: #f03e35; }
+.field.order-field .dk-select-options .dk-option:hover span {display: inline; float: right; font-size: 80%; }
+.field.order-field ul.items {margin-top: -5px; margin-bottom: 5px; }
+.field.order-field ul.items li {background: url(../img/delete.png) no-repeat 97% 50% #f03e35; color: #f3f1ef; padding: 10px 40px 10px 20px; cursor: pointer; margin-bottom: 10px; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.field.order-field ul.items li span {margin-right: 10px; } 
+.field.order-field ul.items li .comments {text-decoration: none; color: inherit; }
+.field.order-field ul.items li :empty {display: none; }
+.ui-multiselect.multisel-order-field {width: 100% !important; padding: 0 30px; border: 2px solid #f03e35; background: transparent; height: 59px; font-size: 16px; font-weight: normal; text-transform: uppercase; color: #303030; font-family: "neutra",sans-serif; cursor: pointer; position: relative; }
+.ui-multiselect.multisel-order-field:after {content: ''; display: block; position: absolute; right: 15px;}
+.ui-multiselect-menu.multisel-order-field {background: #f2f1ef; margin-top: -2px; font-size: 16px; text-transform: uppercase; padding: 20px 0; font-family: "neutra",sans-serif; color: #303030; }
+.ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes li {padding: 4px 0 4px 20px; }
+.ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label {display: inline-block; font-weight: normal; cursor: pointer; border: none; padding: 13px 0 13px 23px; width: 240px; }
+.ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label input {display: none; }
+.ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-hover {background: transparent; color: #f03e35; }
+.ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-active {background: #f03e35; color: #f3f1ef; }
+.ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label + .descr {display: none; width: 250px; color: #f03e35; font-size: 80%; margin-left: 20px; vertical-align: middle; }
+.ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-hover + .descr {display: inline-block;  }
+.order-popup-wrap.fancybox-opened .fancybox-skin {box-shadow: none; background: #f2f1ef; }
+.order-popup {width: 350px; }
+.order-popup .field {margin-top: 5px; margin-bottom: 20px; }
+.order-popup #item-descr, .order-popup .check-field input.checkbox + .check-label {font-size: 16px; font-weight: 300; font-style: italic; text-transform: uppercase; }
+.order-popup input.form-text {height: 42px; }
+.order-popup textarea.form-text {height: 85px; line-height: 1.2; padding-top: 3px; padding-bottom: 3px; }
+.order-popup .form-text.text-small {max-width: 90px; }
+.order-popup .submit-button {color: #f2f1ef; width: 195px; height: 46px; background: url(../img/button2.png) no-repeat; border: none !important; margin-top: 2px; font-size: 18px; }
+.order-popup .submit-button:hover {opacity: 0.9; }
+.order-popup .cancel {color: #303030; font-size: 14px; text-decoration: underline; }
+.order-popup .check-field input.checkbox {display: none; }
+.order-popup .check-field input.checkbox + .check-label {margin-bottom: 0; }
+.order-popup .check-field input.checkbox + .check-label .box {display: inline-block; border: 2px solid #f03e35; width: 20px; height: 18px; margin-right: 15px; vertical-align: middle; }
+.order-popup .check-field input.checkbox:checked + .check-label .box {background: #f03e35; }
+.field.order {position: relative; }
+.field.order .form-text {font-size: 90%; }
+.field .order-edit {position: absolute; right: 0; top: 5px; text-decoration: underline; color: inherit; font-size: 80%; }
+
 
 @media all and (max-width : 1130px) {
 	.width-wrapper {max-width: 990px; }
@@ -711,6 +755,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 	#location-nav .nav-reservations{top: 80px; right: 0; }
 	.page-single-location #content section {padding-top: 190px; margin-top: -100px; }
 	.page-single-location #content section#menus {margin-top: 0; }
+	.field.order-field .dk-select-options .dk-option:hover span, .ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-hover + .descr {display: none; }
 }
 @media all and (max-width : 480px) {
 	#banner {padding-top: 100px; padding-bottom: 100px; }

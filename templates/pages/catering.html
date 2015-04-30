@@ -16,56 +16,145 @@
 </div>
 <div id="content">
 	<div class="width-wrapper">
-		<form action="{% url 'form_to_email' %}" method="post" id="order-form">
+		<div id="order-form">
 			<h1>{{callouts.5.title}}</h1>
 			<div class="padder">
 				<h3>{{callouts.5.subtitle}}</h3>
 				<div class="wysiwyg intro">{{callouts.5.text|safe}}</div>
 
-				{% csrf_token %}
-				{% render_honeypot_field %}
-				<input type="hidden" name="recipient" id="recipient" value="party" />
+        <form action="{% url 'form_to_email' %}" method="post" id="order-prepare">
+          <div class="field order-name">
+            <label for="order_name">name for the order*</label>
+            <input type="text" name="Order Name" id="order_name" class="form-text" />
+          </div>
+          <div class="field order-field order-field-sandwich">
+            <label>sandwiches*</label>
+            <div class="descr">serves 10-12</div>
+            <ul class="items">
+            </ul>
+            <select id="sandwich" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-descr="Mortadella, Ham, Soppressata, Pepperoni, Provolone, Zesty">italian combo</option>
+              <option data-descr="Roasted Chicken, Zesty Mayo, Glazed Bacon, Potato Chips, Lettuce, Tomato">chicken salad</option>
+              <option data-descr="Roasted Turkey, House Spicy, Lettuce, Tomato, Red Onion, Mayo">house turkey</option>
+              <option data-descr="Ham, American, Lettuce, Tomato, Mustard">ham and cheese</option>
+              <option data-descr="Roasted Beef, Provolone, Broccoli Rabe, Zesty Mayo">roast beef</option>
+              <option data-descr="Prosciutto, Mozz, Basil">prosciutto and mozz</option>
+              <option data-descr="Mozz, Zesty Tomatoes, Basil">caprese</option>
+            </select>
+          </div>
+          <div class="field order-field order-field-vegetable">
+            <label>vegetable antipasti</label>
+            <div class="descr">$80 - choose up to 4 per order. serves 10</div>
+            <ul class="items">
+            </ul>
+            <select id="vegatable" class="multisel" multiple="multiple">
+              <option data-descr="broccoli rabe, garlic, house spicy">Spicy Rabe</option>
+              <option data-descr="chickpeas, pickled hot peppers, charred eggplant, scallions">B&G Chickpeas</option>
+              <option data-descr="beets, toasted walnuts, orange, salsa verde">Beets Aranciata</option>
+              <option data-descr="cucumbers, Frank's, blue cheese">Buffalo Cucumbers</option>
+              <option data-descr="cauliflower, long hots, red onion, mustard vinaigrette">Roasted Cauliflower</option>
+              <option data-descr="broccoli, garlic, pickled red onion, mint, parm">Garlic Broccoli</option>
+              <option data-descr="charred string beans, oreganata vinaigrette, spicy breadcrumbs">String Beans Oreganata</option>
+            </select>
+          </div>
+          <div class="field order-field order-field-salad">
+            <label>salads</label>
+            <div class="descr">serves 10</div>
+            <ul class="items">
+            </ul>
+            <select id="salad" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-descr="Iceberg, Tomato, Red Onion, Olives, Peperoncini">Sunday $55</option>
+              <option data-descr="Tomato, Mozz, White Beans, Red Onion, Basil">Tomato & Mozz $70</option>
+              <option data-descr="Romaine, Croutons, Anchovy Dressing, Ricotta Salata">Caesar $70</option>
+              <option data-descr="Arugula, Zesty Tomatoes, Ricotta Salata">Arugula $70</option>
+              <option data-descr="Farro, Cucumber, Cherry Tomatoes, Feta Cheese, Oreganata, Zesty Vinaigrette">Farro $70</option>
+            </select>
+          </div>
+          <div class="field submit">
+            <input type="submit" id="submit_button" value="next" class="button" />
+          </div>
+          <div class="clear"></div>
+        </form>
 
-				<div class="field order-name">
-					<label for="order_name">name for the order*</label>
-					<input type="text" name="Order Name" id="order_name" required="required" class="form-text" />
-				</div>
-				<div class="field email">
-					<label for="email">your email*</label>
-					<input type="email" name="Email" id="email" required="required" class="form-text" />
-				</div>
-				<div class="field phone-number">
-					<label for="phone_number">phone number*</label>
-					<input type="text" name="Phone Number" id="phone_number" required="required" class="form-text" />
-				</div>
-				<div class="field">
-					<label for="deliv_location">delivery location</label>
-					<input type="text" name="Delivery Location" id="deliv_location" class="form-text" />
-				</div>
-				<div class="field">
-					<label for="guest_number">number of guests</label>
-					<input type="text" name="Number of Guests" id="guest_number" class="form-text" />
-				</div>
-				<div class="field event-date left-half">
-					<label for="event_date">date for order</label>
-					<input type="text" name="Order Date" id="event_date" class="form-text date-picker" />
-				</div>
-				<div class="field event-time right-half">
-					<label for="event_time">time for order</label>
-					<input type="text" name="Order Time" id="event_time" class="form-text" />
-				</div>
-				<div class="field">
-					<label for="notes">Notes</label>
-					<input type="text" name="Notes" id="notes" class="form-text" />
-				</div>
-				<div class="field submit">
-					<input type="submit" id="submit_button" value="submit" class="button" />
-				</div>
-				<div class="clear"></div>
+        <form action="{% url 'form_to_email' %}" method="post" id="order-submit" style="display:none">
+          {% csrf_token %}
+          {% render_honeypot_field %}
+          <input type="hidden" name="recipient" id="recipient" value="party" />
+
+          <div class="field order">
+            <label for="order-summary">order summary</label>
+            <textarea id="order-summary" name="Order" readonly="readonly" class="form-text"></textarea>
+            <a href="#" class="order-edit">EDIT</a>
+          </div>
+          <div class="field email">
+            <label for="email">your email*</label>
+            <input type="email" name="Email" id="email" required="required" class="form-text" />
+          </div>
+          <div class="field phone-number">
+            <label for="phone_number">phone number*</label>
+            <input type="text" name="Phone Number" id="phone_number" required="required" class="form-text" />
+          </div>
+          <div class="field">
+            <label for="deliv_location">delivery location</label>
+            <input type="text" name="Delivery Location" id="deliv_location" class="form-text" />
+          </div>
+          <div class="field">
+            <label for="guest_number">number of guests</label>
+            <input type="text" name="Number of Guests" id="guest_number" class="form-text" />
+          </div>
+          <div class="field event-date left-half">
+            <label for="event_date">date for order</label>
+            <input type="text" name="Order Date" id="event_date" class="form-text date-picker" />
+          </div>
+          <div class="field event-time right-half">
+            <label for="event_time">time for order</label>
+            <input type="text" name="Order Time" id="event_time" class="form-text" />
+          </div>
+          <div class="field">
+            <label for="notes">Notes</label>
+            <input type="text" name="Notes" id="notes" class="form-text" />
+          </div>
+          <div class="field submit">
+            <input type="submit" id="submit_button" value="submit" class="button" />
+          </div>
+          <div class="clear"></div>
+        </form>
+		    <div class="thank-you">Thank you for contacting us! Someone will be in touch soon.</div>
 			</div>
-		</form>
-		<div class="thank-you">Thank you for contacting us! Someone will be in touch soon.</div>
+		</div>
 	</div>
+</div>
+
+<div style="display:none">
+  <div id="order-item-form" class="order-popup">
+    <form class="padder">
+      <div class="field">
+        <label id="item-title"></label>
+        <div id="item-descr"></div>
+        <input type="hidden" id="item-select-id" />
+      </div>
+      <div class="field scallopini-field check-field">
+        <input type="checkbox" id="add-chicken" class="checkbox" />
+        <label for="add-chicken" class="check-label"><span class="box"></span>Add Chicken Scallopini +$30</label>
+      </div>
+      <div class="field">
+        <label for="item-qty">qty</label>
+        <input type="text" id="item-qty" class="form-text text-small" />
+      </div>
+      <div class="field">
+        <label for="item-comment">comments</label>
+        <textarea id="item-comment" class="form-text"></textarea>
+      </div>
+      <div class="field submit">
+        <input type="submit" value="submit" class="button submit-button" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:$.fancybox.close()" class="cancel">CANCEL</a>
+      </div>
+      <div class="clear"></div>
+    </form>
+  </div>
 </div>
 {% endblock %}
 
@@ -75,11 +164,92 @@
 <script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.min.js"></script>
 <script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.ext.min.js"></script>
 <link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.datepick.css" />
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery-ui.min.js"></script>
+<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.multiselect.min.js"></script>
+<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.multiselect.css" />
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 	$('select.dropkick').dropkick({
-		mobile: true
+		mobile: true,
+/*    initialize: function() {
+      var this_select = this.data.select;
+      $('.dk-option', this.data.elem).each(function(i) {
+        var descr = $('option', this_select).eq(i).attr('data-descr');
+        if (descr) {
+          $(this).attr('data-descr', $('option', this_select).eq(i).attr('data-descr')).append('<span>'+descr+'</span>');
+        }
+      });
+    },*/
+    change: function() {
+      if (this.selectedIndex > 0) {
+        var cur_sel = this.selectedIndex;
+        var this_select = this.data.select;
+        $.fancybox({
+          padding: [30, 70, 40, 50],
+			    wrapCSS: 'order-popup-wrap',
+          helpers: {
+            overlay: {
+              closeClick: false
+            }
+          },
+          href: '#order-item-form',
+          beforeShow: function() {
+            $('.fancybox-overlay').addClass('member-popup-overlay');
+            $('#item-title', this.content).text($('option', this_select).eq(cur_sel).text());
+            $('#item-descr', this.content).text($('option', this_select).eq(cur_sel).attr('data-descr'));
+            $('.form-text', this.content).val('');
+            $('#item-select-id', this.content).val($(this_select).attr('id'));
+
+            if ($(this_select).is('#salad')) {
+              $('.field.scallopini-field', this.content).show().find('input.checkbox').attr('checked', false);
+            } else {
+              $('.field.scallopini-field', this.content).hide();
+            }
+          }
+        });
+        this.selectOne(0, true);
+      }
+    }
 	});
+  $("select.multisel").multiselect({
+     selectedText: "# selected",
+     header: false,
+     height: 'auto',
+     noneSelectedText: 'Choose',
+     classes: 'multisel-order-field',
+     create: function() {
+       var this_select = this;
+       $(this).multiselect("widget").find('.ui-multiselect-checkboxes li').each(function(i) {
+        var descr = $('option', this_select).eq(i).attr('data-descr');
+        if (descr) {
+          $(this).append('<div class="descr"><div>'+descr+'</div></div>');
+        }
+       });
+     },
+     open: function() {
+       $(this).multiselect("widget").find('input[type="checkbox"]').each(function() {
+         if ($(this).is(':checked')) {
+            $(this).parent().addClass('ui-state-active');
+         } else {
+           $(this).parent().removeClass('ui-state-active');
+         }
+       });
+     },
+     click: function(e, ui) {
+       if( $(this).multiselect("widget").find("input:checked").length > 4 ){
+           return false;
+       }
+       $(this).multiselect("widget").find('input[type="checkbox"]').each(function() {
+         if ($(this).val() == ui.value) {
+           if(ui.checked) {
+            $(this).parent().addClass('ui-state-active');
+           } else {
+             $(this).parent().removeClass('ui-state-active');
+           }
+         }
+       });
+     }
+  });
 	$('.date-picker').datepick({
 //		onDate: $.datepick.noWeekends,
 		renderer: $.datepick.themeRollerRenderer,
@@ -93,6 +263,76 @@ jQuery(document).ready(function($) {
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 		}
 	});
+  $('#order-item-form').submit(function(e) {
+    e.preventDefault();
+    var added_list = $('#' + $('#item-select-id', this).val()).prev('.dk-select').prev('ul.items');
+    var new_item = $('<li/>');
+    new_item.append($('<span/>').addClass('qty').text($('#item-qty', this).val()));
+    new_item.append($('<span/>').addClass('title').text($('#item-title', this).text()));
+    new_item.append($('<a href="javascript:void(0)"/>').addClass('comments').text($('#item-comment', this).val()).attr('title', $('#item-comment', this).val()));
+    if ($('#add-chicken').is(':checked')) {
+      $('.title', new_item).append($('<span/>').text(' (+Chicken Scallopini $30)'));
+    }
+    added_list.append(new_item);
+    $.fancybox.close();
+
+    new_item.click(function(e) {
+      e.preventDefault();
+      $(this).remove();
+      return false;
+    });
+  });
+
+  $('#order-prepare').submit(function(e) {
+    e.preventDefault();
+    if(!$('#order_name').val()) {
+      alert('Please input your Order Name.');
+      $('#order_name').focus();
+    }
+    else if($('.field.order-field-sandwich ul.items li').length == 0) {
+      alert('Please choose at least one sandwich.');
+    }
+    else {
+      $('#order-prepare').slideUp();
+      $('#order-submit').slideDown();
+
+      var order_summary = "";
+      order_summary += "Order Name: " + $('#order_name').val() + "\n";
+      order_summary += "Sandwiches: \n" + $.map($('.field.order-field-sandwich ul.items li'), function(item) {return $(item).text().toUpperCase(); }).join('\n');
+
+      if($('#vegatable').multiselect('getChecked').length) {
+        order_summary += "\nVegetable Antipasti: \n" + $.map($('#vegatable').multiselect('getChecked'), function(item) {return $(item).val().toUpperCase(); }).join('\n');
+      }
+      if($('.field.order-field-salad ul.items li').length) {
+        order_summary += "\nSalads: \n" + $.map($('.field.order-field-salad ul.items li'), function(item) {return $(item).text().toUpperCase(); }).join('\n');
+      }
+      $('#order-summary').val(order_summary);
+      return false;
+    }
+    location.hash="order-form";
+    return false;
+  });
+  $('.order-edit').click(function(e) {
+    e.preventDefault();
+    $('#order-prepare').slideDown();
+    $('#order-submit').slideUp();
+    return false;
+  });
+	$('#order-submit').submit(function(e) {
+		if(!$(this).is(':invalid')) {
+			e.preventDefault();
+			$.ajax({
+			  type: "POST",
+			  url: $('#order-submit').attr('action'),
+			  data: $('#order-submit').serialize(),
+			  success: function(jqXHR, textStatus) {
+				$('#order-submit').next('.thank-you').show();
+			  }
+			});
+			return false;
+		}
+	});
+
 });
 </script>
 {% endblock %}
