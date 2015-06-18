@@ -157,6 +157,9 @@
             <label for="notes">Notes</label>
             <input type="text" name="Notes" id="notes" class="form-text" />
           </div>
+
+          <input type"hidden" id="order-total" value="0" />
+
           <div class="field submit">
             <input type="submit" id="submit_button" value="submit" class="button" />
           </div>
@@ -179,7 +182,7 @@
         <input type="hidden" id="item-select-id" />
       </div>
       <div class="field salad-special check-field">
-        <input type="checkbox" id="add-chicken" class="checkbox additional-check" data-text="Scallopini" data-long-text=Chicken Scallopini" data-price="30"/>
+        <input type="checkbox" id="add-chicken" class="checkbox additional-check" data-text="Scallopini" data-long-text="Chicken Scallopini" data-price="30"/>
         <label for="add-chicken" class="check-label"><span class="box"></span>Add Chicken Scallopini +$30</label>
       </div>
       <div class="field salad-special check-field">
@@ -207,11 +210,11 @@
 
 {% block footer_scripts %}
 <script src="{{ ACCOUNT_STATIC_URL }}js/dropkick.min.js"></script>
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.plugin.min.js"></script>
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.min.js"></script>
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.ext.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.ext.min.js"></script>
 <link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.datepick.css" />
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery-ui.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 	$('select.dropkick').dropkick({
@@ -240,8 +243,8 @@ jQuery(document).ready(function($) {
             $('.fancybox-overlay').addClass('member-popup-overlay');
             var thisoption = $('option', this_select).eq(cur_sel);
             $('#item-title', this.content).text(thisoption.text()).data('item', thisoption);
-            $('#item-descr', this.content).html((thisoption.attr('data-type')||'') + " <strong>$" + 
-                                                thisoption.attr('data-price') + "</strong><br />" + 
+            $('#item-descr', this.content).html((thisoption.attr('data-type')||'') + " <strong>$" +
+                                                thisoption.attr('data-price') + "</strong><br />" +
                                                 thisoption.attr('data-descr'));
             $('#item-select-id', this.content).val($(this_select).attr('id'));
             $('.form-text', this.content).val('');
@@ -265,7 +268,7 @@ jQuery(document).ready(function($) {
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',
 //		minDate: +3,
-		onChangeMonthYear: function(year, month) { 
+		onChangeMonthYear: function(year, month) {
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 		},
 		onShow: function() {
@@ -325,6 +328,8 @@ jQuery(document).ready(function($) {
     });
 
     $('#order-view .total .price').text('$' + total);
+    $('#order-total').val(total);
+
     return total;
   }
   $('#order-prepare').submit(function(e) {
@@ -348,18 +353,18 @@ jQuery(document).ready(function($) {
         $('#order-view-list').append(new_order_item);
 
         var title_div = $('<div/>').addClass('title')
-                   .text(this_order_li.data('order').quantity + ' ' + this_order_li.data('item').text())
-                   .append($('<a href="javascript:void(0)" class="remove"/>').text('remove').click(function() {
+           .text(this_order_li.data('order').quantity + ' ' + this_order_li.data('item').text())
+           .append($('<a href="javascript:void(0)" class="remove"/>').text('remove').click(function() {
 
-                      if($('.field.order-field-sandwich ul.items li').length == 1 && this_order_li.is('.field.order-field-sandwich ul.items li')) {
-                        alert('You need to order at least one sandwich.');
-                        return false;
-                      }
-                     this_order_li.remove();
-                     $(this).parent('div.title').parent('li').remove();
-                     calc_total();
-                   }))
-                   .prepend('<div class="price">$'+this_order_li.data('item').attr('data-price')+'</div>');
+              if($('.field.order-field-sandwich ul.items li').length == 1 && this_order_li.is('.field.order-field-sandwich ul.items li')) {
+                alert('You need to order at least one sandwich.');
+                return false;
+              }
+             this_order_li.remove();
+             $(this).parent('div.title').parent('li').remove();
+             calc_total();
+           }))
+           .prepend('<div class="price">$'+this_order_li.data('item').attr('data-price')+'</div>');
 
         var content_div = $('<div/>').addClass('content');
         var content = (this_order_li.data('item').attr('data-type') ? this_order_li.data('item').attr('data-type') + '<br />' : '') +
