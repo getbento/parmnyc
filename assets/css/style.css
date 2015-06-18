@@ -368,8 +368,10 @@ select[data-dkcacheid] {
 
 form label, #tripleseat_embed_form label {display: block; color:#333333; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; font-size: 18px;}
 form .field {float: left; width: 100%; clear: both; margin: 14px 0; text-align: left;}
-form .field.left-half, form .field.right-half {width: 46%; margin-right: 8%; float: left; }
+form .field.left-half, form .field.right-half, form .field.one-third {width: 46%; margin-right: 8%; float: left; }
 form .field.right-half {clear: none; margin-right: 0; }
+form .field.one-third {width: 28%; clear: none;}
+form .field.one-third.last {margin-right: 0;}
 form .field .descr {font-size: 16px; font-weight: normal; text-transform: uppercase; margin-top: -10px; margin-bottom: 10px; }
 
 input.button {min-width: 187px; height: 46px; line-height: 40px; }
@@ -626,8 +628,8 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 #order-form h1 {margin-bottom: 25px; }
 #order-form h3 {margin-bottom: 10px; }
 #order-form .intro {margin-bottom: 40px; }
-#order-form .padder {margin: auto; max-width: 560px; }
-#banner {text-align:center; padding-top: 235px; padding-bottom: 235px; }
+#order-form .padder {margin-left: auto; margin-right: auto; max-width: 560px; }
+#banner {text-align:center; padding-top: 235px; padding-bottom: 235px; position: relative; }
 #banner .button {margin: 10px 13px;}
 
 .page-private-events #content {text-align: left; padding-top: 130px; }
@@ -653,7 +655,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .field.order-field .dk-select-options .dk-option:hover span {display: inline; float: right; font-size: 80%; }
 .field.order-field ul.items {margin-top: -5px; margin-bottom: 5px; }
 .field.order-field ul.items li {background: url(../img/delete.png) no-repeat 97% 50% #f03e35; color: #f3f1ef; padding: 10px 40px 10px 20px; cursor: pointer; margin-bottom: 10px; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
-.field.order-field ul.items li span {margin-right: 10px; } 
+.field.order-field ul.items li span {margin-right: 5px; } 
 .field.order-field ul.items li .comments {text-decoration: none; color: inherit; }
 .field.order-field ul.items li :empty {display: none; }
 .ui-multiselect.multisel-order-field {width: 100% !important; padding: 0 30px; border: 2px solid #f03e35; background: transparent; height: 59px; font-size: 16px; font-weight: normal; text-transform: uppercase; color: #303030; font-family: "neutra",sans-serif; cursor: pointer; position: relative; }
@@ -670,6 +672,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .order-popup {width: 350px; }
 .order-popup .field {margin-top: 5px; margin-bottom: 20px; }
 .order-popup #item-descr, .order-popup .check-field input.checkbox + .check-label {font-size: 16px; font-weight: 300; font-style: italic; text-transform: uppercase; }
+.order-popup #item-descr strong {font-style: normal; font-size: 120%; }
 .order-popup input.form-text {height: 42px; }
 .order-popup textarea.form-text {height: 85px; line-height: 1.2; padding-top: 3px; padding-bottom: 3px; }
 .order-popup .form-text.text-small {max-width: 90px; }
@@ -677,12 +680,29 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .order-popup .submit-button:hover {opacity: 0.9; }
 .order-popup .cancel {color: #303030; font-size: 14px; text-decoration: underline; }
 .order-popup .check-field input.checkbox {display: none; }
-.order-popup .check-field input.checkbox + .check-label {margin-bottom: 0; }
+.order-popup .check-field input.checkbox + .check-label {margin-bottom: 0; cursor: pointer;}
 .order-popup .check-field input.checkbox + .check-label .box {display: inline-block; border: 2px solid #f03e35; width: 20px; height: 18px; margin-right: 15px; vertical-align: middle; }
 .order-popup .check-field input.checkbox:checked + .check-label .box {background: #f03e35; }
+.order-popup .check-field + .check-field {margin-top: -15px; }
 .field.order {position: relative; }
 .field.order .form-text {font-size: 90%; }
-.field .order-edit {position: absolute; right: 0; top: 5px; text-decoration: underline; color: inherit; font-size: 80%; }
+
+#order-submit .form-fields {float: left; width: 60%; }
+#order-submit #order-view {float: right; width: 38%; background: #fff; border: 2px dotted #f03e35; margin-top: 46px; margin-bottom: 30px; position: relative; text-align: left; }
+#order-view .order-view {padding: 30px 20px; }
+#order-view .order-edit {display: none; position: absolute; right: 5px; top: 0; text-decoration: underline; font-size: 14px; }
+#order-view:hover .order-edit {display: block; }
+#order-view .price {float: right; }
+#order-view .total {font-size: 160%; font-weight: bold; color: #f03e35; text-transform: uppercase; margin-top: 30px; }
+#order-view-list li {margin-top: 25px; }
+#order-view-list li .title {font-weight: bold; font-size: 120%; }
+#order-view-list li .remove {font-size: 14px; font-weight: normal; margin-left: 10px; display: none; text-transform: uppercase; }
+#order-view-list li:hover .remove {display: inline; }
+#order-view-list li .content {padding-left: 30px; }
+#order-view-list li .additional, #order-view-list li .comment {padding-left: 20px; font-size: 90%; }
+
+.page-catering #see-photo {position: absolute; right: 150px; bottom: 50px; top: auto; left: auto;}
+#see-photo .inner .delivery {margin-top: 22px; margin-left: 10px; }
 
 
 @media all and (max-width : 1130px) {
@@ -737,7 +757,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 	.location-item .loc-title, h1 {font-size: 45px; }
 	#content, section#reservations {padding-bottom: 50px; }
 	.one-of-four, .one-of-three, .one-of-two {float: none; width: auto; margin-right: 0; }
-	form .field.left-half, form .field.right-half {width: 100%; margin-right: 0; }
+	/*form .field.left-half, form .field.right-half, form .field.one-third {width: 100%; margin-right: 0; }*/
 	section#gallery .slide {min-height: 300px; }
 	.menu-item.one-of-four {float: left; width: 47%; margin-right: 6%; }
 	.menu-item.one-of-four.last, .menu-item.one-of-four.col2 { margin-right: 0; }
@@ -756,6 +776,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 	.page-single-location #content section {padding-top: 190px; margin-top: -100px; }
 	.page-single-location #content section#menus {margin-top: 0; }
 	.field.order-field .dk-select-options .dk-option:hover span, .ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-hover + .descr {display: none; }
+	#order-submit .form-fields, #order-submit #order-view {float: none; width: auto; margin-top: 0; }
 }
 @media all and (max-width : 480px) {
 	#banner {padding-top: 100px; padding-bottom: 100px; }
