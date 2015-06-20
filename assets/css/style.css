@@ -459,10 +459,10 @@ header .secondary-nav .sep {padding-left: 5px; padding-right: 5px; }
 header .main-nav-wrap {position: relative; padding-left: 20px; padding-right: 20px;}
 header .main-nav-wrap .left-border {position: absolute; left: 0; top: 0; bottom: 0; width: 20px; background: url(../img/nav-border.png) no-repeat left top; }
 header .main-nav-wrap .right-border {position: absolute; right: 0; top: 0; bottom: 0; width: 20px; background: url(../img/nav-border.png) no-repeat right top; }
-header .main-nav-wrap ul {background: url(../img/nav-border.png) repeat-x center top; height: 147px; font-weight: bold; font-size: 20px; text-transform: uppercase; }
-header .main-nav-wrap ul li {float: left; margin-top: 57px; margin-left: 22px;}
-header .main-nav-wrap ul li.nav-first {margin-left: 60px;}
-header .main-nav-wrap ul li.logo-wrap {margin-top: -57px; margin-left: 17px; margin-right: -17px; }
+header .main-nav-wrap ul {background: url(../img/nav-border.png) repeat-x center top; height: 147px; font-weight: bold; font-size: 15px; text-transform: uppercase; }
+header .main-nav-wrap ul li {float: left; margin-top: 64px; margin-left: 22px; position: relative; }
+header .main-nav-wrap ul li.nav-first {margin-left: 20px;}
+header .main-nav-wrap ul li.logo-wrap {margin-top: -57px; margin-left: 10px; margin-right: -17px; }
 header .main-nav-wrap ul li .logo {display: block; border-top: none; padding-top: 0;}
 header .main-nav-wrap ul li .logo:after {display: none; }
 header .main-nav-wrap ul li .logo img {display: block; }
@@ -470,6 +470,12 @@ header .main-nav-wrap ul li a {padding-top: 4px; position: relative; }
 header .main-nav-wrap ul li a:hover {text-decoration: none; }
 header .main-nav-wrap ul li a:after {content: '';display: block; position: absolute; left: 0; top: -5px; right: 0; height: 2px; background: #f03e35; opacity: 0; transition: all 0.4s; -webkit-transition: all 0.4s;}
 header .main-nav-wrap ul li a:hover:after, header .main-nav-wrap ul li.active a:after {opacity: 1; top: 0;}
+
+header .main-nav-wrap li ul.subnav {display: none; position: absolute; background: #ee3b36; font-size: 12px; height: auto; width: 155px; left: 50%; top: 29px; margin-left: -77px; text-align: center; padding: 9px 0; }
+header .main-nav-wrap li:hover ul.subnav {display: block; }
+header .main-nav-wrap ul.subnav li {float: none; margin: 0; }
+header .main-nav-wrap ul.subnav li:hover {background: rgba(255,255,255,0.2); }
+header .main-nav-wrap ul.subnav li a {color: #f3f1ee; display: block; padding: 9px 0; }
 
 header .mobile-show .logo {float:left; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; }
 header .mobile-show .logo img {display: block; }
@@ -615,6 +621,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .sidr .secondary-nav li {margin-bottom: 10px; }
 .sidr .social a {margin-left: 15px; margin-right: 15px; }
 .sidr .active a, .sidr a.active {text-decoration: underline; }
+.sidr .subnav {padding: 10px 0; background: rgba(255,255,255,0.2); font-size: 90%; }
 
 .two-column-wrapper {position: relative; }
 .two-column-wrapper:after {content: ''; display: block; width: 1px; position: absolute; left: 67%; top: 40px; bottom: -10px; background: url(../img/spliter-v.png) repeat-y; }
@@ -707,17 +714,12 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 
 @media all and (max-width : 1130px) {
 	.width-wrapper {max-width: 990px; }
-	header .main-nav-wrap ul{font-size: 17px; }
-	header .main-nav-wrap ul li {margin-left: 20px; }
-	header .main-nav-wrap ul li.logo-wrap {margin-left: 17px; }
-	header .secondary-nav {letter-spacing: 0; }
+	header {height: auto;}
+	header .desktop-show {display: none; }
+	header .mobile-show {display: block; }
 }
 @media all and (max-width : 1020px) {
 	.width-wrapper {max-width: 785px !important; }
-	header .main-nav-wrap ul {font-size: 15px; margin-top: 62px; }
-	header .main-nav-wrap ul li {margin-left: 17px; }
-	header .main-nav-wrap ul li.logo-wrap {margin-left: 17px; margin-right: 0; margin-top: 30px; }
-	header .main-nav-wrap ul li .logo img {width: auto; height: 85px; }
 	.one-of-four {width: 47%; margin-right: 6%; }
 	.one-of-four.col2 {margin-right: 0;}
 }

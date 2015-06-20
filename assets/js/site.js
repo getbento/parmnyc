@@ -1,6 +1,7 @@
 (function($) {
 $(window).resize(function() {
 	$('#main-content').css('min-height', $(window).height() - $('header:visible').height());
+	$.sidr('close', 'sidr-right');
 });
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 200){

@@ -115,9 +115,19 @@ var cur_page_url = '{{page_url}}';
 				{% for nav in main_nav_items %}
 					<li class="nav-{{nav.template_key}} {% if nav.template == current_page %}active{% endif %} {% if forloop.first %}nav-first{% endif %}">
 						<a href="{% if nav.target %}{{ nav.target }}{% elif nav.template %}{{ nav.get_absolute_url }}{% else %}{% url 'static_page' nav.template_key %}{% endif %}">{% if nav.type == "page" %}{{nav.name}}{% else %}{{ nav.text }}{% endif %}</a>
+
+            {% if nav.template_key == "menus" %}
+            <ul class="subnav">
+            {% for location in locations %}{% if location.id != 71 %}
+              <li class="nav-menu-{{location.name|slugify}}">
+                <a href="{{ location.get_absolute_url }}#menus">{{location.name}}</a>
+              </li>
+            {% endif %}{% endfor %}
+            </ul>
+            {% endif %}
 					</li>
 
-					{% if forloop.counter == 3 %}
+					{% if forloop.counter == 4 %}
 						<li class="logo-wrap"><a href="/" class="logo" title="{{account.site_title}}"><img src="{{ ACCOUNT_STATIC_URL }}img/logo.png" width="277" height="170" ></a></li>
 					{% endif %}
 				{% endfor %}
@@ -151,6 +161,17 @@ var cur_page_url = '{{page_url}}';
 		{% for nav in main_nav_items %}
 			<li class="nav-{{nav.template_key}} {% if nav.template == current_page %}active{% endif %} {% if forloop.first %}nav-first{% endif %}">
 				<a href="{% if nav.target %}{{ nav.target }}{% elif nav.template %}{{ nav.get_absolute_url }}{% else %}{% url 'static_page' nav.template_key %}{% endif %}">{% if nav.type == "page" %}{{nav.name}}{% else %}{{ nav.text }}{% endif %}</a>
+
+        {% if nav.template_key == "menus" %}
+        <ul class="subnav">
+        {% for location in locations %}{% if location.id != 71 %}
+          <li class="nav-menu-{{location.name|slugify}}">
+            <a href="{{ location.get_absolute_url }}#menus">{{location.name}}</a>
+          </li>
+        {% endif %}{% endfor %}
+        </ul>
+        {% endif %}
+
 			</li>
 		{% endfor %}
 		<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/nav-sep.png" width="215" />
