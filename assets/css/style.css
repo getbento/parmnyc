@@ -693,8 +693,25 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .order-popup .check-field input.checkbox + .check-label .box {display: inline-block; border: 2px solid #f03e35; width: 20px; height: 18px; margin-right: 15px; vertical-align: middle; }
 .order-popup .check-field input.checkbox:checked + .check-label .box {background: #f03e35; }
 .order-popup .check-field + .check-field {margin-top: -15px; }
+.order-popup .check-field .check-description { display:block; font-size:12px; margin-left:39px; margin-top:-2px; font-style:normal; }
 .field.order {position: relative; }
 .field.order .form-text {font-size: 90%; }
+
+#order-prepare .one-of-two { width:50%; margin-right:0; }
+#order-prepare .quantifiable ::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #aaa;
+}
+#order-prepare .quantifiable :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #aaa;
+}
+#order-prepare .quantifiable ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #aaa;
+}
+#order-prepare .quantifiable :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #aaa;
+}
+#order-prepare .quantifiable { font-weight:300; font-size: 16px; }
+#order-prepare .quantifiable input { font-size: 16px; width:65px; margin-right:10px; margin-bottom:15px; padding-left:10px; padding-right:10px; text-transform: uppercase; text-align:center; }
 
 #order-submit .form-fields {float: left; width: 60%; }
 #order-submit #order-view {float: right; width: 38%; background: #fff; border: 2px dotted #f03e35; margin-top: 46px; margin-bottom: 30px; position: relative; text-align: left; }
