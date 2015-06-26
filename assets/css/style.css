@@ -710,7 +710,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 #order-prepare .quantifiable :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #aaa;
 }
-#order-prepare .quantifiable { font-weight:300; font-size: 16px; }
+#order-prepare .quantifiable { font-weight:300; font-size: 15px; }
 #order-prepare .quantifiable input { font-size: 16px; width:65px; margin-right:10px; margin-bottom:15px; padding-left:10px; padding-right:10px; text-transform: uppercase; text-align:center; }
 
 #order-submit .form-fields {float: left; width: 60%; }

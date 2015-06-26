@@ -77,34 +77,34 @@
           </div>
           <div class="field order-field order-field-dessert">
             <label>desserts</label>
-            <div class="descr">Each dessert order serves 1 - 4 people</div>
-            <label class="quantifiable"><input class="form-text" style="" type="text" name="brownie-tray" placeholder="Qty" data-price="14">Brownie Tray</label>
+            <div class="descr">Each dessert order serves up to 18 people</div>
+            <label class="quantifiable"><input class="form-text" style="" type="text" name="brownie-tray" placeholder="Qty" data-price="60">Brownie Tray $60</label>
           </div>
           <div class="field order-field order-field-beverages-and-utensils">
             <label>beverages and utensils</label>
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-coke" placeholder="Qty" data-price="1">Diet Coke (can)</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-coke" placeholder="Qty" data-price="3">Diet Coke (can) $3</label>
             </div>
             <div class="one-of-two last">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="ginger-ale" placeholder="Qty" data-price="1">Ginger Ale (can)</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="ginger-ale" placeholder="Qty" data-price="3">Ginger Ale (can) $3</label>
             </div>
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="coca-cola" placeholder="Qty" data-price="1">Coca Cola (can)</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="coca-cola" placeholder="Qty" data-price="3">Coca Cola (can) $3</label>
             </div>
             <div class="one-of-two last">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-ginger-ale" placeholder="Qty" data-price="1">Diet Ginger Ale (can)</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-ginger-ale" placeholder="Qty" data-price="3">Diet Ginger Ale (can) $3</label>
             </div>
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="club-soda" placeholder="Qty" data-price="1">Club Soda (can)</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="club-soda" placeholder="Qty" data-price="3">Club Soda (can) $3</label>
             </div>
             <div class="one-of-two last">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="poland-spring" placeholder="Qty" data-price="1">Poland Spring</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="poland-spring" placeholder="Qty" data-price="3">Poland Spring $3</label>
             </div>
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="san-pellegrino" placeholder="Qty" data-price="1">San Pellegrino (330ml)</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="san-pellegrino" placeholder="Qty" data-price="3">San Pellegrino (330ml) $3</label>
             </div>
             <div class="one-of-two last">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="utensil-set" placeholder="Qty" data-price="1">Utensil Set</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="utensil-set" placeholder="Qty" data-price="0.50">Utensil Set (0.50 ea.)</label>
             </div>
           </div>
           <div class="field submit">
@@ -173,14 +173,6 @@
               <label for="guest_number">number of guests</label>
               <input type="text" name="number_of_guests" id="guest_number" class="form-text" />
             </div>
-            <div class="field event-date left-half">
-              <label for="event_date">date for order</label>
-              <input type="text" name="order_date" id="event_date" class="form-text date-picker" />
-            </div>
-            <div class="field event-time right-half">
-              <label for="event_time">time for order</label>
-              <input type="text" name="order_time" id="event_time" class="form-text" />
-            </div>
             <div class="field">
               <label for="special_delivery_instructions">Special Delivery Instructions</label>
               <input type="text" name="special_delivery_instructions" id="special_delivery_instructions" class="form-text" />
@@ -191,11 +183,20 @@
             <div class="field pickup_location">
               <label for="pickup_location">Pickup Location*</label>
               <select id="pickup_location" class="dropkick">
-                <option value="nolita">Nolita</option>
-                <option value="battery-park-city">Battery Park City</option>
-                <option value="upper-west-side">Upper West Side</option>
+                <option value="nolita">Nolita (248 Mulberry St. between Prince &amp; Spring)</option>
+                <option value="battery-park-city">Battery Park City (250 Vesey St. between North End &amp; West)</option>
+                <option value="upper-west-side">Upper West Side (235 Columbus Ave. between 70th &amp; 71st)</option>
               </select>
             </div>
+          </div>
+
+          <div class="field event-date left-half">
+            <label for="event_date">date for order</label>
+            <input type="text" name="order_date" id="event_date" class="form-text date-picker" />
+          </div>
+          <div class="field event-time right-half">
+            <label for="event_time">time for order</label>
+            <input type="text" name="order_time" id="event_time" class="form-text" />
           </div>
 
           <div class="field">
