@@ -33,7 +33,7 @@
         {{callouts.5.text|safe}}
       </div>
 
-      <form action="{% url 'form_to_email' %}" method="post" id="order-prepare" style="padding-bottom:100px">
+      <form action="http://mfg.vmgdev.com/catering/test/parm" method="post" id="order-prepare" style="padding-bottom:100px">
         <div class="padder form-fields">
           <div class="field order-name">
             <label for="order_name">name for the order*</label>
@@ -330,7 +330,7 @@ jQuery(document).ready(function($) {
               $('#item-select-id', this.content).val($(this_select).attr('id'));
               $('.form-text', this.content).val('');
               $('.field input.checkbox').attr('checked', false);
-  
+
               if ($(this_select).is('#salad')) {
                 $('.field.salad-special', this.content).show();
               } else {
@@ -343,7 +343,7 @@ jQuery(document).ready(function($) {
                 $('.field.sandwich-special', this.content).hide();
                 $("label[for=item-qty]").text("Qty.");
               }
-  
+
             }
           });
           this.selectOne(0, true);
@@ -503,7 +503,7 @@ jQuery(document).ready(function($) {
         if(this_order_input.val() > 0) {
 
           $('#order-view-list').append(new_order_item);
-  
+
           var title_div = $('<div/>').addClass('title')
              .text(this_order_input.val() + ' ' + this_order_input.parent().text())
              .append($('<a href="javascript:void(0)" class="remove"/>').text('remove').click(function() {
@@ -512,7 +512,7 @@ jQuery(document).ready(function($) {
                calc_total();
              }))
              .prepend('<div class="price">$'+ (this_order_input.attr('data-price') * this_order_input.val()) +'</div>');
-  
+
           new_order_item.append(title_div);
 
         }
