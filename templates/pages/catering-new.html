@@ -534,7 +534,9 @@ jQuery(document).ready(function($) {
   });
 
 	$('#order-submit').submit(function(e) {
-		if(!$(this).is(':invalid')) {
+    if($(this).is(':invalid') {
+      return false;
+    } else {
       var order_summary = "";
       order_summary += "Order Name: " + $('#order_name').val() + "\n";
       order_summary += "Sandwiches: \n" + $.map($('.field.order-field-sandwich ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
@@ -553,17 +555,6 @@ jQuery(document).ready(function($) {
 
       order_summary += "\nTotal: " + $('#order-view .total .price').text();
       $('#order-summary').val(order_summary);
-
-			e.preventDefault();
-			$.ajax({
-			  type: "POST",
-			  url: $('#order-submit').attr('action'),
-			  data: $('#order-submit').serialize(),
-			  success: function(jqXHR, textStatus) {
-				$('#order-submit').next('.thank-you').show();
-			  }
-			});
-			return false;
 		}
 	});
 
