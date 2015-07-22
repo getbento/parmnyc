@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{account.site_title}} | Ice Cream Cakes{% endblock %}
+
+{% block body_class %}page-ice-cream-cakes{% endblock %}
+
+{% block content %}
+<div id="content">
+	<div class="width-wrapper">
+		<h1>Ice Cream Cakes</h1>
+		<div class="wysiwyg">
+			<p>Purchase your Parm ice cream cake online and pick-up at any Parm location!<br>
+			Orders for next day pick-up must be placed by 3pm.<br>
+			All Parm ice cream cakes are 9" and serve up to 14 people.<br>
+			Add a custom message to your cake at no extra charge!</p>
+		</div>
+	</div>
+
+	<div class="width-wrapper">
+		<div class="three-of-four">
+
+		<div class="width-wrapper">
+			<div class="one-of-three">
+				<article class="ice-cream-option" data-image="{{ ACCOUNT_STATIC_URL }}img/classic-cake-big.png" data-price="54" data-serving-size="9&quot; serves up to 14 people">
+					<div class="border-wrap">
+						<div class="frame"></div>
+						<div class="frame-left"></div>
+						<div class="frame-right"></div>
+						<div class="img-wrap">
+							<a href="#" target="_blank" class="image full-background" style="background-image:url('{{ ACCOUNT_STATIC_URL }}img/classic-cake.png')"></a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="title-wrap"><a href="#" target="_blank" class="title">Classic</a></div>
+						<div class="source">Strawberry, Chocolate, Pistachio</div>
+					</div>
+				</article>
+			</div>
+			<div class="one-of-three">
+				<article class="ice-cream-option" data-image="{{ ACCOUNT_STATIC_URL }}img/classic-cake-big.png" data-price="54" data-serving-size="9&quot; serves up to 14 people">
+					<div class="border-wrap">
+						<div class="frame"></div>
+						<div class="frame-left"></div>
+						<div class="frame-right"></div>
+						<div class="img-wrap">
+							<a href="#" target="_blank" class="image full-background" style="background-image:url('{{ ACCOUNT_STATIC_URL }}img/classic-cake.png')"></a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="title-wrap"><a href="#" target="_blank" class="title">Classic</a></div>
+						<div class="source">Strawberry, Chocolate, Pistachio</div>
+					</div>
+				</article>
+			</div>
+			<div class="one-of-three last">
+				<article class="ice-cream-option" data-image="{{ ACCOUNT_STATIC_URL }}img/classic-cake-big.png" data-price="54" data-serving-size="9&quot; serves up to 14 people">
+					<div class="border-wrap">
+						<div class="frame"></div>
+						<div class="frame-left"></div>
+						<div class="frame-right"></div>
+						<div class="img-wrap">
+							<a href="#" target="_blank" class="image full-background" style="background-image:url('{{ ACCOUNT_STATIC_URL }}img/classic-cake.png')"></a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="title-wrap"><a href="#" target="_blank" class="title">Classic</a></div>
+						<div class="source">Strawberry, Chocolate, Pistachio</div>
+					</div>
+				</article>
+			</div>
+		</div>
+
+		</div>
+		<div class="one-of-four last">
+
+		<div id="order-view">
+          <div class="order-view">
+            <h2>Your Order</h2>
+            <ul id="order-view-list"></ul>
+            <div class="total">
+              <div class="price">$0</div>
+              <div class="label">total</div>
+            </div>
+
+			<div class="field date">
+            	<label for="date"><strong>SELECT DATE FOR ORDER</strong></label>
+            	<input type="text" name="date" id="date" class="form-text date-picker">
+          	</div>
+
+			<div class="field">
+            	<label for="location"><strong>SELECT LOCATION FOR PICK UP</strong></label>
+            	<select id="location" class="dropkick">
+            	  <option disabled selected="selected">Choose Location</option>
+            	  <option val="Nolita">Nolita</option>
+            	  <option val="Battery Park City">Battery Park City</option>
+            	  <option val="Upper West Side">Upper West Side</option>
+            	</select>
+            	<div id="display-hours">
+            	</div>
+            	<div class="hours-container" data-location-name="Nolita" style="display:none;">
+					HOURS<br>
+					Sunday - Thursday  11am - 11pm<br>
+					Friday - Thursday  11am - midnight
+            	</div>
+            	<div class="hours-container" data-location-name="Battery Park City" style="display:none;">
+					HOURS<br>
+					Sunday - Thursday  11am - 11pm<br>
+					Friday - Thursday  11am - midnight
+            	</div>
+            	<div class="hours-container" data-location-name="Upper West Side" style="display:none;">
+					HOURS<br>
+					Sunday - Thursday  11am - 11pm<br>
+					Friday - Thursday  11am - midnight
+            	</div>
+          	</div>
+
+			<div class="field">
+				<a id="submit_button" class="button" href="#">Proceed to Checkout</a>
+			</div>
+
+          </div>
+        </div>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<div style="display:none">
+  <div id="order-item-form" class="order-popup">
+    <form class="padder">
+
+      <img>
+
+      <div class="field qty">
+        <label for="item-qty">qty</label>
+        <input type="text" id="item-qty" class="form-text text-small" maxlength="3"/>
+      </div>
+
+      <h1></h1>
+      <div class="description"></div>
+
+      <div class="field comment">
+        <label for="item-comment">personalize your cake with a custom message</label>
+        <textarea id="item-comment" class="form-text" placeholder="Optional message here"></textarea>
+        <span class="char-count">150 characters remaining.</span>
+      </div>
+      <div class="field submit">
+        <input type="submit" value="add to cart" class="button submit-button" />
+      </div>
+      <div class="clear"></div>
+    </form>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+{% endblock %}
+
+{% block footer_scripts %}
+<script src="{{ ACCOUNT_STATIC_URL }}js/dropkick.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.ext.min.js"></script>
+<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.datepick.css" />
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/moment-timezone.min.js"></script>
+<script type="text/javascript">
+(function($) {
+	moment.tz.add('America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0');
+	$(document).ready(function() {
+
+		var your_order = [];
+		
+		$("article.ice-cream-option").click(function(e){
+			var $option = $(this);
+			e.preventDefault();
+
+		  $.fancybox({
+            padding: [24, 24, 24, 24],
+			     wrapCSS: 'order-popup-wrap',
+            helpers: {
+              overlay: {
+                closeClick: false
+              }
+            },
+            href: '#order-item-form',
+            beforeShow: function() {
+              $('.fancybox-overlay').addClass('member-popup-overlay');
+              var content = this.content;
+
+
+              content.find("img").attr('src', $option.attr("data-image") );
+              content.find("h1").html( "<span id='item-name'>" + $option.find(".title").text() + "</span> $<span id='price'>" + $option.attr("data-price") + "</span>" );
+
+              content.find(".description").html( $option.find(".source").text() + "<br>" + $option.attr("data-serving-size") );
+
+              content.find("textarea#item-comment").on("input propertychange", function() {
+              	if($(this).val().length > 150) {
+              		$(this).val($(this).val().substr(0, 150))
+              	}
+              	if(150 - $(this).val().length == 1){
+              		content.find(".char-count").text("1 character remaining.");
+              	}else{
+              		content.find(".char-count").text(150 - $(this).val().length + " characters remaining.");
+              	}
+              });
+
+              content.find("textarea#item-comment").val("");
+              content.find("input#item-qty").val("1");
+              content.find(".char-count").text("150 characters remaining.");
+
+
+            }
+          });
+
+		});
+
+        $("#order-item-form input.submit-button").on("click", function(e) {
+        	e.preventDefault();
+
+        	your_order.push({
+        		"title":$("#order-item-form #item-name").text(),
+        		"qty":Number($("#order-item-form #item-qty").val()),
+        		"price":Number($("#order-item-form #price").text()),
+        		"comment":$("#order-item-form textarea#item-comment").val()
+        	});
+
+        	$(".fancybox-close").click();
+        	renderOrderList();
+        });
+
+        function renderOrderList(){
+        	$("ul#order-view-list").html("");
+        	var total = 0;
+        	$.each(your_order,function(i){
+        		$("ul#order-view-list").append('<li><div class="title"><div class="price">$'+this.price * this.qty +'</div>'+this.qty+' '+this.title+'<a href="javascript:void(0)" class="remove">remove</a></div><div class="content">'+this.comment+'</div></li>');
+        		total += this.price * this.qty;
+        	});
+
+        	$(".order-view .total .price").text("$" + total);
+
+        	$("ul#order-view-list li").on('click',function(){
+        		console.log($(this).index());
+        		your_order.splice($(this).index(),1);
+        		renderOrderList();
+        	});
+        }
+
+	$('.date-picker').datepick({
+		renderer: $.datepick.themeRollerRenderer,
+		showAnim: 'fadeIn',
+		showSpeed: 'fast',
+		minDate: moment().tz("America/New_York").format('H') > 14 ? +2 : +1,
+		onChangeMonthYear: function(year, month) {
+			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
+		},
+		onShow: function() {
+			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
+		}
+	});
+
+	$('select.dropkick').dropkick({
+		mobile: true,
+    	change: function() {
+    		var hours_content = $(".hours-container[data-location-name='"+$(this.selectedOptions).attr('data-value')+"']").contents();
+    		$("#display-hours").html(hours_content);
+    	}
+	});
+
+	});
+})(jQuery);
+</script>
+{% endblock %}

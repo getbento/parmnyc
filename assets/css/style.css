@@ -362,6 +362,8 @@ select[data-dkcacheid] {
 .one-of-three.last {margin-right: 0; }
 .one-of-two {float: left; width: 47%; margin-right: 6%;}
 .one-of-two.last {margin-right: 0; }
+.three-of-four {float: left; width: 66%; margin-right: 4%;}
+.three-of-four.last {margin-right: 0; }
 
 .button {font-family: 'neutra', sans-serif; font-weight: bold; display: inline-block; color: #f03e35; background: transparent; border: 2px solid #f03e35; height: 59px; line-height: 55px; width: 100%; text-align: center; padding: 0; text-decoration: none; -webkit-transition: all .3s; transition: all .3s; font-size: 20px; cursor:pointer; -webkit-appearance:none; text-transform: uppercase; }
 .button:hover {color: #f2f0ee; background: #f03e35; text-decoration: none;}
@@ -803,3 +805,76 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 	#banner {padding-top: 100px; padding-bottom: 100px; }
 	form .field.submit {text-align: center; }
 }
+
+
+
+body.page-ice-cream-cakes #main-content .width-wrapper { max-width:1100px; }
+body.page-ice-cream-cakes #main-content .wysiwyg { display:block; margin-bottom: 36px;}
+body.page-ice-cream-cakes #main-content .wysiwyg p { line-height:30px;}
+
+.ice-cream-option {position: relative; margin-bottom: 65px;}
+.ice-cream-option .border-wrap {padding: 8px 8px 14px; }
+.ice-cream-option .img-wrap {background: #f03e35; border: 2px solid #f03e35; }
+.ice-cream-option .img-wrap .image {display: block; height: 0; padding-bottom: 67.15%; transition: opacity 0.1s; -webkit-transition: opacity 0.1s;}
+.ice-cream-option .img-wrap:hover .image, .ice-cream-option .img-wrap .image:hover {opacity: 0.4; }
+.ice-cream-option .info {text-align: center; padding-left: 15px; padding-right: 15px; margin-top: -6px; font-size: 17px; color: #303030; line-height: 1.2; position: relative; }
+.ice-cream-option .title {font-weight:bold; font-size: 18px; text-transform: uppercase; }
+.ice-cream-option .source {margin-top: 8px; }
+
+.ice-cream-option .frame {
+  display:block;
+  position:absolute;
+  top:-3px;
+  left:0;
+  height:2px;
+  width:100%;
+  background:#f03e35;
+}
+.ice-cream-option .frame-left, .ice-cream-option .frame-right {
+  display:block;
+  position:absolute;
+  top:-3px;
+  width:12px;
+  height:100%;
+  border:2px solid #f03e35;
+  
+}
+.ice-cream-option .frame-left { left:0px; border-right:none; }
+.ice-cream-option .frame-right { right:0px; border-left:none; }
+
+body.page-ice-cream-cakes .one-of-four.last { width:30%; }
+body.page-ice-cream-cakes #order-view { background: #fff; border: 2px dotted #f03e35; position: relative; text-align: left; margin-bottom:40px; } 
+body.page-ice-cream-cakes #order-view h2 { font-size:36px; }
+body.page-ice-cream-cakes #order-view #order-view-list li .title { font-weight: bold; font-size: 17px; }
+body.page-ice-cream-cakes #order-view #order-view-list li .title .remove { text-transform:lowercase; }
+body.page-ice-cream-cakes #order-view #display-hours { font-size:14px; }
+body.page-ice-cream-cakes #order-view .total { margin-bottom: 50px;}
+body.page-ice-cream-cakes #order-view .field.date { margin-bottom:32px; }
+body.page-ice-cream-cakes #order-view .dk-select.dropkick { margin-bottom:20px; }
+body.page-ice-cream-cakes #order-view #submit_button { width:100%; background-position:center; font-size:18px;line-height:62px; margin-top:90px; }
+
+body.page-ice-cream-cakes .order-popup { width: 635px; }
+body.page-ice-cream-cakes #order-item-form img { margin-bottom:25px; }
+body.page-ice-cream-cakes #order-item-form h1 { font-size:36px; margin-bottom:0; text-align:left; }
+body.page-ice-cream-cakes #order-item-form .field.qty { display:block; float:right; width:95px; margin-top:-4px;}
+body.page-ice-cream-cakes #order-item-form .field.comment { margin-bottom:0;}
+body.page-ice-cream-cakes #order-item-form .char-count { float:right; font-size:16px; margin-top:-4px; }
+body.page-ice-cream-cakes #order-item-form textarea { margin-bottom:0; height:42px; padding-top:8px; }
+body.page-ice-cream-cakes #order-item-form textarea::-webkit-input-placeholder { font-style: italic; font-weight:300; }
+body.page-ice-cream-cakes #order-item-form textarea:-moz-placeholder { font-style: italic; font-weight:300; }
+body.page-ice-cream-cakes #order-item-form textarea::-moz-placeholder { font-style: italic; font-weight:300; }
+body.page-ice-cream-cakes #order-item-form textarea:-ms-input-placeholder { font-style: italic; font-weight:300; }
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
