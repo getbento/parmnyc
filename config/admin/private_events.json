@@ -23,6 +23,7 @@
     "details"
   ], 
   "sections": [
-    "description"
+    "description",
+    "image_gallery"
   ]
 }
