@@ -19,7 +19,6 @@
     "venue_image": "JPG OR PNG 347PX BY 233PX AT 72 DPI"
   }, 
   "hide_sections": [
-    "image_gallery", 
     "venue_image", 
     "details"
   ], 
