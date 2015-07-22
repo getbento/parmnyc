@@ -647,6 +647,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .page-private-events .intro {margin-bottom: 10px; }
 .page-private-events .intro h3 {text-align: left; margin-bottom: 5px;}
 .venue-list li {padding-top: 150px; margin-top: -110px; }
+.photos-button, .photos_button:hover {display:block; margin-top:20px; line-height:52px; color: #f2f1ef; width: 195px; height: 46px; background: transparent url(../img/button2.png) no-repeat !important; border: none !important; font-size: 18px; }
 .venue-list h1 {text-align: left; margin-bottom: 10px;}
 .venue-list h1 a{text-decoration: none; }
 #venue-nav { padding-top: 15px; padding-bottom: 15px;}

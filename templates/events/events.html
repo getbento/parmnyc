@@ -26,6 +26,9 @@
 				<li id="venue-{{venue.name|slugify}}">
 					<h1><a {% if venue.external_url %}href="{{ venue.external_url }}" target="_blank"{% endif %}>{{ venue.name }}</a></h1>
 					<div class="content wisywig">{{venue.description|safe}}</div>
+					{% if venue.gallery.images.all|length > 0 %}
+						<a href="#" id="see-photo-{{venue.gallery.name|slugify}}" class="photos-button button">SEE PHOTOS</a>
+					{% endif %}
 				</li>
 			{% endfor %}
 			</ul>
@@ -49,6 +52,31 @@
 <link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.datepick.css" />
 <script type="text/javascript">
 jQuery(document).ready(function($) {
+
+
+    {% for gallery in galleries %}
+	$("#see-photo-{{gallery.name|slugify}}").click(function() {
+    	$.fancybox.open([
+    	    {% for image in gallery.images.all %}
+    	      {
+    	        href : '{{ image.image_url }}'
+    	      }
+    	      {% if not forloop.last %},{% endif %}
+    	    {% endfor %}
+    	], {
+    	  helpers : {
+    	    thumbs : {
+    	      width: 75,
+    	      height: 50
+    	    }
+    	  },
+    	  beforeShow : function() {
+    	      this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    	  }
+    	});
+  	});
+    {% endfor %}
+
 	$('select.dropkick').dropkick({
 		mobile: true
 	});
