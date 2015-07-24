@@ -45,8 +45,8 @@
             </ul>
             <select id="sandwich" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-descr="" data-price="180" data-type="serves 14-18">Sandwich Tray (Large)</option>
-              <option data-descr="" data-price="120" data-type="serves 8-12" >Sandwich Tray (Small)</option>
+              <option data-descr="" data-extra-descr="all sandwich orders include mayo, house spicy and zesty on the side" data-price="180" data-type="serves 14-18">Sandwich Tray (Large)</option>
+              <option data-descr="" data-extra-descr="all sandwich orders include mayo, house spicy and zesty on the side" data-price="120" data-type="serves 8-12" >Sandwich Tray (Small)</option>
             </select>
           </div>
           <div class="field order-field order-field-salad">
@@ -56,12 +56,11 @@
             </ul>
             <select id="salad" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-descr="italian-american classic" data-price="50">Sunday</option>
-              <option data-descr="walnuts, sherry, goat cheese" data-price="50">Beet</option>
-              <option data-descr="feta, olive, cucumber" data-price="50">Greek Farro</option>
-              <option data-descr="tricolore, peanuts, tomato" data-price="50">Chopped</option>
-              <option data-descr="the classic" data-price="50">Caesar</option>
-              <option data-descr="fig, almond, salata" data-price="50">Arugula</option>
+              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="italian-american classic" data-price="50">Sunday</option>
+              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="the classic" data-price="50">Caesar</option>
+              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="fig, almond, salata" data-price="50">Arugula</option>
+              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="tricolore, peanuts, tomato" data-price="50">Chopped</option>
+              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="feta, olive, cucumber" data-price="50">Greek Farro</option>
             </select>
           </div>
           <div class="field order-field order-field-side">
@@ -71,39 +70,38 @@
             </ul>
             <select id="side" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-descr="" data-price="50">Garlic Broccoli</option>
-              <option data-descr="" data-price="45">Housemade Mozz</option>
+              <option data-extra-descr="each side order serves 8 - 12 people" data-descr="" data-price="50">Garlic Broccoli</option>
+              <option data-extra-descr="each side order serves 8 - 12 people" data-descr="" data-price="75">Prosciutto &amp; Mozz</option>
+              <option data-extra-descr="each side order serves 8 - 12 people" data-descr="" data-price="55">Housemade Fresh Mozz</option>
             </select>
           </div>
           <div class="field order-field order-field-dessert">
             <label>desserts</label>
-            <div class="descr">Each dessert order serves up to 18 people</div>
+            <div class="descr">Each dessert order serves 8 - 12 people</div>
             <label class="quantifiable"><input class="form-text" style="" type="text" name="brownie-tray" placeholder="Qty" data-price="60">Brownie Tray $60</label>
           </div>
           <div class="field order-field order-field-beverages-and-utensils">
             <label>beverages and utensils</label>
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-coke" placeholder="Qty" data-price="3">Diet Coke (can) $3</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="coca-cola" placeholder="Qty" data-price="3">Coca Cola (can) $3</label>
             </div>
             <div class="one-of-two last">
               <label class="quantifiable"><input class="form-text" style="" type="text" name="ginger-ale" placeholder="Qty" data-price="3">Ginger Ale (can) $3</label>
             </div>
+
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="coca-cola" placeholder="Qty" data-price="3">Coca Cola (can) $3</label>
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-coke" placeholder="Qty" data-price="3">Diet Coke (can) $3</label>
             </div>
             <div class="one-of-two last">
               <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-ginger-ale" placeholder="Qty" data-price="3">Diet Ginger Ale (can) $3</label>
             </div>
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="text" name="club-soda" placeholder="Qty" data-price="3">Club Soda (can) $3</label>
-            </div>
-            <div class="one-of-two last">
               <label class="quantifiable"><input class="form-text" style="" type="text" name="poland-spring" placeholder="Qty" data-price="3">Poland Spring $3</label>
             </div>
-            <div class="one-of-two">
+            <div class="one-of-two last">
               <label class="quantifiable"><input class="form-text" style="" type="text" name="san-pellegrino" placeholder="Qty" data-price="3">San Pellegrino (330ml) $3</label>
             </div>
-            <div class="one-of-two last">
+            <div class="one-of-two">
               <label class="quantifiable"><input class="form-text" style="" type="text" name="utensil-set" placeholder="Qty" data-price="0.50">Utensil Set (0.50 ea.)</label>
             </div>
           </div>
@@ -228,37 +226,45 @@
       </div>
 
       <div class="field sandwich-special check-field">
-        <input type="checkbox" id="italian-combo" class="checkbox additional-check" data-text="Italian Combo" data-long-text="Include Italian Combo" data-price="0"/>
-        <label for="italian-combo" class="check-label"><span class="box"></span>Include Italian Combo <span class="check-description">Mortadella, Ham, Soppressata, Pepperoni, Provolone, Zesty</span></label>
+        <input type="checkbox" id="house-turkey" class="checkbox additional-check" data-text="House Turkey" data-long-text="House Turkey" data-price="0"/>
+        <label for="house-turkey" class="check-label"><span class="box"></span>House Turkey <span class="check-description">Roasted Turkey, House Spicy, Lettuce, Tomato, Red Onion, Mayo</span></label>
       </div>
       <div class="field sandwich-special check-field">
-        <input type="checkbox" id="chicken-salad" class="checkbox additional-check" data-text="Chicken Salad" data-long-text="Include Chicken Salad" data-price="0"/>
-        <label for="chicken-salad" class="check-label"><span class="box"></span>Include Chicken Salad <span class="check-description">Roasted Chicken, Zesty Mayo, Glazed Bacon, Potato Chips, Lettuce, Tomato</span></label>
+        <input type="checkbox" id="chicken-salad" class="checkbox additional-check" data-text="Chicken Salad" data-long-text="Chicken Salad" data-price="0"/>
+        <label for="chicken-salad" class="check-label"><span class="box"></span>Chicken Salad <span class="check-description">roasted chicken, bacon, potato chips, lettuce, tomato, zesty</span></label>
       </div>
       <div class="field sandwich-special check-field">
-        <input type="checkbox" id="house-turkey" class="checkbox additional-check" data-text="House Turkey" data-long-text="Include House Turkey" data-price="0"/>
-        <label for="house-turkey" class="check-label"><span class="box"></span>Include House Turkey <span class="check-description">Roasted Turkey, House Spicy, Lettuce, Tomato, Red Onion, Mayo</span></label>
-      </div>
-      <div class="field sandwich-special check-field">
-        <input type="checkbox" id="ham-and-cheese" class="checkbox additional-check" data-text="Ham and Cheese" data-long-text="Include Ham and Cheese" data-price="0"/>
-        <label for="ham-and-cheese" class="check-label"><span class="box"></span>Include Ham and Cheese <span class="check-description">Ham, American, Lettuce, Tomato, Mustard</span></label>
-      </div>
-      <div class="field sandwich-special check-field">
-        <input type="checkbox" id="roast-beef" class="checkbox additional-check" data-text="Roast Beef" data-long-text="Include Roast Beef" data-price="0"/>
-        <label for="roast-beef" class="check-label"><span class="box"></span>Include Roast Beef <span class="check-description">Roasted Beef, Provolone, Broccoli Rabe, Zesty Mayo</span></label>
-      </div>
-      <div class="field sandwich-special check-field">
-        <input type="checkbox" id="prosciutto-and-mozz" class="checkbox additional-check" data-text="Prosciutto and Mozz" data-long-text="Include Prosciutto and Mozz" data-price="0"/>
-        <label for="prosciutto-and-mozz" class="check-label"><span class="box"></span>Include Prosciutto and Mozz <span class="check-description">Prosciutto, Mozz, Basil</span></label>
-      </div>
-      <div class="field sandwich-special check-field">
-        <input type="checkbox" id="caprese" class="checkbox additional-check" data-text="Caprese" data-long-text="Include Caprese" data-price="0"/>
-        <label for="caprese" class="check-label"><span class="box"></span>Include Caprese <span class="check-description">Mozz, Zesty Tomatoes, Basil</span></label>
+        <input type="checkbox" id="italian-combo" class="checkbox additional-check" data-text="Italian Combo" data-long-text="Italian Combo" data-price="0"/>
+        <label for="italian-combo" class="check-label"><span class="box"></span>Italian Combo <span class="check-description">mortadella, ham, soppressata, pepperoni, provolone, zesty</span></label>
       </div>
 
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="ham-and-cheese" class="checkbox additional-check" data-text="Ham and Cheese" data-long-text="Ham and Cheese" data-price="0"/>
+        <label for="ham-and-cheese" class="check-label"><span class="box"></span>Ham and Cheese <span class="check-description">ham, american, lettuce, tomato</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="roast-beef" class="checkbox additional-check" data-text="Roast Beef" data-long-text="Roast Beef" data-price="0"/>
+        <label for="roast-beef" class="check-label"><span class="box"></span>Roast Beef <span class="check-description">rare roast beef, pepperoncini, mozz, garlic bread
+</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="caprese" class="checkbox additional-check" data-text="Chick Caprese" data-long-text="Chicken Caprese" data-price="0"/>
+        <label for="caprese" class="check-label"><span class="box"></span>Chicken Caprese<span class="check-description">chicken cutlet, fresh mozz, tomato, basil</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="salam-provolone" class="checkbox additional-check" data-text="Salami &amp; Provolone" data-long-text="Salami &amp; Provolone" data-price="0"/>
+        <label for="salam-provolone" class="check-label"><span class="box"></span>Salami &amp; Provolone <span class="check-description">genoa, mild provolone, lettuce, tomato</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="spicy-avocado" class="checkbox additional-check" data-text="Spicy Avocado" data-long-text="Spicy Avocado" data-price="0"/>
+        <label for="spicy-avocado" class="check-label"><span class="box"></span>Spicy Avocado<span class="check-description">avocado, zesty tomatoes, arugula, spicy</span></label>
+      </div>
+
+
+
       <div class="field salad-special check-field">
-        <input type="checkbox" id="add-chicken" class="checkbox additional-check" data-text="Scallopini" data-long-text="Chicken Scallopini" data-price="30"/>
-        <label for="add-chicken" class="check-label"><span class="box"></span>Add Chicken Scallopini +$30</label>
+        <input type="checkbox" id="add-chicken" class="checkbox additional-check" data-text="Grilled Chicken" data-long-text="Grilled Chicken" data-price="30"/>
+        <label for="add-chicken" class="check-label"><span class="box"></span>Add grilled chicken +$30</label>
       </div>
       <div class="field salad-special check-field">
         <input type="checkbox" id="add-avocado" class="checkbox additional-check" data-text="Avocado" data-long-text="Avocado" data-price="12"/>
@@ -271,6 +277,10 @@
       <div class="field">
         <label for="item-comment">comments</label>
         <textarea id="item-comment" class="form-text"></textarea>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="sauce_on_side" class="checkbox additional-check" data-text="Sauce on Side" data-long-text="Sauce on Side" data-price="0"/>
+        <label for="sauce_on_side" class="check-label"><span class="box"></span><span style="font-size:12px;">Check box if you would like the sauce that goes on your sandwich on the side</span></label>
       </div>
       <div class="field submit">
         <input type="submit" value="submit" class="button submit-button" />
@@ -326,7 +336,9 @@ jQuery(document).ready(function($) {
               $('#item-title', this.content).text(thisoption.text()).data('item', thisoption);
               $('#item-descr', this.content).html((thisoption.attr('data-type')||'') + " <strong>$" +
                                                   thisoption.attr('data-price') + "</strong><br />" +
-                                                  thisoption.attr('data-descr'));
+                                                  thisoption.attr('data-descr') +
+                                                  (thisoption.attr('data-extra-descr') || '')
+                                                );
               $('#item-select-id', this.content).val($(this_select).attr('id'));
               $('.form-text', this.content).val('');
               $('.field input.checkbox').attr('checked', false);
@@ -339,9 +351,11 @@ jQuery(document).ready(function($) {
               if ($(this_select).is('#sandwich')) {
                 $('.field.sandwich-special', this.content).show();
                 $("label[for=item-qty]").text("Number of Platters");
+                $('#sauce-on-side').show();
               } else {
                 $('.field.sandwich-special', this.content).hide();
                 $("label[for=item-qty]").text("Qty.");
+                $('#sauce-on-side').hide();
               }
 
             }
