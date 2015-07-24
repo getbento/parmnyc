@@ -813,19 +813,19 @@ body.page-ice-cream-cakes #main-content .width-wrapper { max-width:1100px; }
 body.page-ice-cream-cakes #main-content .wysiwyg { display:block; margin-bottom: 36px;}
 body.page-ice-cream-cakes #main-content .wysiwyg p { line-height:30px;}
 
-.ice-cream-option {position: relative; margin-bottom: 65px;}
+.ice-cream-option {position: relative; margin-bottom: 30px;}
 .ice-cream-option .border-wrap {padding: 8px 8px 14px; }
 .ice-cream-option .img-wrap {background: #f03e35; border: 2px solid #f03e35; }
 .ice-cream-option .img-wrap .image {display: block; height: 0; padding-bottom: 67.15%; transition: opacity 0.1s; -webkit-transition: opacity 0.1s;}
 .ice-cream-option .img-wrap:hover .image, .ice-cream-option .img-wrap .image:hover {opacity: 0.4; }
 .ice-cream-option .info {text-align: center; padding-left: 15px; padding-right: 15px; margin-top: -6px; font-size: 17px; color: #303030; line-height: 1.2; position: relative; }
 .ice-cream-option .title {font-weight:bold; font-size: 18px; text-transform: uppercase; }
-.ice-cream-option .source {margin-top: 8px; }
+.ice-cream-option .source {margin-top: 4px; }
 
 .ice-cream-option .frame {
   display:block;
   position:absolute;
-  top:-3px;
+  top:0;
   left:0;
   height:2px;
   width:100%;
@@ -834,9 +834,9 @@ body.page-ice-cream-cakes #main-content .wysiwyg p { line-height:30px;}
 .ice-cream-option .frame-left, .ice-cream-option .frame-right {
   display:block;
   position:absolute;
-  top:-3px;
+  top:0;
+  bottom:4px;
   width:12px;
-  height:100%;
   border:2px solid #f03e35;
   
 }
@@ -855,7 +855,7 @@ body.page-ice-cream-cakes #order-view .dk-select.dropkick { margin-bottom:20px; 
 body.page-ice-cream-cakes #order-view #submit_button { width:100%; background-position:center; font-size:18px;line-height:62px; margin-top:90px; }
 
 body.page-ice-cream-cakes .order-popup { width: 635px; }
-body.page-ice-cream-cakes #order-item-form img { margin-bottom:25px; }
+body.page-ice-cream-cakes #order-item-form img { margin-bottom:25px; width:100%; }
 body.page-ice-cream-cakes #order-item-form h1 { font-size:36px; margin-bottom:0; text-align:left; }
 body.page-ice-cream-cakes #order-item-form .field.qty { display:block; float:right; width:95px; margin-top:-4px;}
 body.page-ice-cream-cakes #order-item-form .field.comment { margin-bottom:0;}
