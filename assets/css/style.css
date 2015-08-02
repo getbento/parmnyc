@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -63,7 +63,7 @@ table {
   line-height: 55px;
   cursor: pointer; }
 
-.dk-selected { 
+.dk-selected {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -135,7 +135,7 @@ table {
 
 .dk-select-options .dk-option-disabled {
   color: #BBBBBB;
-  display: none; 
+  display: none;
   background-color: transparent; }
 
 .dk-optgroup {
@@ -376,6 +376,12 @@ form .field.one-third {width: 28%; clear: none;}
 form .field.one-third.last {margin-right: 0;}
 form .field .descr {font-size: 16px; font-weight: normal; text-transform: uppercase; margin-top: -10px; margin-bottom: 10px; }
 
+label#item-title {
+  font-family: 'handsome', cursive !important;
+  font-size: 28px;
+  text-transform: none;
+}
+
 input.button {min-width: 187px; height: 46px; line-height: 40px; }
 input.date-picker {padding-left: 40px !important; background: url(../img/calendar1.png) no-repeat 12px center; }
 .form-text, #tripleseat_embed_form input, #tripleseat_embed_form textarea {background-color: transparent; font-size: 20px; box-sizing: border-box; -moz-box-sizing: border-box; width: 100%; height: 59px; line-height: 100%; border: 2px solid #f03e35 !important; font-family: 'neutra', sans-serif; padding: 0 12px; color:#303030;}
@@ -448,7 +454,7 @@ body {font-family: 'neutra', sans-serif; font-size: 17px; line-height: 1.5; colo
 .delivery-button .inner {margin: 3px; width: 133px; height: 133px; background: #f03e35; border-radius: 50%; overflow: hidden; color: #f4f2f0; font-weight: bold; line-height: 1;}
 .delivery-button .inner .delivery {font-family: 'handsome', cursive; font-size: 38px; margin-top: 40px;}
 .delivery-button .inner .order {font-size: 12px; text-transform: uppercase; margin-top: -1px;}
-header .delivery-button.active, .delivery-button:hover {border-color: #f4f2f0; background-color: #f03e35; } 
+header .delivery-button.active, .delivery-button:hover {border-color: #f4f2f0; background-color: #f03e35; }
 header .delivery-button.active .inner, .delivery-button:hover .inner {background-color: #f4f2f0; color: #f03e35; }
 
 header {background: url(../img/header-bg.png); box-shadow: 0 1px 2px rgba(0,0,0,0.2); position: relative; z-index: 200; height: 250px; }
@@ -606,7 +612,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 
 .member-popup-overlay {background-color: #f03e35; background-color: rgba(240, 62, 53, 0.92); }
 .member-popup .fancybox-skin {background: transparent; color: #fff; box-shadow: none; text-align: center; }
-.member-popup h1, .member-popup h2, .member-popup h3, .member-popup h4 {color: #fff; color: inherit; } 
+.member-popup h1, .member-popup h2, .member-popup h3, .member-popup h4 {color: #fff; color: inherit; }
 .member-popup h1.name {margin-bottom: 7px; }
 .member-popup h3.title {margin-bottom: 23px; }
 .member-popup .fancybox-close {top: 48px; }
@@ -667,7 +673,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .field.order-field .dk-select-options .dk-option:hover span {display: inline; float: right; font-size: 80%; }
 .field.order-field ul.items {margin-top: -5px; margin-bottom: 5px; }
 .field.order-field ul.items li {background: url(../img/delete.png) no-repeat 97% 50% #f03e35; color: #f3f1ef; padding: 10px 40px 10px 20px; cursor: pointer; margin-bottom: 10px; text-transform: uppercase; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
-.field.order-field ul.items li span {margin-right: 5px; } 
+.field.order-field ul.items li span {margin-right: 5px; }
 .field.order-field ul.items li .comments {text-decoration: none; color: inherit; }
 .field.order-field ul.items li :empty {display: none; }
 .ui-multiselect.multisel-order-field {width: 100% !important; padding: 0 30px; border: 2px solid #f03e35; background: transparent; height: 59px; font-size: 16px; font-weight: normal; text-transform: uppercase; color: #303030; font-family: "neutra",sans-serif; cursor: pointer; position: relative; }
@@ -838,13 +844,13 @@ body.page-ice-cream-cakes #main-content .wysiwyg p { line-height:30px;}
   bottom:4px;
   width:12px;
   border:2px solid #f03e35;
-  
+
 }
 .ice-cream-option .frame-left { left:0px; border-right:none; }
 .ice-cream-option .frame-right { right:0px; border-left:none; }
 
 body.page-ice-cream-cakes .one-of-four.last { width:30%; }
-body.page-ice-cream-cakes #order-view { background: #fff; border: 2px dotted #f03e35; position: relative; text-align: left; margin-bottom:40px; } 
+body.page-ice-cream-cakes #order-view { background: #fff; border: 2px dotted #f03e35; position: relative; text-align: left; margin-bottom:40px; }
 body.page-ice-cream-cakes #order-view h2 { font-size:36px; }
 body.page-ice-cream-cakes #order-view #order-view-list li .title { font-weight: bold; font-size: 17px; }
 body.page-ice-cream-cakes #order-view #order-view-list li .title .remove { text-transform:lowercase; }
