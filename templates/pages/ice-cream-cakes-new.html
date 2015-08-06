@@ -267,11 +267,13 @@
 					Friday - Thursday  11am - midnight
             	</div>
           	</div>
+            <form id="order" action="http://mfg.vmgdev.com/index.php?ACT=30" method="POST">
+                <input type="hidden" id="orderData" name="order" value="">
 
-			<div class="field">
-				<a id="submit_button" class="button" href="#">Proceed to Checkout</a>
-			</div>
-
+    			<div class="field">
+    				<a id="submit_button" class="button" href="#">Proceed to Checkout</a>
+    			</div>
+            </form>
           </div>
         </div>
 
@@ -328,7 +330,7 @@
 	$(document).ready(function() {
 
 		var your_order = [];
-		
+
 		$("article.ice-cream-option").click(function(e){
 			var $option = $(this);
 			e.preventDefault();
@@ -416,6 +418,18 @@
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 		}
 	});
+
+    $('a#submit_button').on('click', function(event) {
+        event.preventDefault();
+        var order = {};
+
+        order.pickup_date = $('.date-picker').val();
+        order.pickup_location = $('#location').val();
+        order.items = your_order;
+
+        $('#orderData').val(JSON.stringify(order));
+        $('form#order').submit();
+    });
 
 	$('select.dropkick').dropkick({
 		mobile: true,
