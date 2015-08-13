@@ -411,6 +411,7 @@
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',
 		minDate: moment().tz("America/New_York").format('H') > 14 ? +2 : +1,
+		maxDate: +365,
 		onChangeMonthYear: function(year, month) {
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 		},

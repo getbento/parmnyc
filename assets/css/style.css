@@ -871,6 +871,9 @@ body.page-ice-cream-cakes #order-item-form textarea::-webkit-input-placeholder {
 body.page-ice-cream-cakes #order-item-form textarea:-moz-placeholder { font-style: italic; font-weight:300; }
 body.page-ice-cream-cakes #order-item-form textarea::-moz-placeholder { font-style: italic; font-weight:300; }
 body.page-ice-cream-cakes #order-item-form textarea:-ms-input-placeholder { font-style: italic; font-weight:300; }
+body.page-ice-cream-cakes .ui-datepicker-cmd.ui-datepicker-cmd-today { cursor:default; }
+body.page-ice-cream-cakes .ui-datepicker-cmd.ui-datepicker-cmd-today:hover { text-decoration: none !important; }
+
 
 .clearfix:after {
      visibility: hidden;
