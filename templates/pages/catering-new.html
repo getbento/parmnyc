@@ -35,51 +35,59 @@
 
       <form action="http://mfg.vmgdev.com/?ACT=28&entry_id=4" method="post" id="order-prepare" style="padding-bottom:100px">
         <div class="padder form-fields">
+          <div class="field left-half order-first-name">
+            <label for="first_name">first name</label>
+            <input type="text" name="Order Name" id="first_name" class="form-text" />
+          </div>
+          <div class="field right-half order-last-name">
+            <label for="last_name">last name</label>
+            <input type="text" name="Order Name" id="last_name" class="form-text" />
+          </div>
           <div class="field order-name">
-            <label for="order_name">name for the order*</label>
-            <input type="text" name="Order Name" id="order_name" class="form-text" />
+            <label for="company_name">company name (optional)</label>
+            <input type="text" name="Order Name" id="company_name" class="form-text" />
           </div>
           <div class="field order-field order-field-sandwich">
-            <label>sandwiches*</label>
+            <label>sandwiches</label>
             <ul class="items">
             </ul>
             <select id="sandwich" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-descr="" data-extra-descr="all sandwich orders include mayo, house spicy and zesty on the side" data-price="180" data-type="serves 14-18">Sandwich Tray (Large)</option>
-              <option data-descr="" data-extra-descr="all sandwich orders include mayo, house spicy and zesty on the side" data-price="120" data-type="serves 8-12" >Sandwich Tray (Small)</option>
+              <option data-descr="" data-price="180" data-type="serves up to 18">Sandwich Tray (Large)</option>
+              <option data-descr="" data-price="125" data-type="serves up to 12" >Sandwich Tray (Small)</option>
             </select>
           </div>
           <div class="field order-field order-field-salad">
             <label>salads</label>
-            <div class="descr">Each salad order serves 8 - 12 people</div>
+            <div class="descr">Each salad order serves up to 12</div>
             <ul class="items">
             </ul>
             <select id="salad" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="italian-american classic" data-price="50">Sunday</option>
-              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="the classic" data-price="50">Caesar</option>
-              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="fig, almond, salata" data-price="50">Arugula</option>
-              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="tricolore, peanuts, tomato" data-price="50">Chopped</option>
-              <option data-extra-descr="<br>each salad order serves 8 - 12 people" data-descr="feta, olive, cucumber" data-price="50">Greek Farro</option>
+              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="italian-american classic" data-price="60">Sunday</option>
+              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="the classic" data-price="60">Caesar</option>
+              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="fig, almond, salata" data-price="60">Arugula</option>
+              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="tricolore, peanuts, tomato" data-price="60">Chopped</option>
+              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="feta, olive, cucumber" data-price="60">Greek Farro</option>
             </select>
           </div>
           <div class="field order-field order-field-side">
-            <label>sides</label>
-            <div class="descr">Each side order serves 8 - 12 people</div>
+            <label>Antipasti Trays</label>
+            <div class="descr">Each antipasti tray order serves up to 12</div>
             <ul class="items">
             </ul>
             <select id="side" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-extra-descr="each side order serves 8 - 12 people" data-descr="" data-price="50">Garlic Broccoli</option>
-              <option data-extra-descr="each side order serves 8 - 12 people" data-descr="" data-price="75">Prosciutto &amp; Mozz</option>
-              <option data-extra-descr="each side order serves 8 - 12 people" data-descr="" data-price="55">Housemade Fresh Mozz</option>
+              <option data-extra-descr="each tray serves up to 12 people" data-descr="Genoa Salami, Mortadella, House Turkey, Roast Beef, Chicken Salad" data-price="50">Meat</option>
+              <option data-extra-descr="each tray serves up to 12 people" data-descr="Fresh Mozz, Provolone, and Parmesan with House Sesame Bread" data-price="50">Cheese</option>
+              <option data-extra-descr="each tray serves up to 12 people" data-descr="Cherry Tomatoes, Hot House Cucumber, Breakfast Radish, Fennel, Cauliflower, Broccoli & Carrots with Buffalo Vinaigrette, Caesar Dressing, Honey Mustard and Zesty Italian sauces." data-price="50">Crudite</option>
             </select>
           </div>
           <div class="field order-field order-field-dessert">
             <label>desserts</label>
-            <div class="descr">Each dessert order serves 8 - 12 people</div>
-            <label class="quantifiable"><input class="form-text" style="" type="text" name="brownie-tray" placeholder="Qty" data-price="60">Brownie Tray $60</label>
-            <label class="quantifiable"><input class="form-text" style="" type="text" name="key-lime-pie" placeholder="Qty" data-price="60">Key Lime Pie $45</label>
+            <div class="descr">Each dessert order serves up to 12</div>
+            <label class="quantifiable"><input class="form-text" style="" type="text" name="valrhona-brownie-tray" placeholder="Qty" data-price="50">Valrhona Brownie Tray $50</label>
+            <label class="quantifiable"><input class="form-text" style="" type="text" name="key-lime-pie" placeholder="Qty" data-price="50">Key Lime Pie $50</label>
           </div>
           <div class="field order-field order-field-beverages-and-utensils">
             <label>beverages and utensils</label>
@@ -145,7 +153,7 @@
           </div>
           <div class="field method">
             <label for="method">Delivery/Pick Up*</label>
-            <select id="method" class="dropkick">
+            <select id="method" name="delivery_pickup" class="dropkick">
               <option value="delivery">Delivery</option>
               <option value="pickup">Pick-up</option>
             </select>
@@ -194,13 +202,18 @@
             <input type="text" name="order_date" id="event_date" class="form-text date-picker" />
           </div>
           <div class="field event-time right-half">
-            <label for="event_time">time for order</label>
+            <label for="event_time">Time for Delivery/Pick-Up</label>
             <input type="text" name="order_time" id="event_time" class="form-text" />
           </div>
 
           <div class="field">
             <label for="notes">Notes</label>
             <input type="text" name="notes" id="notes" class="form-text" />
+          </div>
+
+          <div class="field">
+            <label for="referred_by">Referred by</label>
+            <input type="text" name="referred_by" id="referred_by" class="form-text" />
           </div>
 
 
@@ -279,10 +292,6 @@
         <label for="item-comment">comments</label>
         <textarea id="item-comment" class="form-text"></textarea>
       </div>
-      <div class="field sandwich-special check-field">
-        <input type="checkbox" id="sauce_on_side" class="checkbox additional-check" data-text="Sauce on Side" data-long-text="Sauce on Side" data-price="0"/>
-        <label for="sauce_on_side" class="check-label"><span class="box"></span><span style="font-size:12px;">Check box if you would like the sauce that goes on your sandwich on the side</span></label>
-      </div>
       <div class="field submit">
         <input type="submit" value="submit" class="button submit-button" />
         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -351,7 +360,7 @@ jQuery(document).ready(function($) {
               }
               if ($(this_select).is('#sandwich')) {
                 $('.field.sandwich-special', this.content).show();
-                $("label[for=item-qty]").text("Number of Platters");
+                $("label[for=item-qty]").text("Number of Trays");
                 $('#sauce-on-side').show();
               } else {
                 $('.field.sandwich-special', this.content).hide();
@@ -368,20 +377,34 @@ jQuery(document).ready(function($) {
         if($(this.data.select).val() == "delivery") {
           $(".pickup-fields").hide();
           $(".delivery-fields").show();
+          $("#delivery-line").show();
+
+          calc_total();
         } else if($(this.data.select).val() == "pickup") {
           $(".pickup-fields").show();
           $(".delivery-fields").hide();
+          $("#delivery-line").hide();
+          calc_total();
+
         }
       }
     }
 	});
+  var minDate = '+1';
+
+  var currentDate = new Date();
+  var hours = currentDate.getHours();
+
+  if (hours > 19) {
+    var minDate = '+2';
+  }
 
 	$('.date-picker').datepick({
 //		onDate: $.datepick.noWeekends,
 		renderer: $.datepick.themeRollerRenderer,
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',
-//		minDate: +3,
+    minDate: minDate,
 		onChangeMonthYear: function(year, month) {
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 		},
@@ -451,6 +474,10 @@ jQuery(document).ready(function($) {
       total += $(this).find('input').data('price') * $(this).find('input').val();
     });
 
+    if ($('#method').val() == 'delivery') {
+      total += 30;
+    }
+
     $('#order-view .total .price').text('$' + total);
     $('#order-total').val(total);
 
@@ -458,12 +485,9 @@ jQuery(document).ready(function($) {
   }
   $('#order-prepare').submit(function(e) {
     e.preventDefault();
-    if(!$('#order_name').val()) {
-      alert('Please input your Order Name.');
+    if(!$('#first_name').val() || !$('#last_name').val()) {
+      alert('Please enter your first and last name.');
       $('#order_name').focus();
-    }
-    else if($('.field.order-field-sandwich ul.items li').length == 0) {
-      alert('Please choose at least one sandwich.');
     }
     else {
       $('#order-prepare').slideUp();
@@ -480,10 +504,6 @@ jQuery(document).ready(function($) {
            .text(this_order_li.data('order').quantity + ' ' + this_order_li.data('item').text())
            .append($('<a href="javascript:void(0)" class="remove"/>').text('remove').click(function() {
 
-              if($('.field.order-field-sandwich ul.items li').length == 1 && this_order_li.is('.field.order-field-sandwich ul.items li')) {
-                alert('You need to order at least one sandwich.');
-                return false;
-              }
              this_order_li.remove();
              $(this).parent('div.title').parent('li').remove();
              calc_total();
@@ -533,6 +553,11 @@ jQuery(document).ready(function($) {
         }
       });
 
+      if ($('#method').val() == 'delivery') {
+        var shipping_li = '<li id="delivery-line"><div class="title"><div class="price">$30</div>Delivery Fee</div></li>';
+        $('#order-view-list').append(shipping_li);
+      }
+
       calc_total();
 
       return false;
@@ -553,14 +578,16 @@ jQuery(document).ready(function($) {
       return false;
     } else {
       var order_summary = "";
-      order_summary += "Order Name: " + $('#order_name').val() + "\n";
+      order_summary += "First Name: " + $('#first_name').val() + "\n";
+      order_summary += "Last Name: " + $('#last_name').val() + "\n";
+      order_summary += "Company Name: " + $('#company_name').val() + "\n";
       order_summary += "Sandwiches: \n" + $.map($('.field.order-field-sandwich ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
 
       if($('.field.order-field-salad ul.items li').length) {
         order_summary += "\nSalads: \n" + $.map($('.field.order-field-salad ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
       }
       if($('.field.order-field-side ul.items li').length) {
-        order_summary += "\nSides: \n" + $.map($('.field.order-field-side ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
+        order_summary += "\nAntipasti Trays: \n" + $.map($('.field.order-field-side ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
       }
       $('.quantifiable').each(function() {
         if($(this).find('input').val() > 0) {
