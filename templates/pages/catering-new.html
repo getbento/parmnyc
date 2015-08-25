@@ -36,11 +36,11 @@
       <form action="http://mfg.vmgdev.com/?ACT=28&entry_id=4" method="post" id="order-prepare" style="padding-bottom:100px">
         <div class="padder form-fields">
           <div class="field left-half order-first-name">
-            <label for="first_name">first name</label>
+            <label for="first_name">first name for order</label>
             <input type="text" name="Order Name" id="first_name" class="form-text" />
           </div>
           <div class="field right-half order-last-name">
-            <label for="last_name">last name</label>
+            <label for="last_name">last name for order</label>
             <input type="text" name="Order Name" id="last_name" class="form-text" />
           </div>
           <div class="field order-name">
@@ -53,8 +53,8 @@
             </ul>
             <select id="sandwich" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-descr="" data-price="180" data-type="serves up to 18">Sandwich Tray (Large)</option>
-              <option data-descr="" data-price="125" data-type="serves up to 12" >Sandwich Tray (Small)</option>
+              <option data-price="180" data-descr=" - serves up to 18">Sandwich Tray (Large)</option>
+              <option data-price="125" data-descr=" - serves up to 12" >Sandwich Tray (Small)</option>
             </select>
           </div>
           <div class="field order-field order-field-salad">
@@ -64,11 +64,11 @@
             </ul>
             <select id="salad" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="italian-american classic" data-price="60">Sunday</option>
-              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="the classic" data-price="60">Caesar</option>
-              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="fig, almond, salata" data-price="60">Arugula</option>
-              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="tricolore, peanuts, tomato" data-price="60">Chopped</option>
-              <option data-extra-descr="<br>each salad order serves up to 12" data-descr="feta, olive, cucumber" data-price="60">Greek Farro</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="italian-american classic" data-price="60">Sunday</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="the classic" data-price="60">Caesar</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="fig, almond, salata" data-price="60">Arugula</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="tricolore, peanuts, tomato" data-price="60">Chopped</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="feta, olive, cucumber" data-price="60">Greek Farro</option>
             </select>
           </div>
           <div class="field order-field order-field-side">
@@ -78,9 +78,9 @@
             </ul>
             <select id="side" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-extra-descr="<br>each tray serves up to 12 people" data-descr="Genoa Salami, Mortadella, House Turkey, Roast Beef, Chicken Salad" data-price="50">Meat</option>
-              <option data-extra-descr="<br>each tray serves up to 12 people" data-descr="Fresh Mozz, Provolone, and Parmesan with House Sesame Bread" data-price="50">Cheese</option>
-              <option data-extra-descr="<br>each tray serves up to 12 people" data-descr="Cherry Tomatoes, Hot House Cucumber, Breakfast Radish, Fennel, Cauliflower, Broccoli & Carrots with Buffalo Vinaigrette, Caesar Dressing, Honey Mustard and Zesty Italian sauces." data-price="50">Crudite</option>
+              <option data-descr=" - serves up to 12 people" data-extra-descr="Genoa Salami, Mortadella, House Turkey, Roast Beef, Chicken Salad" data-price="50">Meat</option>
+              <option data-descr=" - serves up to 12 people" data-extra-descr="Fresh Mozz, Provolone, and Parmesan with House Sesame Bread" data-price="50">Cheese</option>
+              <option data-descr=" - serves up to 12 people" data-extra-descr="Cherry Tomatoes, Hot House Cucumber, Breakfast Radish, Fennel, Cauliflower, Broccoli & Carrots with Buffalo Vinaigrette, Caesar Dressing, Honey Mustard and Zesty Italian sauces." data-price="50">Crudite</option>
             </select>
           </div>
           <div class="field order-field order-field-dessert">
@@ -344,9 +344,9 @@ jQuery(document).ready(function($) {
               $('.fancybox-overlay').addClass('member-popup-overlay');
               var thisoption = $('option', this_select).eq(cur_sel);
               $('#item-title', this.content).text(thisoption.text()).data('item', thisoption);
-              $('#item-descr', this.content).html((thisoption.attr('data-type')||'') + " <strong>$" +
-                                                  thisoption.attr('data-price') + "</strong><br />" +
-                                                  thisoption.attr('data-descr') +
+              $('#item-descr', this.content).html((thisoption.attr('data-type') || '') + "  <strong>$" +
+                                                  thisoption.attr('data-price') + "</strong>" +
+                                                  thisoption.attr('data-descr') + "<br>" +
                                                   (thisoption.attr('data-extra-descr') || '')
                                                 );
               $('#item-select-id', this.content).val($(this_select).attr('id'));
