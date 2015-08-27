@@ -874,6 +874,8 @@ body.page-ice-cream-cakes #order-item-form textarea:-ms-input-placeholder { font
 body.page-ice-cream-cakes .ui-datepicker-cmd.ui-datepicker-cmd-today { cursor:default; }
 body.page-ice-cream-cakes .ui-datepicker-cmd.ui-datepicker-cmd-today:hover { text-decoration: none !important; }
 
+body.page-ice-cream-cakes .field.left-half, body.page-ice-cream-cakes .field.right-half {width: 46%; margin-right: 8%; float: left; margin-bottom: 32px; }
+body.page-ice-cream-cakes .field.right-half {clear: none; margin-right: 0; }
 
 .clearfix:after {
      visibility: hidden;

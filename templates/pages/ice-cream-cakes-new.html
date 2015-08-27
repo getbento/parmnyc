@@ -236,6 +236,17 @@
               <div class="label">total</div>
             </div>
 
+			<div class="field left-half">
+            	<label for="date"><strong>FIRST NAME</strong></label>
+            	<input type="text" name="first_name" id="first_name" class="form-text">
+          	</div>
+
+			<div class="field right-half">
+            	<label for="date"><strong>LAST NAME</strong></label>
+            	<input type="text" name="last_name" id="last_name" class="form-text">
+          	</div>
+          	<br><br>
+
 			<div class="field date">
             	<label for="date"><strong>SELECT DATE FOR ORDER</strong></label>
             	<input type="text" name="date" id="date" class="form-text date-picker">
@@ -426,6 +437,8 @@
 
         order.pickup_date = $('.date-picker').val();
         order.pickup_location = $('#location').val();
+        order.first_name = $('#first_name').val();
+        order.last_name = $('#last_name').val();
         order.items = your_order;
 
         $('#orderData').val(JSON.stringify(order));
