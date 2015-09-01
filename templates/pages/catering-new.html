@@ -78,15 +78,14 @@
             </ul>
             <select id="side" class="dropkick">
               <option disabled selected="selected">Choose</option>
-              <option data-descr=" - serves up to 12 people" data-extra-descr="Genoa Salami, Mortadella, House Turkey, Roast Beef, Chicken Salad" data-price="50">Meat</option>
-              <option data-descr=" - serves up to 12 people" data-extra-descr="Fresh Mozz, Provolone, and Parmesan with House Sesame Bread" data-price="50">Cheese</option>
-              <option data-descr=" - serves up to 12 people" data-extra-descr="Cherry Tomatoes, Hot House Cucumber, Breakfast Radish, Fennel, Cauliflower, Broccoli & Carrots with Buffalo Vinaigrette, Caesar Dressing, Honey Mustard and Zesty Italian sauces." data-price="50">Crudite</option>
+              <option data-descr=" - serves up to 12 people" data-extra-descr="Genoa Salami, Mortadella, House Turkey, Roast Beef, Chicken Salad" data-price="110">Meat</option>
+              <option data-descr=" - serves up to 12 people" data-extra-descr="Assorted vegetables with buffalo vinaigrette, caesar dressing, honey mustard, and zesty italian dipping sauces" data-price="80">Crudite</option>
             </select>
           </div>
           <div class="field order-field order-field-dessert">
             <label>desserts</label>
             <div class="descr">Each dessert order serves up to 12</div>
-            <label class="quantifiable"><input class="form-text" style="" type="text" name="valrhona-brownie-tray" placeholder="Qty" data-price="50">Valrhona Brownie Tray $50</label>
+            <label class="quantifiable"><input class="form-text" style="" type="text" name="valrhona-brownie-tray" placeholder="Qty" data-price="50">Fudge Brownie Tray $50</label>
             <label class="quantifiable"><input class="form-text" style="" type="text" name="key-lime-pie" placeholder="Qty" data-price="50">Key Lime Pie $50</label>
           </div>
           <div class="field order-field order-field-beverages-and-utensils">
@@ -284,6 +283,10 @@
         <input type="checkbox" id="add-avocado" class="checkbox additional-check" data-text="Avocado" data-long-text="Avocado" data-price="12"/>
         <label for="add-avocado" class="check-label"><span class="box"></span>Add avocado +$12</label>
       </div>
+      <div class="field antipasti-special check-field">
+        <input type="checkbox" id="add-cheese" class="checkbox additional-check" data-text="Cheese" data-long-text="Cheese" data-price="20"/>
+        <label for="add-cheese" class="check-label"><span class="box"></span>Add cheese +$20</label>
+      </div>
       <div class="field">
         <label for="item-qty">qty</label>
         <input type="text" id="item-qty" class="form-text text-small" maxlength="3"/>
@@ -341,6 +344,7 @@ jQuery(document).ready(function($) {
             },
             href: '#order-item-form',
             beforeShow: function() {
+              console.log($(this_select));
               $('.fancybox-overlay').addClass('member-popup-overlay');
               var thisoption = $('option', this_select).eq(cur_sel);
               $('#item-title', this.content).text(thisoption.text()).data('item', thisoption);
@@ -358,6 +362,13 @@ jQuery(document).ready(function($) {
               } else {
                 $('.field.salad-special', this.content).hide();
               }
+
+              if ($(this_select).is('#side') && $(this_select).val() == 'Meat') {
+                $('.field.antipasti-special', this.content).show();
+              } else {
+                $('.field.antipasti-special', this.content).hide();
+              }
+
               if ($(this_select).is('#sandwich')) {
                 $('.field.sandwich-special', this.content).show();
                 $("label[for=item-qty]").text("Number of Trays");
