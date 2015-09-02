@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{account.site_title}} | Ice Cream Cakes{% endblock %}
+
+{% block body_class %}page-ice-cream-cakes{% endblock %}
+
+{% block content %}
+<div id="banner" class="full-background" style="background-image:url('{{callouts.7.image_url}}')">
+	<div class="width-wrapper">
+		{% if callouts.7.button_text and callouts.7.button_file_path %}
+			<a href="{{callouts.7.button_file_url}}" target="_blank" class="button">{{callouts.7.button_text}}</a>
+		{% endif %}
+		<a href="{{callouts.7.link_target}}" target="_blank" class="button">request an order</a>
+	</div>
+
+</div>
+<div id="content">
+	<div class="width-wrapper">
+
+    <h1>{{callouts.7.title}}</h1>
+    <div class="padder">
+      <h3>{{callouts.7.subtitle}}</h3>
+      <div class="wysiwyg intro">{{callouts.7.text|safe}}</div>
+    </div>
+
+	</div>
+</div>
+{% endblock %}
