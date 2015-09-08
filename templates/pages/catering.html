@@ -25,56 +25,287 @@
 </div>
 <div id="content">
 	<div class="width-wrapper">
-		<form action="{% url 'form_to_email' %}" method="post" id="order-form">
+		<div id="order-form">
 			<h1>{{callouts.5.title}}</h1>
-			<div class="padder">
-				<h3>{{callouts.5.subtitle}}</h3>
-				<div class="wysiwyg intro">{{callouts.5.text|safe}}</div>
 
-				{% csrf_token %}
-				{% render_honeypot_field %}
-				<input type="hidden" name="recipient" id="recipient" value="party" />
+      <div class="wysiwyg intro padder">
+        <h3>{{callouts.5.subtitle}}</h3>
+        {{callouts.5.text|safe}}
+      </div>
 
-				<div class="field order-name">
-					<label for="order_name">name for the order*</label>
-					<input type="text" name="Order Name" id="order_name" required="required" class="form-text" />
-				</div>
-				<div class="field email">
-					<label for="email">your email*</label>
-					<input type="email" name="Email" id="email" required="required" class="form-text" />
-				</div>
-				<div class="field phone-number">
-					<label for="phone_number">phone number*</label>
-					<input type="text" name="Phone Number" id="phone_number" required="required" class="form-text" />
-				</div>
-				<div class="field">
-					<label for="deliv_location">delivery location</label>
-					<input type="text" name="Delivery Location" id="deliv_location" class="form-text" />
-				</div>
-				<div class="field">
-					<label for="guest_number">number of guests</label>
-					<input type="text" name="Number of Guests" id="guest_number" class="form-text" />
-				</div>
-				<div class="field event-date left-half">
-					<label for="event_date">date for order</label>
-					<input type="text" name="Order Date" id="event_date" class="form-text date-picker" />
-				</div>
-				<div class="field event-time right-half">
-					<label for="event_time">time for order</label>
-					<input type="text" name="Order Time" id="event_time" class="form-text" />
-				</div>
-				<div class="field">
-					<label for="notes">Notes</label>
-					<input type="text" name="Notes" id="notes" class="form-text" />
-				</div>
-				<div class="field submit">
-					<input type="submit" id="submit_button" value="submit" class="button" />
-				</div>
-				<div class="clear"></div>
-			</div>
-		</form>
-		<div class="thank-you">Thank you for contacting us! Someone will be in touch soon.</div>
+      <form action="http://mfg.vmgdev.com/?ACT=28&entry_id=4" method="post" id="order-prepare" style="padding-bottom:100px">
+        <div class="padder form-fields">
+          <div class="field left-half order-first-name">
+            <label for="first_name">first name for order</label>
+            <input type="text" name="Order Name" id="first_name" class="form-text" />
+          </div>
+          <div class="field right-half order-last-name">
+            <label for="last_name">last name for order</label>
+            <input type="text" name="Order Name" id="last_name" class="form-text" />
+          </div>
+          <div class="field order-name">
+            <label for="company_name">company name (optional)</label>
+            <input type="text" name="Order Name" id="company_name" class="form-text" />
+          </div>
+          <div class="field order-field order-field-sandwich">
+            <label>sandwiches</label>
+            <ul class="items">
+            </ul>
+            <select id="sandwich" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-price="180" data-descr=" - serves up to 18">Sandwich Tray (Large)</option>
+              <option data-price="125" data-descr=" - serves up to 12" >Sandwich Tray (Small)</option>
+            </select>
+          </div>
+          <div class="field order-field order-field-salad">
+            <label>salads</label>
+            <div class="descr">Each salad order serves up to 12</div>
+            <ul class="items">
+            </ul>
+            <select id="salad" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="italian-american classic" data-price="60">Sunday</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="the classic" data-price="60">Caesar</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="fig, almond, salata" data-price="60">Arugula</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="tricolore, peanuts, tomato" data-price="60">Chopped</option>
+              <option data-descr=" - serves up to 12" data-extra-descr="feta, olive, cucumber" data-price="60">Greek Farro</option>
+            </select>
+          </div>
+          <div class="field order-field order-field-side">
+            <label>Antipasti Trays</label>
+            <div class="descr">Each antipasti tray order serves up to 12</div>
+            <ul class="items">
+            </ul>
+            <select id="side" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-descr=" - serves up to 12 people" data-extra-descr="Genoa Salami, Mortadella, House Turkey, Roast Beef, Chicken Salad" data-price="110">Meat</option>
+              <option data-descr=" - serves up to 12 people" data-extra-descr="Assorted vegetables with buffalo vinaigrette, caesar dressing, honey mustard, and zesty italian dipping sauces" data-price="80">Crudite</option>
+            </select>
+          </div>
+          <div class="field order-field order-field-dessert">
+            <label>desserts</label>
+            <div class="descr">Each dessert order serves up to 12</div>
+            <label class="quantifiable"><input class="form-text" style="" type="text" name="valrhona-brownie-tray" placeholder="Qty" data-price="50">Fudge Brownie Tray $50</label>
+            <label class="quantifiable"><input class="form-text" style="" type="text" name="key-lime-pie" placeholder="Qty" data-price="50">Key Lime Pie $50</label>
+          </div>
+          <div class="field order-field order-field-beverages-and-utensils">
+            <label>beverages and utensils</label>
+            <div class="one-of-two">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="coca-cola" placeholder="Qty" data-price="3">Coca Cola (can) $3</label>
+            </div>
+            <div class="one-of-two last">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="ginger-ale" placeholder="Qty" data-price="3">Ginger Ale (can) $3</label>
+            </div>
+
+            <div class="one-of-two">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-coke" placeholder="Qty" data-price="3">Diet Coke (can) $3</label>
+            </div>
+            <div class="one-of-two last">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="diet-ginger-ale" placeholder="Qty" data-price="3">Diet Ginger Ale (can) $3</label>
+            </div>
+            <div class="one-of-two">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="poland-spring" placeholder="Qty" data-price="3">Poland Spring $3</label>
+            </div>
+            <div class="one-of-two last">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="san-pellegrino" placeholder="Qty" data-price="3">San Pellegrino (330ml) $3</label>
+            </div>
+            <div class="one-of-two">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="utensil-set" placeholder="Qty" data-price="0.50">Utensil Set (0.50 ea.)</label>
+            </div>
+            <div class="one-of-two last">
+              <label class="quantifiable"><input class="form-text" style="" type="text" name="plate-set" placeholder="Qty" data-price="5">Plate Set (pack of 20) $5</label>
+            </div>
+          </div>
+          <div class="field submit">
+            <input type="submit" id="submit_button" value="next" class="button" />
+          </div>
+          <div class="clear"></div>
+        </div>
+      </form>
+
+      <form action="http://mfg.vmgdev.com/?ACT=28&entry_id=4" method="post" id="order-submit" style="display:none">
+        <div id="order-view">
+          <a href="#" class="order-edit">EDIT</a>
+          <div class="order-view">
+            <h2>Your Order</h2>
+            <ul id="order-view-list">
+            </ul>
+            <div class="total">
+              <div class="price">$0</div>
+              <div class="label">total</div>
+            </div>
+          </div>
+        </div>
+        <div class="padder form-fields">
+          <input type="hidden" name="restaurant_name" id="restaurant_name" value="{{ account.slug }}" />
+          <input type="hidden" name="recipient" id="recipient" value="party" />
+          <input type="hidden" name="order_total" id="order-total" value="0" />
+
+          <div class="field order" style="display: none">
+            <label for="order-summary">order summary</label>
+            <textarea id="order-summary" name="order" readonly="readonly" class="form-text"></textarea>
+          </div>
+          <div class="field email">
+            <label for="email">your email*</label>
+            <input type="email" name="email" id="email" required="required" class="form-text" />
+          </div>
+          <div class="field phone-number">
+            <label for="phone_number">phone number*</label>
+            <input type="text" name="phone_number" id="phone_number" required="required" class="form-text" />
+          </div>
+          <div class="field method">
+            <label for="method">Delivery/Pick Up*</label>
+            <select id="method" name="delivery_pickup" class="dropkick">
+              <option value="delivery">Delivery</option>
+              <option value="pickup">Pick-up</option>
+            </select>
+          </div>
+
+          <div class="delivery-fields">
+            <div class="field">
+              <label for="deliv_location">delivery address</label>
+              <input type="text" name="delivery_address" id="deliv_location" class="form-text" />
+            </div>
+            <div class="field one-third">
+              <label for="deliv_city">city</label>
+              <input type="text" name="city" id="deliv_city" class="form-text" />
+            </div>
+            <div class="field one-third">
+              <label for="deliv_state">state</label>
+              <input type="text" name="state" id="deliv_state" class="form-text" />
+            </div>
+            <div class="field one-third last">
+              <label for="deliv_zip">zip</label>
+              <input type="text" name="zip" id="deliv_zip" class="form-text" />
+            </div>
+            <div class="field">
+              <label for="guest_number">number of guests</label>
+              <input type="text" name="number_of_guests" id="guest_number" class="form-text" />
+            </div>
+            <div class="field">
+              <label for="special_delivery_instructions">Special Delivery Instructions</label>
+              <input type="text" name="special_delivery_instructions" id="special_delivery_instructions" class="form-text" />
+            </div>
+          </div>
+
+          <div class="pickup-fields" style="display:none;">
+            <div class="field pickup_location">
+              <label for="pickup_location">Pickup Location*</label>
+              <select id="pickup_location" class="dropkick">
+                <option value="nolita">Nolita (248 Mulberry St. between Prince &amp; Spring)</option>
+                <option value="battery-park-city">Battery Park City (250 Vesey St. between North End &amp; West)</option>
+                <option value="upper-west-side">Upper West Side (235 Columbus Ave. between 70th &amp; 71st)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field event-date left-half">
+            <label for="event_date">date for order</label>
+            <input type="text" name="order_date" id="event_date" class="form-text date-picker" />
+          </div>
+          <div class="field event-time right-half">
+            <label for="event_time">Time for Delivery/Pick-Up</label>
+            <input type="text" name="order_time" id="event_time" class="form-text" />
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes</label>
+            <input type="text" name="notes" id="notes" class="form-text" />
+          </div>
+
+          <div class="field">
+            <label for="referred_by">Referred by</label>
+            <input type="text" name="referred_by" id="referred_by" class="form-text" />
+          </div>
+
+
+          <div class="field submit">
+            <input type="submit" id="submit_button" value="submit" class="button" />
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </form>
+      <div class="thank-you">Thank you for contacting us! Someone will be in touch soon.</div>
+
+		</div>
 	</div>
+</div>
+
+<div style="display:none">
+  <div id="order-item-form" class="order-popup">
+    <form class="padder">
+      <div class="field">
+        <label id="item-title"></label>
+        <div id="item-descr"></div>
+        <input type="hidden" id="item-select-id" />
+      </div>
+
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="house-turkey" class="checkbox additional-check" data-text="House Turkey" data-long-text="House Turkey" data-price="0"/>
+        <label for="house-turkey" class="check-label"><span class="box"></span>House Turkey <span class="check-description">Roasted Turkey, House Spicy, Lettuce, Tomato, Red Onion, Mayo</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="chicken-salad" class="checkbox additional-check" data-text="Chicken Salad" data-long-text="Chicken Salad" data-price="0"/>
+        <label for="chicken-salad" class="check-label"><span class="box"></span>Chicken Salad <span class="check-description">roasted chicken, bacon, potato chips, lettuce, tomato, zesty</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="italian-combo" class="checkbox additional-check" data-text="Italian Combo" data-long-text="Italian Combo" data-price="0"/>
+        <label for="italian-combo" class="check-label"><span class="box"></span>Italian Combo <span class="check-description">mortadella, ham, soppressata, pepperoni, provolone, zesty</span></label>
+      </div>
+
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="ham-and-cheese" class="checkbox additional-check" data-text="Ham and Cheese" data-long-text="Ham and Cheese" data-price="0"/>
+        <label for="ham-and-cheese" class="check-label"><span class="box"></span>Ham and Cheese <span class="check-description">ham, american, lettuce, tomato</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="roast-beef" class="checkbox additional-check" data-text="Roast Beef" data-long-text="Roast Beef" data-price="0"/>
+        <label for="roast-beef" class="check-label"><span class="box"></span>Roast Beef <span class="check-description">rare roast beef, pepperoncini, mozz, garlic bread
+</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="caprese" class="checkbox additional-check" data-text="Chick Caprese" data-long-text="Chicken Caprese" data-price="0"/>
+        <label for="caprese" class="check-label"><span class="box"></span>Chicken Caprese<span class="check-description">chicken cutlet, fresh mozz, tomato, basil</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="salam-provolone" class="checkbox additional-check" data-text="Salami &amp; Provolone" data-long-text="Salami &amp; Provolone" data-price="0"/>
+        <label for="salam-provolone" class="check-label"><span class="box"></span>Salami &amp; Provolone <span class="check-description">genoa, mild provolone, lettuce, tomato</span></label>
+      </div>
+      <div class="field sandwich-special check-field">
+        <input type="checkbox" id="spicy-avocado" class="checkbox additional-check" data-text="Spicy Avocado" data-long-text="Spicy Avocado" data-price="0"/>
+        <label for="spicy-avocado" class="check-label"><span class="box"></span>Spicy Avocado<span class="check-description">avocado, zesty tomatoes, arugula, spicy</span></label>
+      </div>
+
+
+
+      <div class="field salad-special check-field">
+        <input type="checkbox" id="add-chicken" class="checkbox additional-check" data-text="Grilled Chicken" data-long-text="Grilled Chicken" data-price="30"/>
+        <label for="add-chicken" class="check-label"><span class="box"></span>Add grilled chicken +$30</label>
+      </div>
+      <div class="field salad-special check-field">
+        <input type="checkbox" id="add-avocado" class="checkbox additional-check" data-text="Avocado" data-long-text="Avocado" data-price="12"/>
+        <label for="add-avocado" class="check-label"><span class="box"></span>Add avocado +$12</label>
+      </div>
+      <div class="field antipasti-special check-field">
+        <input type="checkbox" id="add-cheese" class="checkbox additional-check" data-text="Cheese" data-long-text="Cheese" data-price="20"/>
+        <label for="add-cheese" class="check-label"><span class="box"></span>Add cheese (fresh mozz &amp; provolone) +$20</label>
+      </div>
+      <div class="field">
+        <label for="item-qty">qty</label>
+        <input type="text" id="item-qty" class="form-text text-small" maxlength="3"/>
+      </div>
+      <div class="field">
+        <label for="item-comment">comments</label>
+        <textarea id="item-comment" class="form-text"></textarea>
+      </div>
+      <div class="field submit">
+        <input type="submit" value="submit" class="button submit-button" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:$.fancybox.close()" class="cancel">CANCEL</a>
+      </div>
+      <div class="clear"></div>
+    </form>
+  </div>
 </div>
 {% endblock %}
 
@@ -84,18 +315,111 @@
 <script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.min.js"></script>
 <script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery.datepick.ext.min.js"></script>
 <link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.datepick.css" />
+<script type="text/javascript" src="{{ ACCOUNT_STATIC_URL }}js/jquery-ui.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 	$('select.dropkick').dropkick({
-		mobile: true
+		mobile: true,
+    initialize: function() {
+      if(this.form.id == "order-prepare"){
+        var thisdropkick = this;
+        $(this.options).each(function(i) {
+          var thisoption = $(thisdropkick.data.select).find('option').eq(i);
+          $(this).text(thisoption.text() + ' ' + (thisoption.attr('data-type')||'') + ' $' + thisoption.attr('data-price'));
+        });
+      }
+      if(this.data.select.id == "method") {
+        $(this).trigger('change');
+      }
+    },
+    change: function() {
+      if(this.form.id == "order-prepare"){
+        if (this.selectedIndex > 0) {
+          var cur_sel = this.selectedIndex;
+          var this_select = this.data.select;
+          $.fancybox({
+            padding: [30, 50, 20, 50],
+			     wrapCSS: 'order-popup-wrap',
+            helpers: {
+              overlay: {
+                closeClick: false
+              }
+            },
+            href: '#order-item-form',
+            beforeShow: function() {
+              console.log($(this_select));
+              $('.fancybox-overlay').addClass('member-popup-overlay');
+              var thisoption = $('option', this_select).eq(cur_sel);
+              $('#item-title', this.content).text(thisoption.text()).data('item', thisoption);
+              $('#item-descr', this.content).html((thisoption.attr('data-type') || '') + "  <strong>$" +
+                                                  thisoption.attr('data-price') + "</strong>" +
+                                                  thisoption.attr('data-descr') + "<br>" +
+                                                  (thisoption.attr('data-extra-descr') || '')
+                                                );
+              $('#item-select-id', this.content).val($(this_select).attr('id'));
+              $('.form-text', this.content).val('');
+              $('.field input.checkbox').attr('checked', false);
+
+              if ($(this_select).is('#salad')) {
+                $('.field.salad-special', this.content).show();
+              } else {
+                $('.field.salad-special', this.content).hide();
+              }
+
+              if ($(this_select).is('#side') && $(this_select).val() == 'Meat') {
+                $('.field.antipasti-special', this.content).show();
+              } else {
+                $('.field.antipasti-special', this.content).hide();
+              }
+
+              if ($(this_select).is('#sandwich')) {
+                $('.field.sandwich-special', this.content).show();
+                $("label[for=item-qty]").text("Number of Trays");
+                $('#sauce-on-side').show();
+              } else {
+                $('.field.sandwich-special', this.content).hide();
+                $("label[for=item-qty]").text("Qty.");
+                $('#sauce-on-side').hide();
+              }
+
+            }
+          });
+          this.selectOne(0, true);
+        }
+      }
+      if(this.data.select.id == "method") {
+        if($(this.data.select).val() == "delivery") {
+          $(".pickup-fields").hide();
+          $(".delivery-fields").show();
+          $("#delivery-line").show();
+
+          calc_total();
+        } else if($(this.data.select).val() == "pickup") {
+          $(".pickup-fields").show();
+          $(".delivery-fields").hide();
+          $("#delivery-line").hide();
+          calc_total();
+
+        }
+      }
+    }
 	});
+  var minDate = '+1';
+
+  var currentDate = new Date();
+  var hours = currentDate.getHours();
+
+  if (hours > 19) {
+    var minDate = '+2';
+  }
+
 	$('.date-picker').datepick({
 //		onDate: $.datepick.noWeekends,
 		renderer: $.datepick.themeRollerRenderer,
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',
-//		minDate: +3,
-		onChangeMonthYear: function(year, month) { 
+    minDate: minDate,
+		onChangeMonthYear: function(year, month) {
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 		},
 		onShow: function() {
@@ -103,20 +427,193 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	$('#order-form').submit(function(e) {
-		if(!$(this).is(':invalid')) {
-			e.preventDefault();
-			$.ajax({
-			  type: "POST",
-			  url: $('#order-form').attr('action'),
-			  data: $('#order-form').serialize(),
-			  success: function(jqXHR, textStatus) {
-				$('#order-form').next('.thank-you').show();
-			  }
-			});
-			return false;
+  $('#order-item-form').submit(function(e) {
+    e.preventDefault();
+
+    var qty = Math.ceil($('#item-qty', this).val());
+    if (isNaN(qty) || qty <= 0) {
+      alert('Please input correct qty.');
+      return false;
+    }
+
+    var added_list = $('#' + $('#item-select-id', this).val()).prev('.dk-select').prev('ul.items');
+    var new_item = $('<li/>').data('item', $('#item-title', this).data('item'));
+    new_item.append($('<span/>').addClass('qty').text(qty + ' '));
+    new_item.append($('<span/>').addClass('title').text($('#item-title', this).text() + ' ' + $('#item-descr strong', this).text()));
+    //new_item.append($('<a href="javascript:void(0)"/>').addClass('comments').text($('#item-comment', this).val()).attr('title', $('#item-comment', this).val()));
+
+    var data_order = {
+      quantity: qty,
+      comment: $('#item-comment', this).val(),
+      additional: []
+    };
+
+    $('input.additional-check:checked', this).each(function() {
+      var itemText = ' (+' + $(this).attr('data-text');
+      if($(this).attr('data-price') > 0){
+        itemText += ' $' + $(this).attr('data-price');
+      }
+      itemText += ')';
+      $('.title', new_item).append($('<span/>').text(itemText));
+
+      var additional = {
+        text: $(this).attr('data-long-text'),
+        price: $(this).attr('data-price')
+      };
+      data_order.additional.push(additional);
+    });
+
+    added_list.append(new_item.data('order', data_order));
+    $.fancybox.close();
+
+    new_item.click(function(e) {
+      e.preventDefault();
+      $(this).remove();
+      return false;
+    });
+  });
+
+  function calc_total() {
+    var total = 0;
+    $('.field.order-field ul.items > li').each(function() {
+      var this_order_li = $(this);
+      var unitprice = $(this).data('item').attr('data-price')*1;
+      if (this_order_li.data('order').additional.length) {
+        unitprice += Number($.map(this_order_li.data('order').additional, function(item) { return item.price}).reduce(function(pre,cur){return (pre*1)+(cur*1)}));
+      }
+      total += unitprice * $(this).data('order').quantity;
+    });
+
+    $('.quantifiable').each(function() {
+      total += $(this).find('input').data('price') * $(this).find('input').val();
+    });
+
+    if ($('#method').val() == 'delivery') {
+      total += 30;
+    }
+
+    $('#order-view .total .price').text('$' + total);
+    $('#order-total').val(total);
+
+    return total;
+  }
+  $('#order-prepare').submit(function(e) {
+    e.preventDefault();
+    if(!$('#first_name').val() || !$('#last_name').val()) {
+      alert('Please enter your first and last name.');
+      $('#order_name').focus();
+    }
+    else {
+      $('#order-prepare').slideUp();
+      $('#order-submit').slideDown();
+
+      $('#order-view-list').html('');
+      $('.field.order-field ul.items > li').each(function() {
+        var this_order_li = $(this);
+
+        var new_order_item = $('<li/>');
+        $('#order-view-list').append(new_order_item);
+
+        var title_div = $('<div/>').addClass('title')
+           .text(this_order_li.data('order').quantity + ' ' + this_order_li.data('item').text())
+           .append($('<a href="javascript:void(0)" class="remove"/>').text('remove').click(function() {
+
+             this_order_li.remove();
+             $(this).parent('div.title').parent('li').remove();
+             calc_total();
+           }))
+           .prepend('<div class="price">$'+this_order_li.data('item').attr('data-price')+'</div>');
+
+        var content_div = $('<div/>').addClass('content');
+        var content = (this_order_li.data('item').attr('data-type') ? this_order_li.data('item').attr('data-type') + '<br />' : '') +
+                      (this_order_li.data('item').attr('data-descr') ? this_order_li.data('item').attr('data-descr') : '');
+        if (this_order_li.data('order').additional.length) {
+          content += $.map(this_order_li.data('order').additional, function(item) {
+            if(item.price > 0) {
+              return '<div class="additional"><div class="price">+ $'+item.price+'</div><div class="label">+ '+item.text+'</div></div>';
+            } else {
+              return '<div class="additional"><div class="label">+ '+item.text+'</div></div>';
+            }
+
+          }).join('');
+        }
+        if (this_order_li.data('order').comment) {
+          content += '<div class="comment">' + this_order_li.data('order').comment + '</div>';
+        }
+        content_div.html(content);
+
+        new_order_item.append(title_div);
+        new_order_item.append(content_div);
+      });
+
+      $('.quantifiable').each(function() {
+        var new_order_item = $('<li/>');
+        var this_order_input = $(this).find('input');
+        if(this_order_input.val() > 0) {
+
+          $('#order-view-list').append(new_order_item);
+
+          var title_div = $('<div/>').addClass('title')
+             .text(this_order_input.val() + ' ' + this_order_input.parent().text())
+             .append($('<a href="javascript:void(0)" class="remove"/>').text('remove').click(function() {
+               this_order_input.val('');
+               $(this).parent('div.title').parent('li').remove();
+               calc_total();
+             }))
+             .prepend('<div class="price">$'+ (this_order_input.attr('data-price') * this_order_input.val()) +'</div>');
+
+          new_order_item.append(title_div);
+
+        }
+      });
+
+      if ($('#method').val() == 'delivery') {
+        var shipping_li = '<li id="delivery-line"><div class="title"><div class="price">$30</div>Delivery Fee</div></li>';
+        $('#order-view-list').append(shipping_li);
+      }
+
+      calc_total();
+
+      return false;
+    }
+    location.hash="order-form";
+    return false;
+  });
+
+  $('.order-edit').click(function(e) {
+    e.preventDefault();
+    $('#order-prepare').slideDown();
+    $('#order-submit').slideUp();
+    return false;
+  });
+
+	$('#order-submit').submit(function(e) {
+    if($(this).is(':invalid')) {
+      return false;
+    } else {
+      var order_summary = "";
+      order_summary += "First Name: " + $('#first_name').val() + "\n";
+      order_summary += "Last Name: " + $('#last_name').val() + "\n";
+      order_summary += "Company Name: " + $('#company_name').val() + "\n";
+      order_summary += "Sandwiches: \n" + $.map($('.field.order-field-sandwich ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
+
+      if($('.field.order-field-salad ul.items li').length) {
+        order_summary += "\nSalads: \n" + $.map($('.field.order-field-salad ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
+      }
+      if($('.field.order-field-side ul.items li').length) {
+        order_summary += "\nAntipasti Trays: \n" + $.map($('.field.order-field-side ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
+      }
+      $('.quantifiable').each(function() {
+        if($(this).find('input').val() > 0) {
+          order_summary += '\n' + $(this).text() + ': ' + $(this).find('input').val();
+        }
+      });
+
+      order_summary += "\nTotal: " + $('#order-view .total .price').text();
+      $('#order-summary').val(order_summary);
 		}
 	});
+
   $("#see-photo").click(function() {
     $.fancybox.open([
       {% for gallery in galleries %}{% if gallery.name == "Catering Gallery" %}
