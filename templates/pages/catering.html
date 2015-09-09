@@ -52,9 +52,10 @@
             <ul class="items">
             </ul>
             <select id="sandwich" class="dropkick">
+
               <option disabled selected="selected">Choose</option>
-              <option data-price="180" data-descr=" - serves up to 18">Sandwich Tray (Large)</option>
-              <option data-price="125" data-descr=" - serves up to 12" >Sandwich Tray (Small)</option>
+              <option data-price="125" data-descr=" - serves up to 12" data-title-override="Sandwich Tray (Small)">CLICK TO BUILD SMALL TRAY  - $125 (SERVES UP TO 12)</option>
+              <option data-price="180" data-descr=" - serves up to 18" data-title-override="Sandwich Tray (Large)">CLICK TO BUILD LARGE TRAY - $180 (SERVES UP TO 18)</option>
             </select>
           </div>
           <div class="field order-field order-field-salad">
@@ -325,7 +326,13 @@ jQuery(document).ready(function($) {
         var thisdropkick = this;
         $(this.options).each(function(i) {
           var thisoption = $(thisdropkick.data.select).find('option').eq(i);
-          $(this).text(thisoption.text() + ' ' + (thisoption.attr('data-type')||'') + ' $' + thisoption.attr('data-price'));
+          var text = thisoption.text() + ' ' + (thisoption.attr('data-type')||'');
+
+          if (!thisoption.data('title-override')) {
+            text += ' $' + thisoption.attr('data-price');
+          }
+
+          $(this).text(text);
         });
       }
       if(this.data.select.id == "method") {
@@ -347,10 +354,20 @@ jQuery(document).ready(function($) {
             },
             href: '#order-item-form',
             beforeShow: function() {
-              console.log($(this_select));
+
               $('.fancybox-overlay').addClass('member-popup-overlay');
               var thisoption = $('option', this_select).eq(cur_sel);
               $('#item-title', this.content).text(thisoption.text()).data('item', thisoption);
+
+              var optionCopy = $.extend(true, {}, thisoption );
+
+              if (thisoption.data('title-override')) {
+                $('#item-title').text(thisoption.data('title-override'));
+                optionCopy.text(thisoption.data('title-override'));
+              }
+
+              $('#item-title', this.content).text(thisoption.text()).data('item', thisoption);
+
               $('#item-descr', this.content).html((thisoption.attr('data-type') || '') + "  <strong>$" +
                                                   thisoption.attr('data-price') + "</strong>" +
                                                   thisoption.attr('data-descr') + "<br>" +
