@@ -888,6 +888,10 @@ body.page-ice-cream-cakes .field { margin-bottom: 32px; }
   #banner {padding-top: 100px; padding-bottom: 100px; }
   form .field.submit {text-align: center; }
 
+  body.page-ice-cream-cakes .three-of-four {
+    width: auto;
+  }
+
   body.page-ice-cream-cakes .one-of-four.last {
     float: left;
     width: 100%;
