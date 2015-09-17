@@ -882,11 +882,6 @@ body.page-ice-cream-cakes .field { margin-bottom: 32px; }
   .page-single-location #content section#menus {margin-top: 0; }
   .field.order-field .dk-select-options .dk-option:hover span, .ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-hover + .descr {display: none; }
   #order-submit .form-fields, #order-submit #order-view {float: none; width: auto; margin-top: 0; }
-}
-
-@media all and (max-width : 480px) {
-  #banner {padding-top: 100px; padding-bottom: 100px; }
-  form .field.submit {text-align: center; }
 
   body.page-ice-cream-cakes .three-of-four {
     width: auto;
@@ -900,4 +895,9 @@ body.page-ice-cream-cakes .field { margin-bottom: 32px; }
   body.page-ice-cream-cakes .order-popup {
     width: 100%;
   }
+}
+
+@media all and (max-width : 480px) {
+  #banner {padding-top: 100px; padding-bottom: 100px; }
+  form .field.submit {text-align: center; }
 }
