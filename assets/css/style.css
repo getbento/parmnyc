@@ -740,91 +740,6 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 #see-photo .inner .delivery {margin-top: 22px; margin-left: 10px; }
 
 
-@media all and (max-width : 1130px) {
-	.width-wrapper {max-width: 990px; }
-	header {height: auto;}
-	header .desktop-show {display: none; }
-	header .mobile-show {display: block; }
-}
-@media all and (max-width : 1020px) {
-	.width-wrapper {max-width: 785px !important; }
-	.one-of-four {width: 47%; margin-right: 6%; }
-	.one-of-four.col2 {margin-right: 0;}
-}
-@media all and (max-width : 815px) {
-	.mobile-show {display: block; }
-	.desktop-show {display: none; }
-	.width-wrapper {padding-left: 10px; padding-right: 10px; }
-	body {margin-top: 67px !important; }
-	header {position:fixed; left: 0; top: 0; right: 0; height: auto !important; max-width: 100%; }
-	header .width-wrapper {padding-top: 10px; padding-bottom: 12px; }
-	header .delivery-button, body.float-header header .secondary-nav, body.float-header header .social, body.float-header header .main-nav-wrap .left-border, body.float-header header .main-nav-wrap .right-border {display: none; }
-	header .main-nav-wrap {padding-left: 0; padding-right: 0; }
-	header .main-nav-wrap ul {height: auto; background: transparent; font-size: 15px; text-align: center; }
-	header .main-nav-wrap ul li {margin: 0 15px; display: inline-block; float: none; vertical-align: middle; }
-	header .main-nav-wrap ul li.logo-wrap {margin: 0 10px; }
-	header .main-nav-wrap ul li .logo {width: 83px; height: 39px; background-image: url(../img/logo-small.png); }
-	header .main-nav-wrap ul li .logo img {display: none; }
-	.sidr-right-open header {margin-left: -257px; }
-	.delivery-button {left: 10px; top: -122px; width: 108px; height: 108px; border-width: 1px; display: none; }
-	.delivery-button .inner {width: 104px; height: 104px; margin: 2px; }
-	.delivery-button .inner .delivery {font-size: 30px; margin-top: 30px; }
-	.delivery-button .inner .order {font-size: 10px; }
-	#delivery-wrap {position: absolute; margin-top: 0; left: 0; right: 0; top: 100%; z-index: 100; display: none; }
-	#delivery-wrap.active {top: auto; bottom: 0; }
-	#delivery-wrap .locations .sep {display: none; }
-	#delivery-wrap .locations a {display: block; text-align: center; margin: 10px auto; }
-	#delivery-wrap .title {margin-bottom: 15px; }
-	.page-home .delivery-button, .page-home #delivery-wrap {display: block; }
-	section#gallery .slide {min-height: 400px; }
-	.two-column-wrapper:after {display: none; }
-	.two-column-wrapper .sidebar {text-align: center; margin-bottom: 30px; }
-	.two-column-wrapper .sidebar, .two-column-wrapper .primary {float: none; width: auto; }
-	#banner {padding-top: 150px; padding-bottom: 150px; }
-	.page-private-events #content {padding-top: 83px; }
-}
-@media all and (max-width : 640px) {
-	.location-item .loc-title, h1 {font-size: 45px; }
-	#content, section#reservations {padding-bottom: 50px; }
-	.one-of-four, .one-of-three, .one-of-two {float: none; width: auto; margin-right: 0; }
-	/*form .field.left-half, form .field.right-half, form .field.one-third {width: 100%; margin-right: 0; }*/
-	section#gallery .slide {min-height: 300px; }
-	.menu-item.one-of-four {float: left; width: 47%; margin-right: 6%; }
-	.menu-item.one-of-four.last, .menu-item.one-of-four.col2 { margin-right: 0; }
-	#signup-wrap {width: auto; padding-left: 10px; padding-right: 10px; }
-	.fancybox-close {right: 0; }
-	.bx-wrapper .bx-prev {left: 10px; }
-	.bx-wrapper .bx-next {right: 10px; }
-	#location-nav {position: relative; height: 120px; padding: 0; font-size: 17px; }
-	#location-nav li {position: absolute; width: 50%; text-align: center; display: block; margin: 0;}
-	#location-nav .nav-space {display: none; }
-	#location-nav .location-name {width: 100px; left: 50%; margin-left: -50px; top: 10px; font-size: 18px; line-height: 1.2;}
-	#location-nav .nav-menus {top: 40px; left: 0; }
-	#location-nav .nav-hours-location {top: 80px; left: 0; }
-	#location-nav .nav-gallery {top: 40px; right: 0; }
-	#location-nav .nav-reservations{top: 80px; right: 0; }
-	.page-single-location #content section {padding-top: 190px; margin-top: -100px; }
-	.page-single-location #content section#menus {margin-top: 0; }
-	.field.order-field .dk-select-options .dk-option:hover span, .ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-hover + .descr {display: none; }
-	#order-submit .form-fields, #order-submit #order-view {float: none; width: auto; margin-top: 0; }
-}
-
-@media all and (max-width : 480px) {
-	#banner {padding-top: 100px; padding-bottom: 100px; }
-	form .field.submit {text-align: center; }
-
-  body.page-ice-cream-cakes .one-of-four.last {
-    float: left;
-    width: 100%;
-  }
-
-  body.page-ice-cream-cakes .order-popup {
-    width: 100%;
-  }
-}
-
-
-
 body.page-ice-cream-cakes #main-content .width-wrapper { max-width:1100px; }
 body.page-ice-cream-cakes #main-content .wysiwyg { display:block; margin-bottom: 36px;}
 body.page-ice-cream-cakes #main-content .wysiwyg p { line-height:30px;}
@@ -899,3 +814,86 @@ body.page-ice-cream-cakes .field { margin-bottom: 32px; }
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* close commented backslash hack */
+
+@media all and (max-width : 1130px) {
+  .width-wrapper {max-width: 990px; }
+  header {height: auto;}
+  header .desktop-show {display: none; }
+  header .mobile-show {display: block; }
+}
+@media all and (max-width : 1020px) {
+  .width-wrapper {max-width: 785px !important; }
+  .one-of-four {width: 47%; margin-right: 6%; }
+  .one-of-four.col2 {margin-right: 0;}
+}
+@media all and (max-width : 815px) {
+  .mobile-show {display: block; }
+  .desktop-show {display: none; }
+  .width-wrapper {padding-left: 10px; padding-right: 10px; }
+  body {margin-top: 67px !important; }
+  header {position:fixed; left: 0; top: 0; right: 0; height: auto !important; max-width: 100%; }
+  header .width-wrapper {padding-top: 10px; padding-bottom: 12px; }
+  header .delivery-button, body.float-header header .secondary-nav, body.float-header header .social, body.float-header header .main-nav-wrap .left-border, body.float-header header .main-nav-wrap .right-border {display: none; }
+  header .main-nav-wrap {padding-left: 0; padding-right: 0; }
+  header .main-nav-wrap ul {height: auto; background: transparent; font-size: 15px; text-align: center; }
+  header .main-nav-wrap ul li {margin: 0 15px; display: inline-block; float: none; vertical-align: middle; }
+  header .main-nav-wrap ul li.logo-wrap {margin: 0 10px; }
+  header .main-nav-wrap ul li .logo {width: 83px; height: 39px; background-image: url(../img/logo-small.png); }
+  header .main-nav-wrap ul li .logo img {display: none; }
+  .sidr-right-open header {margin-left: -257px; }
+  .delivery-button {left: 10px; top: -122px; width: 108px; height: 108px; border-width: 1px; display: none; }
+  .delivery-button .inner {width: 104px; height: 104px; margin: 2px; }
+  .delivery-button .inner .delivery {font-size: 30px; margin-top: 30px; }
+  .delivery-button .inner .order {font-size: 10px; }
+  #delivery-wrap {position: absolute; margin-top: 0; left: 0; right: 0; top: 100%; z-index: 100; display: none; }
+  #delivery-wrap.active {top: auto; bottom: 0; }
+  #delivery-wrap .locations .sep {display: none; }
+  #delivery-wrap .locations a {display: block; text-align: center; margin: 10px auto; }
+  #delivery-wrap .title {margin-bottom: 15px; }
+  .page-home .delivery-button, .page-home #delivery-wrap {display: block; }
+  section#gallery .slide {min-height: 400px; }
+  .two-column-wrapper:after {display: none; }
+  .two-column-wrapper .sidebar {text-align: center; margin-bottom: 30px; }
+  .two-column-wrapper .sidebar, .two-column-wrapper .primary {float: none; width: auto; }
+  #banner {padding-top: 150px; padding-bottom: 150px; }
+  .page-private-events #content {padding-top: 83px; }
+}
+@media all and (max-width : 640px) {
+  .location-item .loc-title, h1 {font-size: 45px; }
+  #content, section#reservations {padding-bottom: 50px; }
+  .one-of-four, .one-of-three, .one-of-two {float: none; width: auto; margin-right: 0; }
+  /*form .field.left-half, form .field.right-half, form .field.one-third {width: 100%; margin-right: 0; }*/
+  section#gallery .slide {min-height: 300px; }
+  .menu-item.one-of-four {float: left; width: 47%; margin-right: 6%; }
+  .menu-item.one-of-four.last, .menu-item.one-of-four.col2 { margin-right: 0; }
+  #signup-wrap {width: auto; padding-left: 10px; padding-right: 10px; }
+  .fancybox-close {right: 0; }
+  .bx-wrapper .bx-prev {left: 10px; }
+  .bx-wrapper .bx-next {right: 10px; }
+  #location-nav {position: relative; height: 120px; padding: 0; font-size: 17px; }
+  #location-nav li {position: absolute; width: 50%; text-align: center; display: block; margin: 0;}
+  #location-nav .nav-space {display: none; }
+  #location-nav .location-name {width: 100px; left: 50%; margin-left: -50px; top: 10px; font-size: 18px; line-height: 1.2;}
+  #location-nav .nav-menus {top: 40px; left: 0; }
+  #location-nav .nav-hours-location {top: 80px; left: 0; }
+  #location-nav .nav-gallery {top: 40px; right: 0; }
+  #location-nav .nav-reservations{top: 80px; right: 0; }
+  .page-single-location #content section {padding-top: 190px; margin-top: -100px; }
+  .page-single-location #content section#menus {margin-top: 0; }
+  .field.order-field .dk-select-options .dk-option:hover span, .ui-multiselect-menu.multisel-order-field .ui-multiselect-checkboxes label.ui-state-hover + .descr {display: none; }
+  #order-submit .form-fields, #order-submit #order-view {float: none; width: auto; margin-top: 0; }
+}
+
+@media all and (max-width : 480px) {
+  #banner {padding-top: 100px; padding-bottom: 100px; }
+  form .field.submit {text-align: center; }
+
+  body.page-ice-cream-cakes .one-of-four.last {
+    float: left;
+    width: 100%;
+  }
+
+  body.page-ice-cream-cakes .order-popup {
+    width: 100%;
+  }
+}
