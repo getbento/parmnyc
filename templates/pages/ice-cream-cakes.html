@@ -312,7 +312,7 @@
       <div class="field comment">
         <label for="item-comment">personalize your cake with a custom message</label>
         <textarea id="item-comment" class="form-text" placeholder="Optional message here"></textarea>
-        <span class="char-count">150 characters remaining.</span>
+        <span class="char-count">40 characters remaining.</span>
       </div>
       <div class="field submit">
         <input type="submit" value="add to cart" class="button submit-button" />
@@ -365,19 +365,19 @@
               content.find(".description").html( $option.find(".source").text() + "<br>" + $option.attr("data-serving-size") );
 
               content.find("textarea#item-comment").on("input propertychange", function() {
-              	if($(this).val().length > 150) {
-              		$(this).val($(this).val().substr(0, 150))
+              	if($(this).val().length > 40) {
+              		$(this).val($(this).val().substr(0, 40))
               	}
-              	if(150 - $(this).val().length == 1){
+              	if(40 - $(this).val().length == 1){
               		content.find(".char-count").text("1 character remaining.");
               	}else{
-              		content.find(".char-count").text(150 - $(this).val().length + " characters remaining.");
+              		content.find(".char-count").text(40 - $(this).val().length + " characters remaining.");
               	}
               });
 
               content.find("textarea#item-comment").val("");
               content.find("input#item-qty").val("1");
-              content.find(".char-count").text("150 characters remaining.");
+              content.find(".char-count").text("40 characters remaining.");
 
 
             }
