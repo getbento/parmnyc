@@ -83,11 +83,16 @@
               <option data-descr=" - serves up to 12 people" data-extra-descr="Assorted vegetables with buffalo vinaigrette, caesar dressing, honey mustard, and zesty italian dipping sauces" data-price="80">Crudite</option>
             </select>
           </div>
-          <div class="field order-field order-field-dessert">
-            <label>desserts</label>
-            <div class="descr">Each dessert order serves up to 12</div>
-            <label class="quantifiable"><input class="form-text" style="" type="text" name="valrhona-brownie-tray" placeholder="Qty" data-price="50">Fudge Brownie Tray $50</label>
-            <label class="quantifiable"><input class="form-text" style="" type="text" name="key-lime-pie" placeholder="Qty" data-price="50">Key Lime Pie $50</label>
+          <div class="field order-field order-field-desserts">
+            <label>Desserts</label>
+            <ul class="items">
+            </ul>
+            <select id="dessert" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-descr=" - serves up to 12 people" data-price="25">Fudge Brownies (Small)</option>
+              <option data-descr=" - serves up to 30 people" data-price="50">Fudge Brownies (Large)</option>
+              <option data-descr=" - serves up to 12 people" data-price="50">Key Lime Pie</option>
+            </select>
           </div>
           <div class="field order-field order-field-beverages-and-utensils">
             <label>beverages and utensils</label>
@@ -619,6 +624,9 @@ jQuery(document).ready(function($) {
       }
       if($('.field.order-field-side ul.items li').length) {
         order_summary += "\nAntipasti Trays: \n" + $.map($('.field.order-field-side ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
+      }
+      if($('.field.order-field-desserts ul.items li').length) {
+        order_summary += "\Desserts: \n" + $.map($('.field.order-field-desserts ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
       }
       $('.quantifiable').each(function() {
         if($(this).find('input').val() > 0) {
