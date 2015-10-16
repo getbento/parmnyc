@@ -420,7 +420,7 @@
 		renderer: $.datepick.themeRollerRenderer,
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',
-		minDate: moment().tz("America/New_York").format('H') >= 12 ? +2 : +1,
+		minDate: moment().tz("America/New_York").format('H') >= 11 ? +2 : +1,
 		maxDate: +365,
 		onChangeMonthYear: function(year, month) {
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
