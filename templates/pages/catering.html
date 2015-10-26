@@ -610,6 +610,23 @@ jQuery(document).ready(function($) {
   });
 
 	$('#order-submit').submit(function(e) {
+    var orderDate = new Date($(this).find('#event_date').val());
+
+    var now = new Date();
+    var minDate = new Date();
+    var hours = now.getHours();
+
+    if (hours > 19) {
+      minDate.setDate(now.getDate() + 2);
+    } else {
+      minDate.setDate(now.getDate() + 1);
+    }
+
+    if (orderDate < minDate) {
+      alert("Please enter a date for the order that is after " + minDate.toDateString() );
+      return false;
+    }
+
     if($(this).is(':invalid')) {
       return false;
     } else {
