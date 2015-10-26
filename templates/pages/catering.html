@@ -615,14 +615,14 @@ jQuery(document).ready(function($) {
     var now = new Date();
     var minDate = new Date();
     var hours = now.getHours();
-
+    
     if (hours > 19) {
       minDate.setDate(now.getDate() + 2);
     } else {
       minDate.setDate(now.getDate() + 1);
     }
 
-    if (orderDate < minDate) {
+    if (orderDate.getDate() < minDate.getDate()) {
       alert("Please enter a date for the order that is after " + minDate.toDateString() );
       return false;
     }
