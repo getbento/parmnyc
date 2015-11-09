@@ -622,7 +622,7 @@ jQuery(document).ready(function($) {
       minDate.setDate(now.getDate() + 1);
     }
 
-    if (orderDate.getDate() < minDate.getDate()) {
+    if (orderDate < minDate) {
       alert("Please enter a date for the order that is after " + minDate.toDateString() );
       return false;
     }
