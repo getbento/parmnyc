@@ -901,3 +901,10 @@ body.page-ice-cream-cakes .field { margin-bottom: 32px; }
   #banner {padding-top: 100px; padding-bottom: 100px; }
   form .field.submit {text-align: center; }
 }
+
+
+#tip-container { margin-top: 36px; width:100%; position:relative;}
+#tip-container label {position:absolute; line-height:47px; top:2px; left:12px; }
+#tip-container .dk-select.dropkick { display:inline-block; }
+#tip-container .dk-selected { padding: 0 37px 0 47px; height:47px; line-height:47px; }
+#tip-container #tip-amt { position:absolute; right:0; top:0; line-height:47px; font-weight: bold; }
