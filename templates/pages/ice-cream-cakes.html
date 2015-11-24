@@ -36,7 +36,23 @@
 					</div>
 				</article>
 			</div>
-			<div class="one-of-three">
+      <div class="one-of-three">
+        <article class="ice-cream-option" data-image="{{ ACCOUNT_STATIC_URL }}img/cakes/smores.jpg" data-price="58" data-serving-size="9&quot; serves up to 14 people">
+          <div class="border-wrap">
+            <div class="frame"></div>
+            <div class="frame-left"></div>
+            <div class="frame-right"></div>
+            <div class="img-wrap">
+              <a href="#" target="_blank" class="image full-background" style="background-image:url('{{ ACCOUNT_STATIC_URL }}img/cakes/smores-whole.jpg')"></a>
+            </div>
+          </div>
+          <div class="info">
+            <div class="title-wrap"><a href="#" target="_blank" class="title">S'Mores</a></div>
+            <div class="source">Toasted Marshmallow, Chocolate, Graham Cracker</div>
+          </div>
+        </article>
+      </div>
+<!-- 			<div class="one-of-three">
 				<article class="ice-cream-option" data-image="{{ ACCOUNT_STATIC_URL }}img/cakes/elvis.jpg" data-price="58" data-serving-size="9&quot; serves up to 14 people">
 					<div class="border-wrap">
 						<div class="frame"></div>
@@ -220,7 +236,7 @@
 						<div class="source">Coconut, Chocolate, Toasted Almond</div>
 					</div>
 				</article>
-			</div>
+			</div> -->
 		</div>
 
 
@@ -416,7 +432,19 @@
         	});
         }
 
+  var holidays = [
+    new Date(2015, 10, 26, 12).getTime(),
+    new Date(2015, 11, 25, 12).getTime(),
+    new Date(2016, 0, 01, 12).getTime(),
+  ];
+
 	$('.date-picker').datepick({
+    onDate: function(date, current) {
+      if ($.inArray(date.getTime(), holidays) !== -1) {
+        return {selectable: false};
+      }
+      return true;
+    },
 		renderer: $.datepick.themeRollerRenderer,
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',

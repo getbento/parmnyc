@@ -91,7 +91,7 @@
               <option disabled selected="selected">Choose</option>
               <option data-descr=" - serves up to 12 people" data-price="25">Fudge Brownies (Small)</option>
               <option data-descr=" - serves up to 30 people" data-price="50">Fudge Brownies (Large)</option>
-              <option data-descr=" - serves up to 12 people" data-price="50">Key Lime Pie</option>
+              <!-- <option data-descr=" - serves up to 12 people" data-price="50">Key Lime Pie</option> -->
             </select>
           </div>
           <div class="field order-field order-field-beverages-and-utensils">
@@ -269,10 +269,10 @@
         <label for="roast-beef" class="check-label"><span class="box"></span>Roast Beef <span class="check-description">rare roast beef, pepperoncini, mozz, garlic bread
 </span></label>
       </div>
-      <div class="field sandwich-special check-field">
+      <!-- <div class="field sandwich-special check-field">
         <input type="checkbox" id="caprese" class="checkbox additional-check" data-text="Chick Caprese" data-long-text="Chicken Caprese" data-price="0"/>
         <label for="caprese" class="check-label"><span class="box"></span>Chicken Caprese<span class="check-description">chicken cutlet, fresh mozz, tomato, basil</span></label>
-      </div>
+      </div> -->
       <div class="field sandwich-special check-field">
         <input type="checkbox" id="salam-provolone" class="checkbox additional-check" data-text="Salami &amp; Provolone" data-long-text="Salami &amp; Provolone" data-price="0"/>
         <label for="salam-provolone" class="check-label"><span class="box"></span>Salami &amp; Provolone <span class="check-description">genoa, mild provolone, lettuce, tomato</span></label>
@@ -435,9 +435,21 @@ jQuery(document).ready(function($) {
     var minDate = '+2';
   }
 
+  var holidays = [
+    new Date(2015, 10, 26, 12).getTime(),
+    new Date(2015, 11, 25, 12).getTime(),
+    new Date(2016, 0, 01, 12).getTime(),
+  ];
+
 	$('.date-picker').datepick({
 //		onDate: $.datepick.noWeekends,
 		renderer: $.datepick.themeRollerRenderer,
+    onDate: function(date, current) {
+      if ($.inArray(date.getTime(), holidays) !== -1) {
+        return {selectable: false};
+      }
+      return true;
+    },
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',
     minDate: minDate,
@@ -615,7 +627,7 @@ jQuery(document).ready(function($) {
     var now = new Date();
     var minDate = new Date();
     var hours = now.getHours();
-    
+
     if (hours > 19) {
       minDate.setDate(now.getDate() + 1);
     }
