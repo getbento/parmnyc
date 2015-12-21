@@ -12,31 +12,29 @@
 			<div class="wysiwyg">{{callouts.1.text|safe}}</div>
 		</div>
 
-		<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/sep.png" />
-
-		<div class="team-wrap">
-			<h1>The Team</h1>
-			{% for person in staff %}
-				<div class="member one-of-three {% cycle 'col1 clear' 'col2' 'col3 last' %}">
-					<a href="#member-{{person.name|slugify}}" class="member-link">
-						<span class="photo full-background" style="background-image:url('{{ person.image_url }}')"></span>
-						<span class="name">{{ person.name }}</span>
-					</a>
-					<div class="title">{{person.title}}</div>
-					<div style="display:none">
-						<div id="member-{{person.name|slugify}}">
-							<h1 class="name">{{person.name}}</h1>
-							<h3 class="title">{{person.title}}</h3>
-							<div class="wysiwyg bio">{{person.bio|safe}}</div>
+		{% if staff %}
+			<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/sep.png" />
+			<div class="team-wrap">
+				<h1>The Team</h1>
+				{% for person in staff %}
+					<div class="member one-of-three {% cycle 'col1 clear' 'col2' 'col3 last' %}">
+						<a href="#member-{{person.name|slugify}}" class="member-link">
+							<span class="photo full-background" style="background-image:url('{{ person.image_url }}')"></span>
+							<span class="name">{{ person.name }}</span>
+						</a>
+						<div class="title">{{person.title}}</div>
+						<div style="display:none">
+							<div id="member-{{person.name|slugify}}">
+								<h1 class="name">{{person.name}}</h1>
+								<h3 class="title">{{person.title}}</h3>
+								<div class="wysiwyg bio">{{person.bio|safe}}</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			{% empty %}
-				Coming Soon
-			{% endfor %}
-			<div class="clear"></div>
-		</div>
-
+				{% endfor %}
+				<div class="clear"></div>
+			</div>
+		{% endif %}
 		<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/sep.png" />
 
 		<div class="callout">
