@@ -58,6 +58,16 @@
               <option data-price="180" data-descr=" - serves up to 18" data-title-override="Sandwich Tray (Large)">CLICK TO BUILD LARGE TRAY - $180 (SERVES UP TO 18)</option>
             </select>
           </div>
+          <div class="field order-field order-field-package">
+            <label>superbowl packages</label>
+            <ul class="items">
+            </ul>
+            <select id="package" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-price="215" data-descr=" - serves 6 to 10" data-title-override="Field Goal Package" data-extra-descr="Sandwiches: HOUSETURKEY, ROASTBEEF, CHICKENCAPRESE, ITALIANCOMBO">FIELD GOAL PACKAGE - $215 (FEEDS 6 -10)</option>
+              <option data-price="535" data-descr=" - serves 16 to 20" data-title-override="Touchdown Package" data-extra-descr="Sandwiches: HOUSETURKEY, ROASTBEEF, CHICKENCAPRESE, ITALIANCOMBO">TOUCHDOWN PACKAGE - $535 (FEEDS 16 - 20)</option>
+            </select>
+          </div>
           <div class="field order-field order-field-salad">
             <label>salads</label>
             <div class="descr">Each salad order serves up to 12</div>
@@ -263,23 +273,21 @@
         <input type="checkbox" id="house-turkey" class="checkbox additional-check" data-text="House Turkey" data-long-text="House Turkey" data-price="0"/>
         <label for="house-turkey" class="check-label"><span class="box"></span>House Turkey <span class="check-description">Roasted Turkey, House Spicy, Lettuce, Tomato, Red Onion, Mayo</span></label>
       </div>
-<!--       <div class="field sandwich-special check-field">
+      <!--<div class="field sandwich-special check-field">
         <input type="checkbox" id="chicken-salad" class="checkbox additional-check" data-text="Chicken Salad" data-long-text="Chicken Salad" data-price="0"/>
         <label for="chicken-salad" class="check-label"><span class="box"></span>Chicken Salad <span class="check-description">roasted chicken, bacon, potato chips, lettuce, tomato, zesty</span></label>
-      </div> -->
+      </div>-->
       <div class="field sandwich-special check-field">
         <input type="checkbox" id="italian-combo" class="checkbox additional-check" data-text="Italian Combo" data-long-text="Italian Combo" data-price="0"/>
         <label for="italian-combo" class="check-label"><span class="box"></span>Italian Combo <span class="check-description">mortadella, ham, coppa, pepperoni, provolone, zesty</span></label>
       </div>
-
       <div class="field sandwich-special check-field">
         <input type="checkbox" id="ham-and-cheese" class="checkbox additional-check" data-text="Ham and Cheese" data-long-text="Ham and Cheese" data-price="0"/>
         <label for="ham-and-cheese" class="check-label"><span class="box"></span>Ham and Cheese <span class="check-description">ham, american, lettuce, tomato</span></label>
       </div>
       <div class="field sandwich-special check-field">
         <input type="checkbox" id="roast-beef" class="checkbox additional-check" data-text="Roast Beef" data-long-text="Roast Beef" data-price="0"/>
-        <label for="roast-beef" class="check-label"><span class="box"></span>Roast Beef <span class="check-description">rare roast beef, pepperoncini, mozz, garlic bread
-</span></label>
+        <label for="roast-beef" class="check-label"><span class="box"></span>Roast Beef <span class="check-description">rare roast beef, pepperoncini, mozz, garlic bread</span></label>
       </div>
       <div class="field sandwich-special check-field">
         <input type="checkbox" id="caprese" class="checkbox additional-check" data-text="Chick Caprese" data-long-text="Chicken Caprese" data-price="0"/>
@@ -295,10 +303,33 @@
       </div>
       <div class="field sandwich-special check-field">
         <input type="checkbox" id="tomato-mozz" class="checkbox additional-check" data-text="Tomato &amp; Mozz" data-long-text="Tomato &amp; Mozz" data-price="0"/>
-        <label for="tomato-mozz" class="check-label"><span class="box"></span>Tomato &amp; Mozz<span class="check-description">fresh mozz, zesty tomato, basil
-</span></label>
+        <label for="tomato-mozz" class="check-label"><span class="box"></span>Tomato &amp; Mozz<span class="check-description">fresh mozz, zesty tomato, basil</span></label>
       </div>
 
+
+      <div class="field package-special check-field">
+        <label>4 lbs wings</label>
+        <input type="radio" id="buffalo" name="wings" class="checkbox additional-check" data-text="4 lbs wings - Buffalo" data-long-text="4 lbs wings - Buffalo" data-price="0"/>
+        <label for="buffalo" class="check-label"><span class="box"></span>Buffalo<span class="check-description"></span></label>
+        <input type="radio" id="honey-mustard" name="wings" class="checkbox additional-check" data-text="4 lbs wings - Honey Mustard" data-long-text="4 lbs wings - Honey Mustard" data-price="0"/>
+        <label for="honey-mustard" class="check-label"><span class="box"></span>Honey Mustard<span class="check-description"></span></label>
+      </div>
+      <div class="field package-special check-field">
+        <label>Salad</label>
+        <input type="radio" id="caesar" name="salad" class="checkbox additional-check" data-text="Caesar Salad" data-long-text="Caesar Salad" data-price="0"/>
+        <label for="caesar" class="check-label"><span class="box"></span>caesar<span class="check-description">the classic</span></label>
+        <input type="radio" id="sunday-salad" name="salad" class="checkbox additional-check" data-text="Sunday Salad" data-long-text="Sunday Salad" data-price="0"/>
+        <label for="sunday-salad" class="check-label"><span class="box"></span>sunday<span class="check-description">italian-american classic</span></label>
+      </div>
+      <div class="field package-special check-field">
+        <label>Add-ons</label>
+        <input type="checkbox" id="vegetable-crudite" class="checkbox additional-check" data-text="Vegetable Crudite" data-long-text="Vegetable Crudite" data-price="80"/>
+        <label for="vegetable-crudite" class="check-label"><span class="box"></span>Add vegetable crudite +$80</label>
+        <input type="checkbox" id="classic-icecream" class="checkbox additional-check" data-text="Classic Icecream Cake" data-long-text="Classic Icecream Cake" data-price="58"/>
+        <label for="classic-icecream" class="check-label"><span class="box"></span>Add classic icecream cake +$58</label>
+        <input type="checkbox" id="smores-ice-cream" class="checkbox additional-check" data-text="Smores Ice Cream Cake" data-long-text="Smores Ice Cream Cake" data-price="58"/>
+        <label for="smores-ice-cream" class="check-label"><span class="box"></span>Add smores ice cream cake +$58</label>
+      </div>
 
 
       <div class="field salad-special check-field">
@@ -309,10 +340,14 @@
         <input type="checkbox" id="add-avocado" class="checkbox additional-check" data-text="Avocado" data-long-text="Avocado" data-price="15"/>
         <label for="add-avocado" class="check-label"><span class="box"></span>Add avocado +$15</label>
       </div>
+
+
       <div class="field antipasti-special check-field">
         <input type="checkbox" id="add-cheese" class="checkbox additional-check" data-text="Cheese" data-long-text="Cheese" data-price="20"/>
         <label for="add-cheese" class="check-label"><span class="box"></span>Add cheese (fresh mozz &amp; provolone) +$20</label>
       </div>
+
+
       <div class="field">
         <label for="item-qty">qty</label>
         <input type="text" id="item-qty" class="form-text text-small" maxlength="3"/>
@@ -421,6 +456,13 @@ jQuery(document).ready(function($) {
                 $('#sauce-on-side').hide();
               }
 
+              if ($(this_select).is('#package')) {
+                $('.field.package-special', this.content).show();
+                $("label[for=item-qty]").text("Number of Trays");
+              } else {
+                $('.field.package-special', this.content).hide();
+                $("label[for=item-qty]").text("Qty.");
+              }
             }
           });
           this.selectOne(0, true);

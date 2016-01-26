@@ -2,3 +2,4 @@
 node_modules
 sftpCache.json
 *.scssc
+sftp-config.json
