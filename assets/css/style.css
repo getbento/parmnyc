@@ -690,6 +690,7 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 .order-popup {width: 350px; }
 .order-popup .field {margin-top: 5px; margin-bottom: 20px; }
 .order-popup #item-descr, .order-popup .check-field input.checkbox + .check-label {font-size: 16px; font-weight: 300; font-style: italic; text-transform: uppercase; }
+.superbowl-package {display: block;margin: auto!important;margin-top: 1em!important;}
 .package-special {margin-top: 5px !important;}
 .package-special label {margin-bottom: 5px !important;}
 .order-popup #item-descr strong {font-style: normal; font-size: 120%; }

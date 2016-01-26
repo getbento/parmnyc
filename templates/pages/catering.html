@@ -12,6 +12,9 @@
 			<a href="{{callouts.5.button_file_url}}" target="_blank" class="button">{{callouts.5.button_text}}</a>
 		{% endif %}
 		<a href="#order-form" class="button">request an order</a>
+    {% if callouts.8.button_text and callouts.8.button_file_path %}
+      <a href="{{callouts.8.button_file_url}}" target="_blank" class="button superbowl-package">{{callouts.8.button_text}}</a>
+    {% endif %}
 	</div>
 
 {% for gallery in galleries %}{% if gallery.name == "Catering Gallery" and gallery.images.all|length > 0 %}
