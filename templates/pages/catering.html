@@ -12,9 +12,9 @@
 			<a href="{{callouts.5.button_file_url}}" target="_blank" class="button">{{callouts.5.button_text}}</a>
 		{% endif %}
 		<a href="#order-form" class="button">request an order</a>
-    {% if callouts.8.button_text and callouts.8.button_file_path %}
+    <!-- {% if callouts.8.button_text and callouts.8.button_file_path %}
       <a href="{{callouts.8.button_file_url}}" target="_blank" class="button superbowl-package">{{callouts.8.button_text}}</a>
-    {% endif %}
+    {% endif %} -->
 	</div>
 
 {% for gallery in galleries %}{% if gallery.name == "Catering Gallery" and gallery.images.all|length > 0 %}
@@ -61,7 +61,7 @@
               <option data-price="180" data-descr=" - serves up to 18" data-title-override="Sandwich Tray (Large)">CLICK TO BUILD LARGE TRAY - $180 (SERVES UP TO 18)</option>
             </select>
           </div>
-          <div class="field order-field order-field-package">
+          <!-- <div class="field order-field order-field-package">
             <label>superbowl packages</label>
             <ul class="items">
             </ul>
@@ -70,7 +70,7 @@
               <option data-price="215" data-descr=" - serves 6 to 10" data-title-override="Field Goal Package" data-extra-descr="Sandwiches: HOUSETURKEY, ROASTBEEF, CHICKENCAPRESE, ITALIANCOMBO. Please select Caesar OR Sunday salad.">FIELD GOAL PACKAGE - $215 (FEEDS 6 -10)</option>
               <option data-price="535" data-descr=" - serves 16 to 20" data-title-override="Touchdown Package" data-extra-descr="Sandwiches: HOUSETURKEY, ROASTBEEF, CHICKENCAPRESE, ITALIANCOMBO. INCLUDES ANTIPASTI & CHEESE PLATTER.">TOUCHDOWN PACKAGE - $535 (FEEDS 16 - 20)</option>
             </select>
-          </div>
+          </div> -->
           <div class="field order-field order-field-salad">
             <label>salads</label>
             <div class="descr">Each salad order serves up to 12</div>
@@ -187,12 +187,12 @@
           <div class="field method">
             <label for="method">Delivery/Pick Up*</label>
             <select id="method" name="delivery_pickup" class="dropkick">
-              <option value="delivery">Delivery</option>
+              <!-- <option value="delivery">Delivery</option> -->
               <option value="pickup">Pick-up</option>
             </select>
           </div>
 
-          <div class="delivery-fields">
+          <div class="delivery-fields" style="display:none;">
             <div class="field">
               <label for="deliv_location">delivery address</label>
               <input type="text" name="delivery_address" id="deliv_location" class="form-text" />
@@ -670,6 +670,8 @@ jQuery(document).ready(function($) {
         var shipping_li = '<li id="delivery-line"><div class="title"><div class="price">$30</div>Delivery Fee</div></li>';
         $('#order-view-list').append(shipping_li);
       }
+
+      $('#method').trigger('change');
 
       calc_total();
 
