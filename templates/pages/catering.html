@@ -57,8 +57,8 @@
             <select id="sandwich" class="dropkick">
 
               <option disabled selected="selected">Choose</option>
-              <option data-price="125" data-descr=" - serves up to 12" data-title-override="Sandwich Tray (Small)">CLICK TO BUILD SMALL TRAY  - $125 (SERVES UP TO 12)</option>
-              <option data-price="180" data-descr=" - serves up to 18" data-title-override="Sandwich Tray (Large)">CLICK TO BUILD LARGE TRAY - $180 (SERVES UP TO 18)</option>
+              <option data-price="125" data-descr=" - serves up to 12" data-title-override="Sandwich Platter (Small)">CLICK TO BUILD SMALL PLATTER  - $125 (SERVES UP TO 12)</option>
+              <option data-price="180" data-descr=" - serves up to 18" data-title-override="Sandwich Platter (Large)">CLICK TO BUILD LARGE PLATTER - $180 (SERVES UP TO 18)</option>
             </select>
           </div>
           <div class="field order-field order-field-salad">
@@ -76,8 +76,8 @@
             </select>
           </div>
           <div class="field order-field order-field-side">
-            <label>Antipasti Trays</label>
-            <div class="descr">Each antipasti tray order serves up to 12</div>
+            <label>Antipasti Platters</label>
+            <div class="descr">Each antipasti platter order serves up to 12</div>
             <ul class="items">
             </ul>
             <select id="side" class="dropkick">
@@ -443,7 +443,7 @@ jQuery(document).ready(function($) {
 
               if ($(this_select).is('#sandwich')) {
                 $('.field.sandwich-special', this.content).show();
-                $("label[for=item-qty]").text("Number of Trays");
+                $("label[for=item-qty]").text("Number of Platters");
                 $('#sauce-on-side').show();
               } else {
                 $('.field.sandwich-special', this.content).hide();
@@ -453,7 +453,7 @@ jQuery(document).ready(function($) {
 
               if ($(this_select).is('#package')) {
                 $('.field.package-special', this.content).show();
-                $("label[for=item-qty]").text("Number of Trays");
+                $("label[for=item-qty]").text("Number of Platters");
               } else {
                 $('.field.package-special', this.content).hide();
                 $("label[for=item-qty]").text("Qty.");
@@ -707,7 +707,7 @@ jQuery(document).ready(function($) {
         order_summary += "\nSalads: \n" + $.map($('.field.order-field-salad ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
       }
       if($('.field.order-field-side ul.items li').length) {
-        order_summary += "\nAntipasti Trays: \n" + $.map($('.field.order-field-side ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
+        order_summary += "\nAntipasti Platters: \n" + $.map($('.field.order-field-side ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
       }
       if($('.field.order-field-package ul.items li').length) {
         order_summary += "\nSuperbowl Package: \n" + $.map($('.field.order-field-package ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
