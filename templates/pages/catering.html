@@ -50,6 +50,16 @@
             <label for="company_name">company name (optional)</label>
             <input type="text" name="Order Name" id="company_name" class="form-text" />
           </div>
+          <div class="field order-field order-field-march-madness">
+            <label>march madness</label>
+            <ul class="items">
+            </ul>
+            <select id="march-madness" class="dropkick">
+
+              <option disabled selected="selected">Choose</option>
+              <option data-price="165" data-descr=" - feeds up to 10" data-title-override="March Madness Package">MARCH MADNESS PACKAGE - $165 (FEEDS UP TO 10)</option>
+            </select>
+          </div>
           <div class="field order-field order-field-sandwich">
             <label>sandwiches</label>
             <ul class="items">
@@ -266,10 +276,6 @@
         <input type="checkbox" id="house-turkey" class="checkbox additional-check" data-text="House Turkey" data-long-text="House Turkey" data-price="0"/>
         <label for="house-turkey" class="check-label"><span class="box"></span>House Turkey <span class="check-description">Roasted Turkey, House Spicy, Lettuce, Tomato, Red Onion, Mayo</span></label>
       </div>
-      <!--<div class="field sandwich-special check-field">
-        <input type="checkbox" id="chicken-salad" class="checkbox additional-check" data-text="Chicken Salad" data-long-text="Chicken Salad" data-price="0"/>
-        <label for="chicken-salad" class="check-label"><span class="box"></span>Chicken Salad <span class="check-description">roasted chicken, bacon, potato chips, lettuce, tomato, zesty</span></label>
-      </div>-->
       <div class="field sandwich-special check-field">
         <input type="checkbox" id="italian-combo" class="checkbox additional-check" data-text="Italian Combo" data-long-text="Italian Combo" data-price="0"/>
         <label for="italian-combo" class="check-label"><span class="box"></span>Italian Combo <span class="check-description">mortadella, ham, coppa, pepperoni, provolone, zesty</span></label>
@@ -299,6 +305,43 @@
         <label for="tomato-mozz" class="check-label"><span class="box"></span>Tomato &amp; Mozz<span class="check-description">fresh mozz, zesty tomato, basil</span></label>
       </div>
 
+      <div class="field march-madness-special check-field">
+      <label>Sandwiches</label>
+        HOUSE TURKEY, ROAST BEEF, CHICKEN CAPRESE, ITALIAN COMBO
+        <br><br>
+        <label>4 Dozen Wings</label>
+        <input type="checkbox" id="buffalo" name="wings-buffalo" class="checkbox additional-check" data-text="Selected wings - Buffalo" data-long-text="Selected wings - Buffalo" data-price="0"/>
+        <label for="buffalo" class="check-label"><span class="box"></span>Buffalo<span class="check-description"></span></label>
+
+        <input type="checkbox" id="honey-mustard" name="wings-honey" class="checkbox additional-check" data-text="Selected wings - Honey Mustard" data-long-text="Selected wings - Honey Mustard" data-price="0"/>
+        <label for="honey-mustard" class="check-label" style="margin-top:2px;"><span class="box"></span>Honey Mustard<span class="check-description"></span></label>
+      </div>
+      <div class="field march-madness-special check-field">
+        <label>Add-ons</label>
+        <input type="checkbox" id="caesar-salad" class="checkbox additional-check" data-text="Caesar Salad" data-long-text="Caesar Salad" data-price="60"/>
+        <label for="caesar-salad" class="check-label"><span class="box"></span>Caesar Salad +$60</label>
+
+        <input type="checkbox" id="sunday-salad" class="checkbox additional-check" data-text="sunday Salad" data-long-text="Sunday Salad" data-price="60"/>
+        <label for="sunday-salad" class="check-label"><span class="box"></span>Sunday Salad +$60</label>
+
+        <input type="checkbox" id="four-dozen-wings" class="checkbox additional-check" data-text="4 Dozen Wings" data-long-text="4 Dozen Wings" data-price="40"/>
+        <label for="four-dozen-wings" class="check-label"><span class="box"></span>4 Dozen Wings +$40</label>
+
+        <input type="checkbox" id="Vegetable Crudite" class="checkbox additional-check" data-text="Vegetable Crudite" data-long-text="Vegetable Crudite" data-price="80"/>
+        <label for="Vegetable Crudite" class="check-label"><span class="box"></span>Vegetable Crudite +$80</label>
+
+        <input type="checkbox" id="large-sandwich-platter" class="checkbox additional-check" data-text="Large Sandwich Platter" data-long-text="Large Sandwich Platter" data-price="50"/>
+        <label for="large-sandwich-platter" class="check-label"><span class="box"></span>Large Sandwich Platter +$50</label>
+
+        <input type="checkbox" id="small-brownies" class="checkbox additional-check" data-text="Small Brownies" data-long-text="Small Brownies" data-price="25"/>
+        <label for="small-brownies" class="check-label"><span class="box"></span>Small Brownies +$25</label>
+
+
+        <input type="checkbox" id="large-brownies" class="checkbox additional-check" data-text="Large Brownies" data-long-text="Large Brownies" data-price="50"/>
+        <label for="large-brownies" class="check-label"><span class="box"></span>Large Brownies +$50</label>
+
+
+      </div>
 
       <div class="field package-special check-field">
 
@@ -433,6 +476,12 @@ jQuery(document).ready(function($) {
                 $('.field.salad-special', this.content).show();
               } else {
                 $('.field.salad-special', this.content).hide();
+              }
+
+              if ($(this_select).is('#march-madness')) {
+                $('.field.march-madness-special', this.content).show();
+              } else {
+                $('.field.march-madness-special', this.content).hide();
               }
 
               if ($(this_select).is('#side') && $(this_select).val() == 'Meat') {
