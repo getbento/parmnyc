@@ -752,6 +752,10 @@ jQuery(document).ready(function($) {
       order_summary += "Company Name: " + $('#company_name').val() + "\n";
       order_summary += "Sandwiches: \n" + $.map($('.field.order-field-sandwich ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
 
+      if($('.field.order-field-march-madness ul.items li').length) {
+        order_summary += "March Madness: \n" + $.map($('.field.order-field-march-madness ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
+      }
+
       if($('.field.order-field-salad ul.items li').length) {
         order_summary += "\nSalads: \n" + $.map($('.field.order-field-salad ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
       }
