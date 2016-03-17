@@ -110,7 +110,7 @@
           <div class="field order-field order-field-beverages-and-utensils">
             <label>beverages and utensils</label>
             <div class="one-of-two">
-              <label class="quantifiable"><input class="form-text" style="" type="number" pattern="\d*" name="coca-cola" placeholder="Qty" data-price="3">Coca Cola (can) $3</label>
+              <label class="quantifiable"><input class="form-text" style="" type="number" ame="coca-cola" placeholder="Qty" data-price="3">Coca Cola (can) $3</label>
             </div>
             <div class="one-of-two last">
               <label class="quantifiable"><input class="form-text" style="" type="number" name="ginger-ale" placeholder="Qty" data-price="3">Ginger Ale (can) $3</label>
@@ -612,6 +612,10 @@ jQuery(document).ready(function($) {
     });
   });
 
+  function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
   function calc_total() {
     var total = 0;
     $('.field.order-field ul.items > li').each(function() {
@@ -624,7 +628,12 @@ jQuery(document).ready(function($) {
     });
 
     $('.quantifiable').each(function() {
-      total += $(this).find('input').data('price') * $(this).find('input').val() * 1;
+      var quantity = $(this).find('input').val();
+      var price = $(this).find('input').data('price') * 1;
+
+      if (isNumber(quantity)) {
+        total += price * Math.abs(quantity);
+      }
     });
 
     if ($('#method').val() == 'delivery') {
