@@ -50,16 +50,7 @@
             <label for="company_name">company name (optional)</label>
             <input type="text" name="Order Name" id="company_name" class="form-text" />
           </div>
-          <div class="field order-field order-field-march-madness">
-            <label>march madness</label>
-            <ul class="items">
-            </ul>
-            <select id="march-madness" class="dropkick">
 
-              <option disabled selected="selected">Choose</option>
-              <option data-price="165" data-descr=" - feeds up to 10" data-title-override="March Madness Package">MARCH MADNESS PACKAGE - $165 (FEEDS UP TO 10)</option>
-            </select>
-          </div>
           <div class="field order-field order-field-sandwich">
             <label>sandwiches</label>
             <ul class="items">
@@ -765,10 +756,6 @@ jQuery(document).ready(function($) {
       order_summary += "Last Name: " + $('#last_name').val() + "\n";
       order_summary += "Company Name: " + $('#company_name').val() + "\n";
       order_summary += "Sandwiches: \n" + $.map($('.field.order-field-sandwich ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
-
-      if($('.field.order-field-march-madness ul.items li').length) {
-        order_summary += "March Madness: \n" + $.map($('.field.order-field-march-madness ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
-      }
 
       if($('.field.order-field-salad ul.items li').length) {
         order_summary += "\nSalads: \n" + $.map($('.field.order-field-salad ul.items li'), function(item) {return '    ' + $(item).text().toUpperCase() + '\n' + $(item).data('order').comment; }).join('\n');
