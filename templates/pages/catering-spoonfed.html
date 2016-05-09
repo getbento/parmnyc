@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load honeypot %}
+
+{% block page_title %}{{account.site_title}} | Catering{% endblock %}
+
+{% block body_class %}page-catering page-two-columns{% endblock %}
+
+{% block content %}
+<a href="https://api.getspoonfed.com/303/wwwparmnyccom/" class="spoonwdgt" target="_blank">Place an Order</a>
+{% endblock %}
+
+{% block footer_scripts %}
+<script type="text/javascript" src="https://api.getspoonfed.com/initwidget/"></script>
+{% endblock %}
