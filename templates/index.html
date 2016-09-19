@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load account_staticfiles %}
+
 {% block page_title %}{{account.site_title}}{% endblock %}
 
 {% block body_class %}page-home{% endblock %}
@@ -12,7 +14,7 @@
 	{% endif %}
 	<div class="majorfood desktop-show">
 		<a href="http://majorfood.com/" target="_blank">
-			<img src="{{ ACCOUNT_STATIC_URL }}img/majorfood.png" width="65" height="73" alt="MAJOR FOOD GROUP" />
+			<img src="{% account_static 'img/majorfood.png' %}" width="65" height="73" alt="MAJOR FOOD GROUP" />
 		</a><br />
 		<!-- <a href="http://www.dylanandjeni.com/" target="_blank">Photography by Dylan + Jeni</a> -->
 	</div>
@@ -26,7 +28,7 @@
 {% endblock %}
 
 {% block footer_scripts %}
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.bxslider.min.js"></script>
+<script type='text/javascript' src="{% account_static 'js/jquery.bxslider.min.js' %}"></script>
 <script type="text/javascript">
 (function(){
 	var cookies;
@@ -91,7 +93,7 @@
 					var today = new Date();
 					var expiration_date = new Date(today.getTime() + (24 * 60 * 60 * 1000));
 					cookie_string = "has_seen_banner=yes; path=/; expires=" + expiration_date.toGMTString();
-					document.cookie = cookie_string;	
+					document.cookie = cookie_string;
 				});
 			}
 		{% endif %}
