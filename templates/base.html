@@ -21,10 +21,10 @@
 
 <!-- <link rel="icon" type="image/png" href="{{ ACCOUNT_STATIC_URL }}favicon.ico"> -->
 
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/fonts.css" />
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.fancybox.css" />
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.sidr.css" />
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/style.css" />
+<link rel="stylesheet" href="{% account_static 'css/fonts.css' %}" />
+<link rel="stylesheet" href="{% account_static 'css/jquery.fancybox.css' %}" />
+<link rel="stylesheet" href="{% account_static 'css/jquery.sidr.css' %}" />
+<link rel="stylesheet" href="{% account_static 'css/style.css' %}" />
 {% block extra_font %}{% endblock %}
 
 <!--[if lt IE 9]>
