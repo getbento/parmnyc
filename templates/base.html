@@ -174,7 +174,7 @@ var cur_page_url = '{{page_url}}';
 
 			</li>
 		{% endfor %}
-		<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/nav-sep.png" width="215" />
+		<img class="separator" src="{% account_static 'img/nav-sep.png' %}" width="215" />
 		</ul>
 		<ul class="secondary-nav">
 			{% for nav in footer_nav_items %}
