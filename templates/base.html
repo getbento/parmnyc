@@ -15,7 +15,7 @@
   <meta name="Distribution" content="Global">
   <meta name="Rating" content="General">
   <meta name="Copyright" content="© {{account.site_title}} 2014">
-  <link rel="icon" href="{{ account.favicon_url }}" /> 	  
+  <link rel="icon" href="{{ account.favicon_url }}" />
 
 <title>{% block page_title %}{{account.site_title}}{% endblock %}</title>
 
@@ -31,9 +31,9 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery-1.11.1.min.js"></script>
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.sidr.min.js"></script>
-<script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.fancybox.pack.js"></script>
+<script type='text/javascript' src="{% account_static 'js/jquery-1.11.1.min.js' %}"></script>
+<script type='text/javascript' src="{% account_static 'js/jquery.sidr.min.js' %}"></script>
+<script type='text/javascript' src="{% account_static 'js/jquery.fancybox.pack.js' %}"></script>
 
 <script type="text/javascript">
 {% if account.ga_code %}
