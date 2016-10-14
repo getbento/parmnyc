@@ -55,12 +55,14 @@ var cur_page_url = '{{page_url}}';
 </head>
 <body class="{% block body_class %}{% endblock %}">
 	<div id="delivery-wrap">
-		<div class="delivery-button mobile-show">
-			<div class="inner">
-				<div class="delivery">delivery</div>
-				<div class="order">ORDER NOW</div>
-			</div>
-		</div>
+    <a data-featherlight="#online-ordering-lightbox">
+  		<div class="delivery-button mobile-show">
+  			<div class="inner">
+  				<div class="delivery">delivery</div>
+  				<div class="order">ORDER NOW</div>
+  			</div>
+  		</div>
+    </a>
 
     <div class="hide">
   		<div id="reservations-lightbox">
@@ -175,7 +177,7 @@ var cur_page_url = '{{page_url}}';
 		<ul class="navigation">
 		{% for nav in main_nav_items %}
 			<li class="nav-{{nav.template_key}} {% if nav.template == current_page %}active{% endif %} {% if forloop.first %}nav-first{% endif %}">
-				<a href="{% if nav.target %}{{ nav.target }}{% elif nav.template %}{{ nav.get_absolute_url }}{% else %}{% url 'static_page' nav.template_key %}{% endif %}">{% if nav.type == "page" %}{{nav.name}}{% else %}{{ nav.text }}{% endif %}</a>
+				<a {% if nav.template_key == 'reservations' %} data-featherlight="#reservations-lightbox" {% endif %} href="{% if nav.target %}{{ nav.target }}{% elif nav.template %}{{ nav.get_absolute_url }}{% else %}{% url 'static_page' nav.template_key %}{% endif %}">{% if nav.type == "page" %}{{nav.name}}{% else %}{{ nav.text }}{% endif %}</a>
 
         {% if nav.template_key == "menus" %}
         <ul class="subnav">
