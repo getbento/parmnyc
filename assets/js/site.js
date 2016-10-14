@@ -23,12 +23,12 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.delivery-button').click(function(e) {
-		e.preventDefault();
-		$(this).addClass('active');
-		$('#delivery-wrap').addClass('active').removeClass('reservation');
-		return false;
-	});
+	// $('.delivery-button').click(function(e) {
+	// 	e.preventDefault();
+	// 	$(this).addClass('active');
+	// 	$('#delivery-wrap').addClass('active').removeClass('reservation');
+	// 	return false;
+	// });
 	$('#delivery-wrap .close').click(function(e) {
 		e.preventDefault();
 		$('.delivery-button').removeClass('active');
@@ -46,16 +46,7 @@ $(document).ready(function() {
 		source: '#mobile-nav-wrap',
 		renaming: false
 	});
-	$('.nav-reservations a').click(function(e) {
-		e.preventDefault();
-		$(window).scrollTop(0);
-		setTimeout(function() {
-			$('.delivery-button').removeClass('active');
-			$('#delivery-wrap').addClass('active reservation');
-		}, 100);
 
-		$.sidr('close', 'sidr-right');
-	});
 	$('#signup-form').submit(function(e) {
 		e.preventDefault();
 		if(!$(this).is(':invalid')) {

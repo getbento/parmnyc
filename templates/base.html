@@ -15,7 +15,7 @@
   <meta name="Distribution" content="Global">
   <meta name="Rating" content="General">
   <meta name="Copyright" content="© {{account.site_title}} 2014">
-  <link rel="icon" href="{{ account.favicon_url }}" /> 	  
+  <link rel="icon" href="{{ account.favicon_url }}" />
 
 <title>{% block page_title %}{{account.site_title}}{% endblock %}</title>
 
@@ -34,6 +34,8 @@
 <script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery-1.11.1.min.js"></script>
 <script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.sidr.min.js"></script>
 <script type='text/javascript' src="{{ ACCOUNT_STATIC_URL }}js/jquery.fancybox.pack.js"></script>
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.5.0/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
 
 <script type="text/javascript">
 {% if account.ga_code %}
@@ -60,38 +62,50 @@ var cur_page_url = '{{page_url}}';
 			</div>
 		</div>
 		<a class="close" href="javascript:void(0)"><img src="{{ ACCOUNT_STATIC_URL }}img/close.png" width="19" height="19" /></a>
-		<div class="width-wrapper">
-			<div class="title">Select Location</div>
-			<div class="locations">
-			{% for loc in locations %}
-				{% if loc.short_name %}
-					<a href="{{loc.short_name}}" class="location-{{loc.name|slugify}}" target="_blank">{{loc.name}}</a>
-					<span class="sep"> · </span>
-				{% endif %}
-			{% endfor %}
-			</div>
-			<div class="locations for-reservation">
-			{% for loc in locations %}
-				{% if loc.short_name %}
-					{% if loc.phone_number %}
-						<a href="{{loc.get_absolute_url}}#reservations" class="location-{{loc.name|slugify}}">{{loc.name}}</a>
-					{% else %}
-						<a href="{{loc.get_absolute_url}}#policies" class="location-{{loc.name|slugify}}">{{loc.name}}</a>
-					{% endif %}
-					<span class="sep"> · </span>
-				{% endif %}
-			{% endfor %}
-			</div>
-		</div>
-	</div>
+    <div class="hide">
+  		<div id="reservations-lightbox">
+  			<div class="title">Select Location</div>
+  			<div class="locations">
+
+  			<div class="locations for-reservation">
+  			{% for loc in locations %}
+
+  					{% if loc.phone_number %}
+  						<a href="{{loc.get_absolute_url}}#reservations" class="location-{{loc.name|slugify}}">{{loc.name}}</a><br>
+  					{% endif %}
+
+  			{% endfor %}
+  			</div>
+
+        For additional availability please contact <a href="mailto:reservations@parmnyc.com">reservations@parmnyc.com</a>
+
+  		</div>
+  	</div>
+      <div id="online-ordering-lightbox">
+        <div class="title">Select Location</div>
+        <div class="locations">
+
+        <div class="locations for-ordering">
+        {% for loc in locations %}
+          {% if loc.short_name %}
+              <a href="{{ loc.short_name }}" target="_blank" class="location{loc.name|slugify}}">{{loc.name}}</a><br>
+          {% endif %}
+        {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
 	<header>
 		<div class="width-wrapper desktop-show">
-			<div class="delivery-button">
-				<div class="inner">
-					<div class="delivery">delivery</div>
-					<div class="order">ORDER NOW</div>
-				</div>
-			</div>
+      <a data-featherlight="#online-ordering-lightbox">
+  			<div class="delivery-button">
+  				<div class="inner">
+  					<div class="delivery">delivery</div>
+  					<div class="order">ORDER NOW</div>
+  				</div>
+  			</div>
+      </a>
 			<div class="social">
 				{% for nav in navs.social.items.all %}
 					{% if nav.target %}
@@ -114,7 +128,7 @@ var cur_page_url = '{{page_url}}';
 				<ul class="navigation">
 				{% for nav in main_nav_items %}
 					<li class="nav-{{nav.template_key}} {% if nav.template == current_page %}active{% endif %} {% if forloop.first %}nav-first{% endif %}">
-						<a href="{% if nav.target %}{{ nav.target }}{% elif nav.template %}{{ nav.get_absolute_url }}{% else %}{% url 'static_page' nav.template_key %}{% endif %}" {% if nav.type != "page" %}target="_blank"{% endif %}>{% if nav.type == "page" %}{{nav.name}}{% else %}{{ nav.text }}{% endif %}</a>
+						<a {% if nav.template_key == 'reservations' %} data-featherlight="#reservations-lightbox" {% endif %} href="{% if nav.target %}{{ nav.target }}{% elif nav.template %}{{ nav.get_absolute_url }}{% else %}{% url 'static_page' nav.template_key %}{% endif %}" {% if nav.type != "page" %}target="_blank"{% endif %}>{% if nav.type == "page" %}{{nav.name}}{% else %}{{ nav.text }}{% endif %}</a>
 
             {% if nav.template_key == "menus" %}
             <ul class="subnav">
