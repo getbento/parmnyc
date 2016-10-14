@@ -21,10 +21,10 @@
 
 <!-- <link rel="icon" type="image/png" href="{{ ACCOUNT_STATIC_URL }}favicon.ico"> -->
 
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/fonts.css" />
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.fancybox.css" />
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/jquery.sidr.css" />
-<link rel="stylesheet" href="{{ ACCOUNT_STATIC_URL }}css/style.css" />
+<link rel="stylesheet" href="{% account_static 'css/fonts.css' %}" />
+<link rel="stylesheet" href="{% account_static 'css/jquery.fancybox.css' %}" />
+<link rel="stylesheet" href="{% account_static 'css/jquery.sidr.css' %}" />
+<link rel="stylesheet" href="{% account_static 'css/style.css' %}" />
 {% block extra_font %}{% endblock %}
 
 <!--[if lt IE 9]>
@@ -61,6 +61,7 @@ var cur_page_url = '{{page_url}}';
 				<div class="order">ORDER NOW</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 		<a class="close" href="javascript:void(0)"><img src="{{ ACCOUNT_STATIC_URL }}img/close.png" width="19" height="19" /></a>
     <div class="hide">
   		<div id="reservations-lightbox">
@@ -96,6 +97,7 @@ var cur_page_url = '{{page_url}}';
       </div>
     </div>
   </div>
+
 	<header>
 		<div class="width-wrapper desktop-show">
       <a data-featherlight="#online-ordering-lightbox">
@@ -142,15 +144,15 @@ var cur_page_url = '{{page_url}}';
 					</li>
 
 					{% if forloop.counter == 4 %}
-						<li class="logo-wrap"><a href="/" class="logo" title="{{account.site_title}}"><img src="{{ ACCOUNT_STATIC_URL }}img/logo.png" width="277" height="170" ></a></li>
+						<li class="logo-wrap"><a href="/" class="logo" title="{{account.site_title}}"><img src="{% account_static 'img/logo.png' %}" width="277" height="170" ></a></li>
 					{% endif %}
 				{% endfor %}
 				</ul>
 			</nav>
 		</div>
 		<div class="mobile-show">
-			<a href="/" class="logo"><img src="{{ ACCOUNT_STATIC_URL }}img/mobile-logo.png" width="92" height="43" /></a>
-			<a href="javascript:void(0)" id="nav-button"><img src="{{ ACCOUNT_STATIC_URL }}img/nav-button.png" width="31" height="24" /></a>
+			<a href="/" class="logo"><img src="{% account_static 'img/mobile-logo.png' %}" width="92" height="43" /></a>
+			<a href="javascript:void(0)" id="nav-button"><img src="{% account_static 'img/nav-button.png' %}" width="31" height="24" /></a>
 			<div class="clear"></div>
 		</div>
 		{% block extra_header %}{% endblock %}
@@ -188,7 +190,7 @@ var cur_page_url = '{{page_url}}';
 
 			</li>
 		{% endfor %}
-		<img class="separator" src="{{ ACCOUNT_STATIC_URL }}img/nav-sep.png" width="215" />
+		<img class="separator" src="{% account_static 'img/nav-sep.png' %}" width="215" />
 		</ul>
 		<ul class="secondary-nav">
 			{% for nav in footer_nav_items %}
@@ -209,7 +211,7 @@ var cur_page_url = '{{page_url}}';
 {% block footer %}
 {% endblock %}
 
-<script src="{{ ACCOUNT_STATIC_URL }}js/site.js"></script>
+<script src="{% account_static 'js/site.js' %}"></script>
 
 {% block footer_scripts %}{% endblock %}
 <script type="text/javascript">
