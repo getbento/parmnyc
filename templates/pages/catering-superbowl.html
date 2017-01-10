@@ -51,6 +51,25 @@
             <input type="text" name="Order Name" id="company_name" class="form-text" />
           </div>
 
+          <div class="field">
+            <h4 style="text-align: left;">Super Bowl 2017</h4>
+            <p>FOR PICKUP ONLY</p>
+          </div>
+          <div class="field order-field order-field-package">
+            <ul class="items">
+            </ul>
+            <select id="package" class="dropkick">
+              <option disabled selected="selected">Choose</option>
+              <option data-price="125" data-descr="" data-title-override="Kick Off Package" data-extra-descr="Small Sandwich Platter: House Turkey, Roast Beef, Chicken Caprese, Italian Combo" data-pickup-only="true">Kick Off - $125 (Serves up to 6)</option>
+              <option data-price="230" data-descr="" data-title-override="Field Goal Package" data-extra-descr="Small Sandwich Platter: House Turkey, Roast Beef, Chicken Caprese, Italian Combo. 30 Buffalo Wings. Choice of Caesar or Sunday Salad" data-pickup-only="true">Field Goal - $230 (Serves up to 12)</option>
+              <option data-price="535" data-descr="" data-title-override="Touch Down Package" data-extra-descr="Large Sandwich Platter: House Turkey, Roast Beef, Chicken Caprese, Italian Combo. 60 Buffalo Wings. Caesar and Sunday Salad. Meat and Cheese Platter" data-pickup-only="true">Touch Down - $535 (Serves up to 25)</option>
+            </select>
+
+          </div>
+
+          <div class="field">
+            <h4 style="text-align: left;">Regular Parm Catering</h4>
+          </div>
           <div class="field order-field order-field-sandwich">
             <label>sandwiches</label>
             <ul class="items">
@@ -60,17 +79,6 @@
               <option disabled selected="selected">Choose</option>
               <option data-price="125" data-descr=" - serves up to 12" data-title-override="Sandwich Platter (Small)">CLICK TO BUILD SMALL PLATTER  - $125 (SERVES UP TO 12)</option>
               <option data-price="180" data-descr=" - serves up to 18" data-title-override="Sandwich Platter (Large)">CLICK TO BUILD LARGE PLATTER - $180 (SERVES UP TO 18)</option>
-            </select>
-          </div>
-          <div class="field order-field order-field-package">
-            <label>superbowl packages</label>
-            <ul class="items">
-            </ul>
-            <select id="package" class="dropkick">
-              <option disabled selected="selected">Choose</option>
-              <option data-price="125" data-descr="" data-title-override="Kick Off Package" data-extra-descr="Small Sandwich Platter: House Turkey, Roast Beef, Chicken Caprese, Italian Combo">Kick Off - $125 - Serves up to 6</option>
-              <option data-price="230" data-descr="" data-title-override="Field Goal Package" data-extra-descr="Small Sandwich Platter: House Turkey, Roast Beef, Chicken Caprese, Italian Combo. 30 Buffalo Wings. Choice of Caesar or Sunday Salad">Field Goal - $230 - Serves up to 12 </option>
-              <option data-price="535" data-descr="" data-title-override="Touch Down Package" data-extra-descr="Large Sandwich Platter: House Turkey, Roast Beef, Chicken Caprese, Italian Combo. 60 Buffalo Wings. Caesar and Sunday Salad. Meat and Cheese Platter">Touch Down - $535 - Serves up to 25</option>
             </select>
           </div>
           <div class="field order-field order-field-salad">
@@ -226,6 +234,7 @@
                 <!-- <option value="nolita">Nolita (248 Mulberry St. between Prince &amp; Spring)</option> -->
                 <option value="battery-park-city">Battery Park City (250 Vesey St. between North End &amp; West)</option>
                 <option value="upper-west-side">Upper West Side (235 Columbus Ave. between 70th &amp; 71st)</option>
+                <option value="williamsburg">Williamsburg (162 N. 4th Street between Driggs & Bedford)</option>
               </select>
             </div>
           </div>
@@ -342,7 +351,7 @@
 
       </div>
 
-      <div id="wings-choice" class='field package-special check-field'>
+      <!-- <div id="wings-choice" class='field package-special check-field'>
         <label>Choice of Wings</label>
 
         <input
@@ -368,7 +377,7 @@
         <label class='check-label' for='honey-mustard-package-1234'>
           <span class='box'></span>Honey Mustard<span class='check-description'></span>
         </label>
-      </div>
+      </div> -->
       <div id="salad-choice" class='field package-special check-field'>
         <label>Choice of Salad</label>
         <input
@@ -397,8 +406,8 @@
 
       <div class="field package-special check-field">
         <label>Add-ons</label>
-        <input type="checkbox" id="vegetable-dip-platter" class="checkbox additional-check" data-text="Vegetable Dip Platter" data-long-text="Vegetable Dip Platter" data-price="55"/>
-        <label for="vegetable-dip-platter" class="check-label"><span class="box"></span>Add Vegetable Dip Platter - $55</label>
+        <input type="checkbox" id="vegetable-dip-platter" class="checkbox additional-check" data-text="Vegetable Dip Platter" data-long-text="Vegetable Dip Platter" data-price="80"/>
+        <label for="vegetable-dip-platter" class="check-label"><span class="box"></span>Add Vegetable Dip Platter - $80</label>
 
         <input type="checkbox" id="fudge-brownies" class="checkbox additional-check" data-text="Fudge Brownies (12 pieces)" data-long-text="Fudge Brownies (12 pieces)" data-price="55"/>
         <label for="fudge-brownies" class="check-label"><span class="box"></span>Add Fudge Brownies (12 pieces) - $25</label>
@@ -748,6 +757,12 @@ jQuery(document).ready(function($) {
 
         new_order_item.append(title_div);
         new_order_item.append(content_div);
+        if (this_order_li.data('item').attr('data-pickup-only') == "true") {
+          $('#method option[value="delivery"').remove();
+          $('#method').dropkick('refresh');
+        }
+
+
       });
 
       $('.quantifiable').each(function() {
