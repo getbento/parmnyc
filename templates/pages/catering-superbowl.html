@@ -758,7 +758,7 @@ jQuery(document).ready(function($) {
         new_order_item.append(title_div);
         new_order_item.append(content_div);
         if (this_order_li.data('item').attr('data-pickup-only') == "true") {
-          $('#method option[value="delivery"').remove();
+          $('#method option[value="delivery"]').remove();
           $('#method').dropkick('refresh');
         }
 
