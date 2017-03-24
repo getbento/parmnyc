@@ -452,10 +452,11 @@ body {font-family: 'neutra', sans-serif; font-size: 17px; line-height: 1.5; colo
 
 .delivery-button {position: absolute; left: 40px; top: -38px; width: 139px; height: 139px; z-index:100; border: 2px solid #f03e35; border-radius: 50%; overflow: hidden; background: #f2f0ee; text-align: center; cursor: pointer;}
 .delivery-button .inner {margin: 3px; width: 133px; height: 133px; background: #f03e35; border-radius: 50%; overflow: hidden; color: #f4f2f0; font-weight: bold; line-height: 1;}
-.delivery-button .inner .delivery {font-family: 'handsome', cursive; font-size: 38px; margin-top: 40px;}
+.delivery-button .inner .delivery {font-family: 'handsome', cursive; font-size: 38px; margin-top: 40px; display: block; color: inherit;}
 .delivery-button .inner .order {font-size: 12px; text-transform: uppercase; margin-top: -1px;}
 header .delivery-button.active, .delivery-button:hover {border-color: #f4f2f0; background-color: #f03e35; }
 header .delivery-button.active .inner, .delivery-button:hover .inner {background-color: #f4f2f0; color: #f03e35; }
+.delivery-button a:hover {text-decoration: none;}
 
 header {background: url(../img/header-bg.png); box-shadow: 0 1px 2px rgba(0,0,0,0.2); position: relative; z-index: 200; height: 250px; }
 header .width-wrapper {padding-top: 25px; padding-bottom: 30px;}
@@ -759,6 +760,18 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 
 .page-catering #see-photo {position: absolute; right: 150px; bottom: 50px; top: auto; left: auto;}
 #see-photo .inner .delivery {margin-top: 22px; margin-left: 10px; }
+
+.page-catering #callout-button {position: absolute; right: 150px; bottom: 200px; top: auto; left: auto;}
+.page-catering #callout-button .inner .delivery {
+  margin-left: 5px; margin-top: 42px;
+}
+#see-photo .inner .delivery {margin-top: 22px; }
+
+.page-catering.catering-spoonfed #banner {
+  padding-top: 150px;
+  padding-bottom: 350px;
+}
+.spoonwidget.wdgtstyles .deltype h2 { font-family: "handsome",cursive; }
 
 
 body.page-ice-cream-cakes #main-content .width-wrapper { max-width:1100px; }
@@ -1073,4 +1086,8 @@ body.page-ice-cream-cakes .field { margin-bottom: 32px; }
 }
 .hide {
   display: none;
+}
+
+.width-wrapper.narrow {
+  max-width: 860px !important;
 }

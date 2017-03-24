@@ -3,12 +3,78 @@
 
 {% block page_title %}{{account.site_title}} | Catering{% endblock %}
 
-{% block body_class %}page-catering page-two-columns{% endblock %}
+{% block body_class %}page-catering page-two-columns catering-spoonfed{% endblock %}
 
 {% block content %}
-<a href="https://api.getspoonfed.com/303/wwwparmnyccom/" class="spoonwdgt" target="_blank">Place an Order</a>
+<div id="banner" class="full-background" style="background-image:url('{{callouts.5.image_url}}')">
+  <div class="width-wrapper narrow">
+
+    <a href="https://api.getspoonfed.com/303/wwwparmnyccom/" class="spoonwdgt" target="_blank">Place an Order</a>
+    <script type="text/javascript" src="https://api.getspoonfed.com/initwidget"></script>
+    
+  </div>
+
+{% if callouts.5.button_text and callouts.5.button_file_path %}
+  <div class="delivery-button" id="callout-button">
+    <a href="{{callouts.5.button_file_url}}" target="_blank">
+      <div class="inner">
+        <div class="delivery">{{callouts.5.button_text}}</div>
+      </div>
+    </a>
+  </div>
+{% endif %}
+{% for gallery in galleries %}{% if gallery.name == "Catering Gallery" and gallery.images.all|length > 0 %}
+  <div class="delivery-button" id="see-photo">
+    <div class="inner">
+      <div class="delivery">see photos</div>
+    </div>
+  </div>
+{% endif %}{% endfor %}
+
+</div>
+
+<div id="content">
+  <div class="width-wrapper">
+    <div id="order-form">
+      <h1>{{callouts.5.title}}</h1>
+
+      <div class="wysiwyg intro padder">
+        <h3>{{callouts.5.subtitle}}</h3>
+        {{callouts.5.text|safe}}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
+
 {% block footer_scripts %}
-<script type="text/javascript" src="https://api.getspoonfed.com/initwidget/"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  $("#see-photo").unbind('click').click(function() {
+    $.fancybox.open([
+      {% for gallery in galleries %}{% if gallery.name == "Catering Gallery" %}
+        {% for image in gallery.images.all %}
+          {
+            href : '{{ image.image_url }}'
+          }
+          {% if not forloop.last %},{% endif %}
+        {% endfor %}
+      {% endif %}{% endfor %}
+    ], {
+      helpers : {
+        thumbs : {
+          width: 75,
+          height: 50
+        }
+      },
+      beforeShow : function() {
+          this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+      }
+    });
+  });
+  $('#callout-button').unbind('click');
+});
+</script>
 {% endblock %}
