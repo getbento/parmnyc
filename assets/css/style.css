@@ -515,7 +515,7 @@ body.float-header header .main-nav-wrap ul li .logo img {display: none; }
 #main-content {background: url(../img/background.jpg) no-repeat center top #f3f1ef; background-size: 100% auto; position: relative; clear: both;}
 #main-content .width-wrapper {max-width: 868px; }
 .page-two-columns #main-content .width-wrapper {max-width: 1100px; }
-#content {padding-top: 83px; padding-bottom: 100px; text-align: center;}
+#content {padding-top: 40px; padding-bottom: 60px; text-align: center;}
 #main-content .two-column-wrapper {text-align: left; }
 #main-content .callout + .two-column-wrapper {padding-top: 40px;}
 
@@ -768,8 +768,8 @@ section#reservations :-ms-input-placeholder { /* Internet Explorer 10+ */
 #see-photo .inner .delivery {margin-top: 22px; }
 
 .page-catering.catering-spoonfed #banner {
-  padding-top: 150px;
-  padding-bottom: 350px;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 .spoonwidget.wdgtstyles .deltype h2 { font-family: "handsome",cursive; }
 
