@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.section_title|default_if_none:"About" }}{% endblock %}
+
+{% block content %}
+<div id="content">
+  <div class="width-wrapper">
+    <div class="callout">
+      <h1>{{ page.section-title }}</h1>
+      <div class="wysiwyg">{{ page.text|safe }}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
