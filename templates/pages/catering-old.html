@@ -26,9 +26,13 @@
 <div id="content">
 	<div class="width-wrapper">
 		<form action="{% url 'form_to_email' %}" method="post" id="order-form">
+      {% if callouts.5.title %}
 			<h1>{{callouts.5.title}}</h1>
+      {% endif %}
 			<div class="padder">
+        {% if callouts.5.subtitle %}
 				<h3>{{callouts.5.subtitle}}</h3>
+        {% endif %}
 				<div class="wysiwyg intro">{{callouts.5.text|safe}}</div>
 
 				{% csrf_token %}
@@ -95,7 +99,7 @@ jQuery(document).ready(function($) {
 		showAnim: 'fadeIn',
 		showSpeed: 'fast',
 //		minDate: +3,
-		onChangeMonthYear: function(year, month) { 
+		onChangeMonthYear: function(year, month) {
 			$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 		},
 		onShow: function() {
