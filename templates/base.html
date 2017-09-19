@@ -148,7 +148,7 @@ var cur_page_url = '{{page_url}}';
 					</li>
 
 					{% if forloop.counter == 4 %}
-						<li class="logo-wrap"><a href="/" class="logo" title="{{account.site_title}}"><img src="{% account_static 'img/logo.png' %}" width="277" height="170" ></a></li>
+						<li class="logo-wrap"><a href="/" class="logo" title="{{account.site_title}}"><img src="{% account_static 'img/logo.png' %}" alt="Main Logo" width="277" height="170" ></a></li>
 					{% endif %}
 				{% endfor %}
 				</ul>
@@ -156,7 +156,7 @@ var cur_page_url = '{{page_url}}';
 		</div>
 		<div class="mobile-show">
 			<a href="/" class="logo"><img src="{% account_static 'img/mobile-logo.png' %}" width="92" height="43" /></a>
-			<a href="javascript:void(0)" id="nav-button"><img src="{% account_static 'img/nav-button.png' %}" width="31" height="24" /></a>
+			<a href="javascript:void(0)" id="nav-button"><img src="{% account_static 'img/nav-button.png' %}" alt="Mobile Nav Button" width="31" height="24" /></a>
 			<div class="clear"></div>
 		</div>
 		{% block extra_header %}{% endblock %}
@@ -194,7 +194,7 @@ var cur_page_url = '{{page_url}}';
 
 			</li>
 		{% endfor %}
-		<img class="separator" src="{% account_static 'img/nav-sep.png' %}" width="215" />
+		<img class="separator" src="{% account_static 'img/nav-sep.png' %}" width="215" alt="Separator"/>
 		</ul>
 		<ul class="secondary-nav">
 			{% for nav in footer_nav_items %}
