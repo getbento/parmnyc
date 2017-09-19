@@ -27,8 +27,8 @@
 				{% for menu in category.menus.all %}
 				<div class="menu-item one-of-four {% cycle 'clear col1' 'col2' 'col3' 'col4 last' %}">
 					<a {% if menu.file_path %}href="{{menu.file_url}}"{% endif %} target="_blank">
-						{% if menu.cover_image_path %}<img src="{{menu.cover_image_url}}" alt="{{menu.name}} Image" class="normal-image" />{% endif %}
-						{% if menu.menu_image_path %}<img src="{{menu.menu_image_url}}" alt="{{menu.name}} Image Rollover" class="hover-image" />{% endif %}
+						{% if menu.cover_image_path %}<img src="{{menu.cover_image_url}}" alt="{{menu.name}}" class="normal-image" />{% endif %}
+						{% if menu.menu_image_path %}<img src="{{menu.menu_image_url}}" alt="{{menu.name}} Rollover" class="hover-image" />{% endif %}
 						<span class="menu-title">{{menu.name}}</span>
 					</a>
 				</div>
