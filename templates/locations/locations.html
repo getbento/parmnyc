@@ -15,7 +15,7 @@
 				<div class="bar horizontal top left"></div>
 				<div class="bar horizontal top right"></div>
 				<a href="{{ location.get_absolute_url }}" class="loc-title"><span class="caption" data-hover="{{location.name}}">{{location.name}}</span></a>
-				<img src="{{ ACCOUNT_STATIC_URL }}img/{{location.name|slugify}}.png" width="68" height="65" class="location-icon" />
+				<img src="{{ ACCOUNT_STATIC_URL }}img/{{location.name|slugify}}.png" width="68" height="65" class="location-icon" alt="locations-icon"/>
 			</div>
 		{% endfor %}
 	</div>

@@ -66,6 +66,7 @@
 			<h1>RESERVATIONS</h1>
 			<form method="get" id="OT_form" action="http://www.opentable.com/restaurant-search.aspx" target="_blank">
 				<div class="one-of-four col1">
+					<label for="PartySize" class="hide">Party Size</label>
 					<select name="PartySize" id="PartySize" class="dropkick">
 					  <option disabled="disabled">Party Size</option>
 					  <option value="1">1 person</option>
@@ -79,9 +80,11 @@
 					</select>
 				</div>
 				<div class="one-of-four col2">
-					<input type="text" name="startDate" class="OT_searchDateField date-picker form-text" placeholder="Date" />
+					<label for="pick-a-date" class="hide">Select Date</label>
+					<input type="text" name="startDate" id="pick-a-date" class="OT_searchDateField date-picker form-text" placeholder="Date" />
 				</div>
 				<div class="one-of-four col3">
+					<label for="ResTime" class="hide">Select Time</label>
 					<select name="ResTime" id="ResTime" class="dropkick">
 					  <option disabled="disabled">Time</option>
 					  <option value="11:00 PM">11:00 PM</option>
@@ -162,7 +165,7 @@
 			showAnim: 'fadeIn',
 			showSpeed: 'fast',
 //			minDate: +3,
-			onChangeMonthYear: function(year, month) { 
+			onChangeMonthYear: function(year, month) {
 				$('.ui-datepicker-calendar .ui-state-hover').removeClass('ui-state-hover');
 			},
 			onShow: function() {
