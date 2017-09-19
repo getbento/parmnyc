@@ -25,7 +25,7 @@
 					<input type="hidden" name="recipient" id="recipient" value="info" />
 					<input type="hidden" name="form" id="form" value="" />
 					<div class="field first-name">
-						<label for="txt_name">YOUR NAME*</label>
+						<label for="name">YOUR NAME*</label>
 						<input type="text" name="Name" id="name" required="required" class="form-text" />
 					</div>
 					<div class="field email">
@@ -33,7 +33,7 @@
 						<input type="email" name="Email" id="email" required="required" class="form-text" />
 					</div>
 					<div class="field what-about">
-						<label>WHAT ARE YOU GETTING IN TOUCH ABOUT?</label>
+						<label for="what_about">WHAT ARE YOU GETTING IN TOUCH ABOUT?</label>
 						<select name="What are you getting in touch about" id="what_about" class="dropkick">
 							<option disabled="disabled" selected="selected">Select One</option>
 							<option data-recipient="maya">General</option>
@@ -46,7 +46,7 @@
 					</div>
 					<div class="field message">
 						<label for="message">YOUR MESSAGE</label>
-						<textarea name="Message" class="form-text"></textarea>
+						<textarea name="Message" id="message" class="form-text"></textarea>
 					</div>
 					<div class="field submit">
 						<input type="submit" id="submit_button" value="SUBMIT" class="button" />
