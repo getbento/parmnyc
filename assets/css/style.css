@@ -690,7 +690,7 @@ a {
   text-decoration: none;
 }
 a:focus {
-  outline: none;
+  outline: default;
 }
 a:hover {
   text-decoration: underline;
