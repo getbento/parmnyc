@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.section_title|default_if_none:"About" }}{% endblock %}
+
+{% block content %}
+<div id="content">
+  <div class="width-wrapper">
+    <div class="callout">
+      <h1>Anti-Discrimination Policy</h1>
+      <div class="wysiwyg">
+        <p>Major Food Group welcomes anyone who wants to work or dine at one of our restaurants and does not discriminate on the basis of an individual’s race, creed, color, religion, national origin, ethnicity, sex, sexual orientation, gender identity or expression, age, actual or perceived disability, veteran status, citizenship status, genetic information, military obligations, marital status and/or any other protected characteristic. The Company expressly prohibits any form of unlawful employee harassment based on any protected characteristic. Reasonable accommodations will be provided for religious practice, disability, pregnancy, childbirth, and related medical conditions, and for victims of domestic violence, sex offenses, and stalking.</p>
+        <p>The Company’s anti-discrimination policy applies to all terms and conditions of employment, including hiring, placement, training, compensation, internal promotions, discipline, performance evaluations, opportunities for advancement, terminations, layoff, recall, transfers, and leaves of absence. This policy also applies to outside vendors, organization members and customers, service clients, contractors and consultants, and dealings with the general public.</p>
+
+        <p>Please contact us if you require an accommodation or auxiliary aide and we will do our best to reasonably accommodate you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
