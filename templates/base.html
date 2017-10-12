@@ -77,7 +77,11 @@ var cur_page_url = '{{page_url}}';
 
   					{% if loc.phone_number %}
   						<a href="{{loc.get_absolute_url}}#reservations" class="location-{{loc.name|slugify}}">{{loc.name}}</a><br>
-  					{% endif %}
+            {% elif loc.name == "BROOKLYN" %}
+              <a href="https://reserve.com/r/parm-barclays-center" target="_blank" class="location-{{loc.name|slugify}}">{{loc.name}}</a><br>
+            {% endif %}
+
+
 
   			{% endfor %}
   			</div>
