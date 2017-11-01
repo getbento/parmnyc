@@ -22,6 +22,7 @@
 <div id="content">
 	<section id="menus">
 		<div class="width-wrapper">
+			<div id="menus-wrapper">
 			<h1>MENUS</h1>
 			{% for category in menu_categories_list %}{% if category.name == object.name %}
 				{% for menu in category.menus.all %}
@@ -35,6 +36,7 @@
 				{% endfor %}
 			{% endif %}{% endfor %}
 			<div class="clear"></div>
+			</div>
 		</div>
 	</section><!--menus-->
 

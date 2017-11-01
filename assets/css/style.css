@@ -2750,3 +2750,11 @@ body.page-ice-cream-cakes .field {
 .width-wrapper.narrow {
   max-width: 860px !important;
 }
+
+#menus-wrapper {
+  text-align: center;
+}
+
+#menus-wrapper .menu-item {
+  display: inline-block;
+}
