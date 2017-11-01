@@ -22,9 +22,10 @@
 <div id="content">
 	<section id="menus">
 		<div class="width-wrapper">
-			<div id="menus-wrapper">
+
 			<h1>MENUS</h1>
 			{% for category in menu_categories_list %}{% if category.name == object.name %}
+			<div class="menus-wrapper {% if category.menus.all|length == 3 %}three{% endif %}">
 				{% for menu in category.menus.all %}
 				<div class="menu-item one-of-four {% cycle 'clear col1' 'col2' 'col3' 'col4 last' %}">
 					<a {% if menu.file_path %}href="{{menu.file_url}}"{% endif %} target="_blank">
@@ -32,11 +33,14 @@
 						{% if menu.menu_image_path %}<img src="{{menu.menu_image_url}}" alt="{{menu.name}} Rollover" class="hover-image" />{% endif %}
 						<span class="menu-title">{{menu.name}}</span>
 					</a>
-				</div>
+					</div>
 				{% endfor %}
-			{% endif %}{% endfor %}
+				</div>
+			{% endif %}
+
+			{% endfor %}
 			<div class="clear"></div>
-			</div>
+
 		</div>
 	</section><!--menus-->
 

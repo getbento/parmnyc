@@ -2299,6 +2299,18 @@ body.page-ice-cream-cakes .field {
     display: block;
   }
 }
+
+@media all and (min-width: 1021px) {
+  .menus-wrapper.three .menu-item {
+    float: none;
+    display: inline-block;
+  }
+
+  .menus-wrapper.three {
+    text-align: center;
+  }
+}
+
 @media all and (max-width: 1020px) {
   .width-wrapper {
     max-width: 785px !important;
@@ -2306,6 +2318,7 @@ body.page-ice-cream-cakes .field {
   .one-of-four {
     width: 47%;
     margin-right: 6%;
+    float: left;
   }
   .one-of-four.col2 {
     margin-right: 0;
@@ -2749,12 +2762,4 @@ body.page-ice-cream-cakes .field {
 
 .width-wrapper.narrow {
   max-width: 860px !important;
-}
-
-#menus-wrapper {
-  text-align: center;
-}
-
-#menus-wrapper .menu-item {
-  display: inline-block;
 }
