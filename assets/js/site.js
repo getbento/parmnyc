@@ -38,7 +38,10 @@ $(document).ready(function() {
 	$('a.nav-email-signup').fancybox({
 		padding: 0,
 		autoWidth: true,
-		content: $('#signup-wrap')
+		content: $('#signup-wrap'),
+		beforeLoad: function() {
+			$.sidr('close', 'sidr-right');
+		}
 	});
 	$('#nav-button').sidr({
 		name: 'sidr-right',
