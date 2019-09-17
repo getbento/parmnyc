@@ -2,7 +2,7 @@
 
 {% block page_title %}{{account.site_title}} | {{object.name}}{% endblock %}
 
-{% block body_class %}page-single-location page-two-columns{% endblock %}
+{% block body_class %}page-single-location page-two-columns location-{{ object.slug }}{% endblock %}
 
 {% block extra_header %}
 <ul id="location-nav">
