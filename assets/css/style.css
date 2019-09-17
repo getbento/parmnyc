@@ -2763,3 +2763,10 @@ body.page-ice-cream-cakes .field {
 .width-wrapper.narrow {
   max-width: 860px !important;
 }
+
+
+.location-battery-park-city section#reservations .one-of-four {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
