@@ -2770,3 +2770,6 @@ body.page-ice-cream-cakes .field {
   float: none;
   vertical-align: top;
 }
+.location-battery-park-city section#reservations .one-of-four.col3 {
+  display: none;
+}
