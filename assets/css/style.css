@@ -2765,11 +2765,13 @@ body.page-ice-cream-cakes .field {
 }
 
 
-.location-battery-park-city section#reservations .one-of-four {
+.location-battery-park-city section#reservations .one-of-four,
+.location-upper-west-side section#reservations .one-of-four {
   display: inline-block;
   float: none;
   vertical-align: top;
 }
-.location-battery-park-city section#reservations .one-of-four.col3 {
+.location-battery-park-city section#reservations .one-of-four.col3,
+.location-upper-west-side section#reservations .one-of-four.col3 {
   display: none;
 }

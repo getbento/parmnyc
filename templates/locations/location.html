@@ -233,14 +233,7 @@
 	$('.location-battery-park-city #OT_form').submit(function(e) {
 		e.preventDefault();
 
-	    var date = $('input[name="startDate"]', this).val() || new Date(); // we always want a date, so if no value, use today as default.
-
-	    // Very important: We want to use a Date object to help us format our YYYY-MM-DD string...but there's a problem. If we
-	    // use new Date() without a value, it uses our timezone...which is fine. But, if we do new Date(MM/DD/YYYY) with a string
-	    // as the parameter, it think we are putting in a UTC date that we want converted to our local timezone – which can result
-	    // in the days being offset by +/- 1 in the final string. We don't want that so...
-	    // - If we are using our datepicker.val(), we need to create the Date(date), but convert the segments to their UTC equivalents.
-	    // - If no value is set and we use Date(), we can use it as is and don't need to convert to UTC equivalents.
+	    var date = $('input[name="startDate"]', this).val() || new Date();
 	    var year = null;
 	    var month = null;
 	    var day = null;
@@ -269,6 +262,47 @@
 	      var config = resyWidget.config({
 	        "venueId": 7457,
 	        "apiKey": "Tqwu35B8bhlQYv0mwP9NFcX4j88rL4xU",
+	        "date": date_str,
+	        "seats": $('[name="PartySize"]', this).val()
+	      });
+	      resyWidget.openModal();
+	    }
+
+		return false;
+	});
+	
+	$('.location-upper-west-side #OT_form').submit(function(e) {
+		e.preventDefault();
+
+	    var date = $('input[name="startDate"]', this).val() || new Date();
+	    var year = null;
+	    var month = null;
+	    var day = null;
+	    if (typeof date == 'string') {
+	        date = new Date(date);
+	        year = date.getUTCFullYear();
+	        month = date.getUTCMonth() + 1;
+	        day = date.getUTCDate();
+	    } else {
+	        year = date.getFullYear();
+	        month = date.getMonth();
+	        day = date.getDate();
+	    }
+
+	    // format the date YYYY-MM-DD.
+	    var date_str =
+	        year +
+	        '-' +
+	        ('0' + month).slice(-2) +
+	        '-' +
+	        ('0' + day).slice(-2);
+
+
+	    if (typeof resyWidget != "undefined"){
+	        // Configure the widget
+	      var config = resyWidget.config({
+	        "venueId": 8656,
+	        "apiKey": "dN09ZWo4JtiWyQOF5lWI4561fe3Shq3h",
 	        "date": date_str,
 	        "seats": $('[name="PartySize"]', this).val()
 	      });
